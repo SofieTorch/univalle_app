@@ -7,8 +7,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:univalle_app/counter/counter.dart';
 import 'package:univalle_app/l10n/l10n.dart';
+import 'package:univalle_app/theme/theme.dart';
 
 class CounterPage extends StatelessWidget {
   const CounterPage({Key? key}) : super(key: key);
@@ -31,18 +33,30 @@ class CounterView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: Text(l10n.counterAppBarTitle)),
       body: Center(
-        child: Column(
-          children: [
-            const CounterText(),
-            TextButton(
-              onPressed: () {},
-              child: const Text('PRESTAMOS PENDIENTES'),
-            ),
-            ElevatedButton(
-              onPressed: () {},
-              child: const Text('INICIAR SESION'),
-            )
-          ],
+        child: Padding(
+          padding: const EdgeInsets.all(16),
+          child: Column(
+            children: [
+              const CounterText(),
+              TextButton(
+                onPressed: () {},
+                child: const Text('PRESTAMOS PENDIENTES'),
+              ),
+              const TextField(
+                decoration: InputDecoration(
+                  hintText: 'Titulo, autor...',
+                  suffixIcon: Icon(MdiIcons.magnify),
+                ),
+              ),
+              SizedBox(
+                width: double.infinity,
+                child: ElevatedButton(
+                  onPressed: () {},
+                  child: const Text('INICIAR SESION'),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
       floatingActionButton: Column(
