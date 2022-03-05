@@ -18,6 +18,7 @@ class AppTheme {
   static ThemeData get light {
     return ThemeData(
       textTheme: lightTextTheme,
+      iconTheme: const IconThemeData(size: 32),
       primarySwatch: AppColors.shiraz,
       backgroundColor: AppColors.white,
       scaffoldBackgroundColor: AppColors.white,
@@ -32,7 +33,35 @@ class AppTheme {
         unselectedItemColor: AppColors.shiraz[400],
         elevation: 0,
       ),
-      iconTheme: const IconThemeData(size: 32),
+      elevatedButtonTheme: ElevatedButtonThemeData(
+        style: ButtonStyle(
+          backgroundColor: MaterialStateProperty.all(AppColors.shiraz),
+          foregroundColor: MaterialStateProperty.all(AppColors.white),
+          elevation: MaterialStateProperty.all(0.5),
+          shape: MaterialStateProperty.all(
+            const RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(Radius.circular(16)),
+            ),
+          ),
+        ),
+      ),
+      textButtonTheme: TextButtonThemeData(
+        style: ButtonStyle(
+          backgroundColor: MaterialStateProperty.resolveWith(
+            (states) {
+              if (states.contains(MaterialState.pressed)) {
+                return AppColors.shiraz[100];
+              }
+              return AppColors.white;
+            },
+          ),
+          shape: MaterialStateProperty.all(
+            const RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(Radius.circular(16)),
+            ),
+          ),
+        ),
+      ),
     );
   }
 }
