@@ -24,6 +24,7 @@ class AppTheme {
       appBarTheme: const AppBarTheme(
         color: AppColors.white,
         foregroundColor: AppColors.matterhorn,
+        elevation: 0.5,
       ),
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
         backgroundColor: AppColors.shiraz,
