@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:univalle_app/theme/app_text_style.dart';
 import 'package:univalle_app/theme/theme.dart';
 
 class AppTheme {
@@ -29,10 +28,11 @@ class AppTheme {
         elevation: 0.5,
       ),
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
-        backgroundColor: AppColors.shiraz,
+        backgroundColor: AppColors.shiraz.shade500,
         selectedItemColor: AppColors.white,
-        unselectedItemColor: AppColors.shiraz[400],
-        elevation: 0,
+        unselectedItemColor: AppColors.shiraz.shade400,
+        elevation: 0.5,
+        type: BottomNavigationBarType.fixed,
       ),
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ButtonStyle(

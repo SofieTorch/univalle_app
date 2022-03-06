@@ -10,7 +10,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:univalle_app/counter/counter.dart';
 import 'package:univalle_app/l10n/l10n.dart';
-import 'package:univalle_app/theme/theme.dart';
 
 class CounterPage extends StatelessWidget {
   const CounterPage({Key? key}) : super(key: key);
