@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:univalle_app/theme/app_text_style.dart';
 import 'package:univalle_app/theme/theme.dart';
 
 class AppTheme {
@@ -79,6 +80,9 @@ class AppTheme {
           horizontal: 14,
         ),
         suffixIconColor: AppColors.gray,
+        hintStyle: AppTextStyle.subtitle1.copyWith(
+          color: AppColors.gray.shade300,
+        ),
       ),
     );
   }
