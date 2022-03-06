@@ -55,6 +55,7 @@ class CounterView extends StatelessWidget {
                   child: const Text('INICIAR SESION'),
                 ),
               ),
+              const Chip(label: Text('Complementario')),
             ],
           ),
         ),

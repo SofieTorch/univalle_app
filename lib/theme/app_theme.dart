@@ -84,6 +84,11 @@ class AppTheme {
           color: AppColors.gray.shade300,
         ),
       ),
+      chipTheme: ChipThemeData(
+        backgroundColor: AppColors.gray.shade200,
+        labelStyle: AppTextStyle.overline.copyWith(color: AppColors.gray),
+        padding: const EdgeInsets.all(4),
+      ),
     );
   }
 }
