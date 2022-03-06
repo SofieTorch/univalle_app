@@ -43,6 +43,7 @@ class AppTheme {
               borderRadius: BorderRadius.all(Radius.circular(16)),
             ),
           ),
+          padding: MaterialStateProperty.all(const EdgeInsets.all(12)),
         ),
       ),
       textButtonTheme: TextButtonThemeData(
