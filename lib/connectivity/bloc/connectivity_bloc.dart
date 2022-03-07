@@ -15,9 +15,8 @@ enum ConnectivityState {
 class ConnectivityBloc extends Bloc<ConnectivityEvent, ConnectivityState> {
   ConnectivityBloc(this._connectivity) : super(ConnectivityState.initial) {
     _checkConnectivity();
-    _connectivitySubscription = _connectivity
-      .onConnectivityChanged
-      .listen(_onConnectivityChanged);
+    _connectivitySubscription =
+        _connectivity.onConnectivityChanged.listen(_onConnectivityChanged);
 
     on<ConnectivityLost>(_onConnectivityLost);
     on<ConnectivityRetrieved>(_onConnectivityRetrieved);
