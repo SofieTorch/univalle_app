@@ -20,8 +20,9 @@ class ConnectivityListener extends StatelessWidget {
             context: context,
             builder: (context) {
               dialogContext = context;
-              return const AlertDialog(
-                content: Text('Sin conexion!'),
+              return WillPopScope(
+                onWillPop: () async => false,
+                child: const ConnectivityLostDialog(),
               );
             },
           );
@@ -30,7 +31,7 @@ class ConnectivityListener extends StatelessWidget {
           if (dialogContext != null) {
             ScaffoldMessenger.of(context).showSnackBar(
               const SnackBar(
-                content: Text('Conexion recuperada :D'),
+                content: Text('¡Conexión recuperada!'),
                 duration: Duration(seconds: 2),
               ),
             );

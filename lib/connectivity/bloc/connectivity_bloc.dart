@@ -14,6 +14,7 @@ enum ConnectivityState {
 
 class ConnectivityBloc extends Bloc<ConnectivityEvent, ConnectivityState> {
   ConnectivityBloc(this._connectivity) : super(ConnectivityState.initial) {
+    _checkConnectivity();
     _connectivitySubscription = _connectivity
       .onConnectivityChanged
       .listen(_onConnectivityChanged);
@@ -45,6 +46,11 @@ class ConnectivityBloc extends Bloc<ConnectivityEvent, ConnectivityState> {
     } else {
       add(const ConnectivityRetrieved());
     }
+  }
+
+  Future<void> _checkConnectivity() async {
+    final connectivityResult = await _connectivity.checkConnectivity();
+    _onConnectivityChanged(connectivityResult);
   }
 
   @override
