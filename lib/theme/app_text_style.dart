@@ -62,12 +62,14 @@ abstract class AppTextStyle {
     );
   }
 
+  /// Base style for all body text and variants.
   static final _bodyTextStyle = GoogleFonts.nunitoSans(
     color: AppColors.matterhorn,
     fontSize: 16,
     fontWeight: AppFontWeight.regular,
   );
 
+  /// Base style for all heading text and variants.
   static final _headerTextStyle = GoogleFonts.raleway(
     color: AppColors.matterhorn,
     fontSize: 20,

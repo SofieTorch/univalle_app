@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+/// Official color palette for the app.
 abstract class AppColors {
   static const Color white = Color(0xFFFDFDFD);
   static const Color matterhorn = Color(0xFF49383E);

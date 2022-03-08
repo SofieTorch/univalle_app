@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:univalle_app/theme/theme.dart';
 
+/// Official theme for the app, containing text theme
+/// and individual components theme
 class AppTheme {
+  /// Text theme for light mode, currently the only mode.
+  /// Dark text on light surface
   static TextTheme get lightTextTheme {
     return TextTheme(
       headline1: AppTextStyle.headline1,
@@ -15,18 +19,33 @@ class AppTheme {
     );
   }
 
+  /// Theme on light mode, currently the only mode.
+  /// Defines primary colors and individual components theme.
   static ThemeData get light {
     return ThemeData(
       textTheme: lightTextTheme,
+
+      /// Sets the default size of icons to 32
       iconTheme: const IconThemeData(size: 32),
+
+      /// Sets the primary color to shiraz, in
+      /// order to match the design
       primarySwatch: AppColors.shiraz,
       backgroundColor: AppColors.white,
       scaffoldBackgroundColor: AppColors.white,
+
+      /// Sets the default app bar background color to white, with dark
+      /// text and 0.5 of elevation in order to match the design
       appBarTheme: const AppBarTheme(
         color: AppColors.white,
         foregroundColor: AppColors.matterhorn,
         elevation: 0.5,
       ),
+
+      /// Sets the default background color, selected and
+      /// unselected item color to match the design, making use of
+      /// the primary color shiraz. Also, sets the type
+      /// to fixed in order to avoid color changes.
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
         backgroundColor: AppColors.shiraz.shade500,
         selectedItemColor: AppColors.white,
@@ -34,6 +53,9 @@ class AppTheme {
         elevation: 0.5,
         type: BottomNavigationBarType.fixed,
       ),
+
+      /// Sets the default shape, colors, elevation and padding
+      /// to match the design, making use of the primary color shiraz
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ButtonStyle(
           backgroundColor: MaterialStateProperty.all(AppColors.shiraz),
@@ -47,6 +69,10 @@ class AppTheme {
           padding: MaterialStateProperty.all(const EdgeInsets.all(12)),
         ),
       ),
+
+      /// Sets the default shape and colors to match the design,
+      /// using the primary color shiraz for text and its variation
+      /// shiraz 100 when it is pressed
       textButtonTheme: TextButtonThemeData(
         style: ButtonStyle(
           backgroundColor: MaterialStateProperty.resolveWith(
@@ -64,6 +90,10 @@ class AppTheme {
           ),
         ),
       ),
+
+      /// Sets the default style of text fields to match
+      /// the design. Mainly removes borders and applies a
+      /// circular border radius to corners.
       inputDecorationTheme: InputDecorationTheme(
         filled: true,
         fillColor: AppColors.gray[100],
@@ -84,6 +114,9 @@ class AppTheme {
           color: AppColors.gray.shade300,
         ),
       ),
+
+      /// Sets the default colors of chips to match the design,
+      /// making use of color gray and gray 200.
       chipTheme: ChipThemeData(
         backgroundColor: AppColors.gray.shade200,
         labelStyle: AppTextStyle.overline.copyWith(color: AppColors.gray),
