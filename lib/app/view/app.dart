@@ -20,7 +20,10 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => ConnectivityBloc(Connectivity()),
+      create: (context) => ConnectivityBloc(Connectivity())
+        ..add(
+          const ConnectivityRequested(),
+        ),
       child: MaterialApp(
         theme: AppTheme.light,
         localizationsDelegates: const [

@@ -2,28 +2,37 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
-import 'package:equatable/equatable.dart';
 
 part 'connectivity_event.dart';
 
 enum ConnectivityState {
   initial,
+  loading,
   connected,
   disconnected,
 }
 
 class ConnectivityBloc extends Bloc<ConnectivityEvent, ConnectivityState> {
   ConnectivityBloc(this._connectivity) : super(ConnectivityState.initial) {
-    _checkConnectivity();
-    _connectivitySubscription =
-        _connectivity.onConnectivityChanged.listen(_onConnectivityChanged);
-
+    on<ConnectivityRequested>(_onConnectivityRequested);
     on<ConnectivityLost>(_onConnectivityLost);
     on<ConnectivityRetrieved>(_onConnectivityRetrieved);
   }
 
   final Connectivity _connectivity;
-  late StreamSubscription<ConnectivityResult> _connectivitySubscription;
+  StreamSubscription<ConnectivityResult>? _connectivitySubscription;
+
+  Future<void> _onConnectivityRequested(
+    ConnectivityRequested event,
+    Emitter<ConnectivityState> emit,
+  ) async {
+    emit(ConnectivityState.loading);
+    final result = await _connectivity.checkConnectivity();
+    _mapToState(result);
+
+    _connectivitySubscription =
+        _connectivity.onConnectivityChanged.listen(_mapToState);
+  }
 
   void _onConnectivityLost(
     ConnectivityLost event,
@@ -39,7 +48,7 @@ class ConnectivityBloc extends Bloc<ConnectivityEvent, ConnectivityState> {
     emit(ConnectivityState.connected);
   }
 
-  void _onConnectivityChanged(ConnectivityResult connectivityResult) {
+  void _mapToState(ConnectivityResult connectivityResult) {
     if (connectivityResult == ConnectivityResult.none) {
       add(const ConnectivityLost());
     } else {
@@ -47,14 +56,9 @@ class ConnectivityBloc extends Bloc<ConnectivityEvent, ConnectivityState> {
     }
   }
 
-  Future<void> _checkConnectivity() async {
-    final connectivityResult = await _connectivity.checkConnectivity();
-    _onConnectivityChanged(connectivityResult);
-  }
-
   @override
   Future<void> close() {
-    _connectivitySubscription.cancel();
+    _connectivitySubscription?.cancel();
     return super.close();
   }
 }
