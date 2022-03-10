@@ -18,7 +18,7 @@ void main() {
       );
     });
 
-    test('Initial state is ConnectivityState.initial', () {
+    test('Initial state is [ConnectivityState.initial].', () {
       when(mockConnectivity.checkConnectivity)
           .thenAnswer((_) async => ConnectivityResult.none);
       expect(
@@ -46,53 +46,65 @@ void main() {
     );
 
     blocTest<ConnectivityBloc, ConnectivityState>(
-      '''
-        emits [loading, connected] when ConnectivityRequested is added
-        and checkConnectivity result is wifi.
-      ''',
+      'emits [connected] when [ConnectivityRetrieved] is added.',
+      build: () => ConnectivityBloc(mockConnectivity),
+      act: (bloc) => bloc.add(const ConnectivityRetrieved()),
+      expect: () => const <ConnectivityState>[ConnectivityState.connected],
+    );
+
+    blocTest<ConnectivityBloc, ConnectivityState>(
+      'emits [disconnected] when [ConnectivityLost] is added.',
+      build: () => ConnectivityBloc(mockConnectivity),
+      act: (bloc) => bloc.add(const ConnectivityRetrieved()),
+      expect: () => const <ConnectivityState>[ConnectivityState.connected],
+    );
+
+    blocTest<ConnectivityBloc, ConnectivityState>(
+      'maps ConnectivityResult.none to [disconnected].',
       build: () => ConnectivityBloc(mockConnectivity),
       act: (bloc) {
         when(mockConnectivity.checkConnectivity)
             .thenAnswer((_) async => ConnectivityResult.wifi);
+        when(() => mockConnectivity.onConnectivityChanged).thenAnswer(
+          (_) => Stream<ConnectivityResult>.fromIterable([
+            ConnectivityResult.none,
+          ]),
+        );
 
         bloc.add(const ConnectivityRequested());
       },
       expect: () => const <ConnectivityState>[
         ConnectivityState.loading,
         ConnectivityState.connected,
+        ConnectivityState.disconnected,
       ],
     );
 
     blocTest<ConnectivityBloc, ConnectivityState>(
       '''
-        emits [loading, connected] when ConnectivityRequested is added
-        and checkConnectivity result is mobile.
+        maps any ConnectivityResult other than
+        ConnectivityResult.none to [connected].
       ''',
       build: () => ConnectivityBloc(mockConnectivity),
       act: (bloc) {
         when(mockConnectivity.checkConnectivity)
-            .thenAnswer((_) async => ConnectivityResult.mobile);
+            .thenAnswer((_) async => ConnectivityResult.none);
+        when(() => mockConnectivity.onConnectivityChanged).thenAnswer(
+          (_) => Stream<ConnectivityResult>.fromIterable([
+            ConnectivityResult.wifi,
+            ConnectivityResult.mobile,
+            ConnectivityResult.bluetooth,
+            ConnectivityResult.ethernet,
+          ]),
+        );
 
         bloc.add(const ConnectivityRequested());
       },
       expect: () => const <ConnectivityState>[
         ConnectivityState.loading,
+        ConnectivityState.disconnected,
         ConnectivityState.connected,
       ],
-    );
-
-    blocTest<ConnectivityBloc, ConnectivityState>(
-      'emits [connected] when [ConnectivityRetrieved] is added',
-      build: () => ConnectivityBloc(mockConnectivity),
-      act: (bloc) => bloc.add(const ConnectivityRetrieved()),
-      expect: () => const <ConnectivityState>[ConnectivityState.connected],
-    );
-
-    blocTest<ConnectivityBloc, ConnectivityState>(
-      'emits [disconnected] when [ConnectivityLost] is added',
-      build: () => ConnectivityBloc(mockConnectivity),
-      act: (bloc) => bloc.add(const ConnectivityRetrieved()),
-      expect: () => const <ConnectivityState>[ConnectivityState.connected],
     );
   });
 }
