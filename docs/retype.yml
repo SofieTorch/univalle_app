@@ -1,0 +1,23 @@
+input: .
+output: build
+url: # Add your website address here
+favicon: assets/logo.svg
+branding:
+  title: Univalle móvil
+  label: Docs
+  logo: assets/logo.svg
+links:
+- text: GitHub repo
+  link: https://github.com/SofieTorch/univalle_app
+  icon: mark-github
+- text: Zeplin project
+  link: https://zpl.io/llJkyA0
+  icon: key-asterisk
+- text: Figma design
+  link: https://www.figma.com/file/20fFH33azvw02wga7Z4DQv/Univalle-Mobile-App?node-id=0%3A1
+  icon: north-star
+footer:
+  copyright: "&copy; Copyright {{ year }}. All rights reserved."
+snippets:
+  lineNumbers:
+    - *
