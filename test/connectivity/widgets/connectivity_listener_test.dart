@@ -98,6 +98,39 @@ void main() {
       expect(find.text(snackBarConnectionAvailableText), findsOneWidget);
     },
   );
+
+  testWidgets(
+    '''
+      system's back button is disabled when 
+      connectivity lost dialog is displayed.
+    ''',
+    (tester) async {
+      whenListen(
+        connectivityBloc,
+        Stream<ConnectivityState>.fromIterable([
+          ConnectivityState.loading,
+          ConnectivityState.disconnected,
+        ]),
+      );
+
+      await tester.pumpApp(
+        widget: const ConnectivityListener(child: CounterPage()),
+        bloc: connectivityBloc,
+      );
+
+      await tester.pump();
+
+      // Use didPopRoute() to simulate the system back button. Chack that
+      // didPopRoute() indicates that the notification was handled.
+      final dynamic widgetsAppState = tester.state(find.byType(WidgetsApp));
+      // ignore: avoid_dynamic_calls
+      expect(await widgetsAppState.didPopRoute(), isTrue);
+      await tester.pump();
+
+      expect(find.byType(ConnectivityLostDialog), findsOneWidget);
+      expect(find.text(snackBarConnectionAvailableText), findsNothing);
+    },
+  );
 }
 
 extension PumpApp on WidgetTester {

@@ -12,7 +12,6 @@ class ConnectivityListener extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocListener<ConnectivityBloc, ConnectivityState>(
       listener: (context, state) {
-        print(Navigator.canPop(context));
         if (state == ConnectivityState.disconnected) {
           showDialog<void>(
             barrierDismissible: false,
