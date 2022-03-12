@@ -69,6 +69,35 @@ void main() {
       expect(find.text(snackBarConnectionAvailableText), findsNothing);
     },
   );
+
+  testWidgets(
+    '''
+      connectivity listener closes the connectivity lost dialog
+      and shows an informative snackbar
+      when connection is retrieved after connection was lost.
+    ''',
+    (tester) async {
+      whenListen(
+        connectivityBloc,
+        Stream<ConnectivityState>.fromIterable([
+          ConnectivityState.loading,
+          ConnectivityState.disconnected,
+          ConnectivityState.connected,
+        ]),
+      );
+
+      await tester.pumpApp(
+        widget: const ConnectivityListener(child: CounterPage()),
+        bloc: connectivityBloc,
+      );
+
+      await tester.pump();
+      await tester.pump(const Duration(seconds: 3));
+
+      expect(find.byType(ConnectivityLostDialog), findsNothing);
+      expect(find.text(snackBarConnectionAvailableText), findsOneWidget);
+    },
+  );
 }
 
 extension PumpApp on WidgetTester {

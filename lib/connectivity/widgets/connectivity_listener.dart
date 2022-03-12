@@ -10,28 +10,24 @@ class ConnectivityListener extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    BuildContext? dialogContext;
-
     return BlocListener<ConnectivityBloc, ConnectivityState>(
       listener: (context, state) {
+        print(Navigator.canPop(context));
         if (state == ConnectivityState.disconnected) {
           showDialog<void>(
             barrierDismissible: false,
             context: context,
             builder: (context) {
-              dialogContext = context;
               return WillPopScope(
                 onWillPop: () async => false,
-                child: const ConnectivityLostDialog(
-                  key: Key('connectivityLostDialog'),
-                ),
+                child: const ConnectivityLostDialog(),
               );
             },
           );
         }
         if (state == ConnectivityState.connected) {
-          if (dialogContext != null) {
-            Navigator.pop(dialogContext!);
+          if (Navigator.of(context).canPop()) {
+            Navigator.of(context).pop();
             ScaffoldMessenger.of(context).showSnackBar(
               const SnackBar(
                 content: Text('¡Conexión recuperada!'),
