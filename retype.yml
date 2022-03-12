@@ -1,4 +1,4 @@
-input: .
+input: ./docs/
 output: build
 url: # Add your website address here
 favicon: assets/logo.svg
