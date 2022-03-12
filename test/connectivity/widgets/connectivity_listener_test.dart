@@ -120,7 +120,7 @@ void main() {
 
       await tester.pump();
 
-      // Use didPopRoute() to simulate the system back button. Chack that
+      // Use didPopRoute() to simulate the system back button. Check that
       // didPopRoute() indicates that the notification was handled.
       final dynamic widgetsAppState = tester.state(find.byType(WidgetsApp));
       // ignore: avoid_dynamic_calls
