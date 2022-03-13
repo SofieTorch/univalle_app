@@ -1,6 +1,6 @@
 input: ./docs/
 output: build
-url: # Add your website address here
+url: https://sofietorch.github.io/univalle_app/
 favicon: assets/logo.svg
 branding:
   title: Univalle móvil
