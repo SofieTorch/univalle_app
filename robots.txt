@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: /sitemap.xml.gz
+Sitemap: https://sofietorch.github.io/univalle_app/sitemap.xml.gz
