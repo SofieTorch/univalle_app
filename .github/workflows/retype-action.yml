@@ -31,6 +31,9 @@ jobs:
       - name: 🔛 Activate dartdoc
         run: flutter pub global activate dartdoc
 
+      - name: 🗑️ Removing outdated API Docs
+        run: rm -r docs/static/api
+
       - name: 📝 Generating API Docs
         run: flutter pub global run dartdoc . 
       
