@@ -10,6 +10,7 @@ links:
 - text: GitHub repo
   link: https://github.com/SofieTorch/univalle_app
   icon: mark-github
+  target: blank
 - text: API Reference
   link: static/api/
   icon: code-square
