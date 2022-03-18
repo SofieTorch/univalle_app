@@ -12,10 +12,35 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - name: 📚 Git Checkout
+        uses: actions/checkout@v2
 
-      - uses: retypeapp/action-build@v1
+      - name: 🐦 Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: 2.10.0
+          channel: "stable"
+          cache: true
 
-      - uses: retypeapp/action-github-pages@v1
+      - name: 📦 Install Dependencies
+        run: |
+          flutter pub global activate very_good_cli
+          very_good --analytics false
+          very_good packages get --recursive
+
+      - name: 🔛 Activate dartdoc
+        run: flutter pub global activate dartdoc
+
+      - name: 📝 Generating API Docs
+        run: flutter pub global run dartdoc . 
+      
+      - name: ➡️ Moving API Docs to Official Docs
+        run: mv doc/api docs/static
+
+      - name: 📝 Generating Docs
+        uses: retypeapp/action-build@v1
+
+      - name: ☁️ Publishing to GitHub Pages
+        uses: retypeapp/action-github-pages@v1
         with:
           update-branch: true
