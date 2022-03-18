@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+/// The dialog displayed when internet connection is lost.
+/// Locks the app while it is visible, so the app can only
+/// be used when there is an available internet connection.
 class ConnectivityLostDialog extends StatelessWidget {
   const ConnectivityLostDialog({Key? key}) : super(key: key);
 

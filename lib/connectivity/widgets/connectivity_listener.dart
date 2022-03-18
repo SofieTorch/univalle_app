@@ -3,6 +3,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:univalle_app/connectivity/connectivity.dart';
 
+/// Listens for changes on ConnectvityBloc.
+/// If connectivity is lost, displays a dialog informing of the situation,
+/// if connectivity is retrieved after losing it, hides the dialog
+/// and shows an informative snackbar.
 class ConnectivityListener extends StatelessWidget {
   const ConnectivityListener({required this.child, Key? key}) : super(key: key);
 

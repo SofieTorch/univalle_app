@@ -5,6 +5,7 @@ import 'package:connectivity_plus/connectivity_plus.dart';
 
 part 'connectivity_event.dart';
 
+/// Reflects internet connection check status.
 enum ConnectivityState {
   initial,
   loading,
