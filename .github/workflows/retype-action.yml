@@ -37,7 +37,7 @@ jobs:
       - name: 🛠️ Fixing API Docs url's
         uses: SofieTorch/find-and-lowercase-action@v1.1.3
         with:
-          regex: '<a href="([^"]+\.html)">'
+          regex: '<a href="([^"]+(\.html|#.+))">'
           path: 'doc/api'
       
       - name: ➡️ Moving API Docs to Official Docs
