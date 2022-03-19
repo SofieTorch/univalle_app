@@ -33,6 +33,12 @@ jobs:
 
       - name: 📝 Generating API Docs
         run: flutter pub global run dartdoc . 
+
+      - name: 🛠️ Fixing API Docs url's
+        uses: SofieTorch/find-and-lowercase-action@v1.1.3
+        with:
+          regex: '<a href="([^"]+\.html)">'
+          path: 'doc/api'
       
       - name: ➡️ Moving API Docs to Official Docs
         run: mv doc/api docs/static
