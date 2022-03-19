@@ -12,7 +12,7 @@ links:
   icon: mark-github
   target: blank
 - text: API Reference
-  link: static/api/
+  link: https://sofietorch.github.io/dartdoc_action_test/static/api/
   icon: code-square
   target: blank
 footer:
