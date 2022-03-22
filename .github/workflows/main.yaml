@@ -1,6 +1,8 @@
-name: univalle_app
+name: Very Good Flutter Analyze
 
 on: [pull_request, push]
+  paths:
+    - "lib"
 
 jobs:
   build:
