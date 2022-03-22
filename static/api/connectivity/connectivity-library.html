@@ -65,7 +65,8 @@ listen and display bloc changes.</p>
 
 </dt>
 <dd>
-   
+  Manages the internet connection status, using the <code>Connectivity</code> library.
+Recieves <a href="../connectivity/connectivityevent-class.html">ConnectivityEvent</a> and emits <a href="../connectivity/connectivitystate.html">ConnectivityState</a>. 
 </dd>
 
         <dt id="ConnectivityEvent">
@@ -81,7 +82,7 @@ listen and display bloc changes.</p>
 
 </dt>
 <dd>
-  Listens for changes on ConnectvityBloc.
+  Listens for changes on <code>ConnectvityBloc</code>.
 If connectivity is lost, displays a dialog informing of the situation,
 if connectivity is retrieved after losing it, hides the dialog
 and shows an informative snackbar. 
@@ -141,7 +142,8 @@ has been retrieved, so it is available.
 
 </dt>
 <dd>
-  Reflects internet connection check status. 
+  Reflects internet connection check status.
+Emitted by <a href="../connectivity/connectivitybloc-class.html">ConnectivityBloc</a>. 
 </dd>
 
       </dl>
