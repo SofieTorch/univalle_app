@@ -2,8 +2,8 @@ name: Very Good Flutter Analyze
 
 on: 
   pull_request:
-  paths:
-    - "lib"
+    paths:
+      - "lib"
   push:
     branches:
       - master
