@@ -23,7 +23,6 @@ class ConnectivityLostDialog extends StatelessWidget {
               child: SvgPicture.asset(
                 'assets/illustrations/lost_connection.svg',
                 semanticsLabel: 'Sin conexión',
-                // width: 200,
               ),
             ),
           ),
