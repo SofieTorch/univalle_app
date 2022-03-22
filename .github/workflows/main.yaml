@@ -1,8 +1,14 @@
 name: Very Good Flutter Analyze
 
-on: [pull_request, push]:
+on: 
+  pull_request:
   paths:
     - "lib"
+  push:
+    branches:
+      - master
+    paths:
+      - "lib"
 
 jobs:
   build:
