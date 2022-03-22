@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:univalle_app/connectivity/connectivity.dart';
 
-/// Listens for changes on [ConnectvityBloc].
+/// Listens for changes on [ConnectivityBloc].
 /// If connectivity is lost, displays a dialog informing of the situation,
 /// if connectivity is retrieved after losing it, hides the dialog
 /// and shows an informative snackbar.
