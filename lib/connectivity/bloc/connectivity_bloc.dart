@@ -10,10 +10,13 @@ part 'connectivity_event.dart';
 enum ConnectivityState {
   /// Initial state, only emitted when [ConnectivityBloc] is initialized.
   initial,
+
   /// Emitted when the internet connection check is loading.
   loading,
+
   /// Reflects an  available internet connection.
   connected,
+
   /// Reflects an  unavailable internet connection.
   disconnected,
 }
