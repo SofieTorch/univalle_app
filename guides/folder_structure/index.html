@@ -16,21 +16,23 @@
     <meta property="og:url" content="https://sofietorch.github.io/univalle_app/guides/folder_structure/">
     <meta property="og:title" content="Folder structure">
     <meta property="og:description" content="¿Cómo reflejamos la arquitectura en la estructura de carpetas del proyecto? Hablaremos sobre eso en esta sección :)¿Cómo reflejamos la arquitectura en la estructura de carpetas del proyecto? Hablaremos sobre eso en esta sección :)">
+    <meta property="og:image" content="https://sofietorch.github.io/univalle_app/univalle_app/assets/folder_structure_graph.svg">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://sofietorch.github.io/univalle_app/guides/folder_structure/">
     <meta property="twitter:title" content="Folder structure">
     <meta property="twitter:description" content="¿Cómo reflejamos la arquitectura en la estructura de carpetas del proyecto? Hablaremos sobre eso en esta sección :)¿Cómo reflejamos la arquitectura en la estructura de carpetas del proyecto? Hablaremos sobre eso en esta sección :)">
+    <meta property="twitter:image" content="https://sofietorch.github.io/univalle_app/univalle_app/assets/folder_structure_graph.svg">
     
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("/univalle_app/doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="/univalle_app/assets/logo.svg" rel="icon" />
-    <link href="/univalle_app/resources/css/retype.css?v=1.11.2.701294354154" rel="stylesheet" data-turbo-track="reload" />
+    <link href="/univalle_app/resources/css/retype.css?v=1.11.2.701300997509" rel="stylesheet" data-turbo-track="reload" />
 
-    <script type="text/javascript" src="/univalle_app/resources/js/config.js?v=1.11.2.701294354154" defer data-turbo-track="reload"></script>
+    <script type="text/javascript" src="/univalle_app/resources/js/config.js?v=1.11.2.701300997509" defer data-turbo-track="reload"></script>
     <script type="text/javascript" src="/univalle_app/resources/js/retype.js?v=1.11.2" defer data-turbo-track="reload"></script>
-    <script id="lunr-js" type="text/javascript" src="/univalle_app/resources/js/lunr.js?v=1.11.2.701294354154" defer></script>
+    <script id="lunr-js" type="text/javascript" src="/univalle_app/resources/js/lunr.js?v=1.11.2.701300997509" defer></script>
 </head>
     <body>
         <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -234,7 +236,11 @@
         <span>Folder <code v-pre>.github</code></span>
     </h3>
 </doc-anchor-target>
-<p>En esta carpeta se encuentran los workflows usados por GitHub Actions, por ahora sólo se tiene uno: <code v-pre>very_good_workflows</code>, el cual nos ayudará a analizar el código cada vez que se hace un push o un pull request al repositorio de GitHub, tomando en cuenta principalmente el estilo de código, que todos los tests pasen y que se cumpla con un 75% de coverage.</p>
+<p>En esta carpeta se encuentran los workflows usados por GitHub Actions, por ahora sólo se tienen dos: <code v-pre>main.yaml</code> y <code v-pre>retype-action.yml</code>:</p>
+<ul>
+<li><strong><code v-pre>main.yaml</code>:</strong> utilizando very_good_workflows, nos ayudará a analizar el código cada vez que se hace un push o un pull request al repositorio de GitHub, tomando en cuenta principalmente el estilo de código, que todos los tests pasen y que se cumpla con un 75% de coverage.</li>
+<li><strong><code v-pre>retype-action.yml</code>:</strong> generará la documentación del proyecto y la publicará en GitHub pages, utilizando la librería Retype y el paquete Dardoc; también contiene algunos pasos adicionales para corregir la estructura de la documentación.</li>
+</ul>
 <p>Además, también se encuentra el template para los pull requests, el cual nos ayudará a describir mejor nuestros cambios y especificar qué tipo de cambios hemos realizado.</p>
 <doc-anchor-target id="files-libmain_flavordart">
     <h3>
@@ -252,7 +258,7 @@
 </doc-anchor-target>
 <p>No es necesario prestar mucha atención a este archivo, pero vale la pena saber por qué está ahí:</p>
 <ul>
-<li>Al utilizar el patrón de arquitectura BLoC, podemos saber el estado de la aplicación en todo momento, lo cual es muy conveniente al momento de debuggear o verificar que todo funciona como esperamos que funcione. Sin embargo, no puedes sólo saber el estado de la aplicación y ya, se necesita hacer un poco de configuración :)</li>
+<li>Al utilizar el patrón de arquitectura BLoC, podemos saber el estado de la aplicación en todo momento, lo cual es muy conveniente al momento de debuggear o verificar que todo funciona como esperamos que funcione. Sin embargo, no se puede sólo saber el estado de la aplicación sin más, se necesita hacer un poco de configuración, de la cual se encarga este archivo :)</li>
 <li>Dentro de <code v-pre>bootstrap.dart</code> rodeamos toda nuestra app en un <a href="https://bloclibrary.dev/#/coreconcepts?id=blocobserver-1" target="_blank">Bloc Observer</a>, el cual nos permitirá saber el estado de nuestra app imprimiéndolo en la consola según el tipo de cambio en el estado, ya sea cuando el estado simplemente cambia o cuando ocurre algún error.</li>
 </ul>
 <doc-anchor-target id="folder-libl10n">
@@ -275,6 +281,46 @@ Por ahora sólo se la desarrollará en español, por lo que esta carpeta está e
         <doc-anchor-trigger class="header-anchor-trigger" to="#architecture-reflected-in-folder-structure">#</doc-anchor-trigger>
         <span>Architecture reflected in folder structure</span>
     </h2>
+</doc-anchor-target>
+<p><figure class="content-center">
+    <img src="../../assets/folder_structure_graph.svg" alt="" />
+    <figcaption class="caption"></figcaption>
+</figure>
+</p>
+<doc-anchor-target id="features">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#features">#</doc-anchor-trigger>
+        <span>Features</span>
+    </h3>
+</doc-anchor-target>
+<p>Las funcionalidades de la app, una carpeta por funcionalidad. Por lo general, cada feature tendrá sus widgets, páginas y BLoC, pero puede haber casos en los que no tenga páginas, o no tenga widgets. Sin embargo, casi siempre (por no decir siempre) cada feature tendrá un BLoC.</p>
+<ul>
+<li><p><strong>Pages:</strong> Contendrá los archivos para cada página, sin importar si es sólo una o son más. Una página en realidad es un concepto más orientado al diseño, como una pantalla, y al ser intuitivo se lo manejará en el proyecto en el proyecto. Sin embargo, para estructurar de forma adecuada una página y no tenga conflictos con los widgets ni el bloc, cada página se dividirá en dos widgets: <code v-pre>page</code> y <code v-pre>view</code>.</p>
+<ul>
+<li><em>Page:</em> Un widget cuya función será sólo inicializar los repositories y bloc&#x27;s necesarios, ya sea usando un BlocProvider o un RepositoryProvider. Tendrá como child al <code v-pre>view</code> de la página.</li>
+<li><em>View:</em> La funcionalidad de este widget será dibujar la pantalla como tal, usando los componentes/widgets necesarios. Está oriendtado a sólo la vista, sin preocuparse de los repositories o bloc&#x27;s.</li>
+</ul>
+</li>
+<li><p><strong>Widgets:</strong></p>
+</li>
+<li><p><strong>Bloc:</strong></p>
+</li>
+</ul>
+<doc-anchor-target id="data">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#data">#</doc-anchor-trigger>
+        <span>Data</span>
+    </h3>
+</doc-anchor-target>
+<ul>
+<li><strong>Repositories:</strong></li>
+<li><strong>Providers:</strong></li>
+</ul>
+<doc-anchor-target id="models">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#models">#</doc-anchor-trigger>
+        <span>Models</span>
+    </h3>
 </doc-anchor-target>
 
 
