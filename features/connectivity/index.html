@@ -7,23 +7,21 @@
     <meta name="turbo-cache-control" content="no-cache">
 
     <!-- Primary Meta Tags -->
-    <title>Adding new features</title>
-    <meta name="title" content="Adding new features">
-    <meta name="description" content="Para agregar un nuevo feature, se seguirá el siguiente flujo:Para agregar un nuevo feature, se seguirá el siguiente flujo:" />
+    <title>Connectivity</title>
+    <meta name="title" content="Connectivity">
+    <meta name="description" content="Verifica el estado de la conexión a internet.Verifica el estado de la conexión a internet." />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://sofietorch.github.io/univalle_app/guides/new_features/">
-    <meta property="og:title" content="Adding new features">
-    <meta property="og:description" content="Para agregar un nuevo feature, se seguirá el siguiente flujo:Para agregar un nuevo feature, se seguirá el siguiente flujo:">
-    <meta property="og:image" content="https://sofietorch.github.io/univalle_app/univalle_app/assets/images/card-feature-on-bakclog.png">
+    <meta property="og:url" content="https://sofietorch.github.io/univalle_app/features/connectivity/">
+    <meta property="og:title" content="Connectivity">
+    <meta property="og:description" content="Verifica el estado de la conexión a internet.Verifica el estado de la conexión a internet.">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://sofietorch.github.io/univalle_app/guides/new_features/">
-    <meta property="twitter:title" content="Adding new features">
-    <meta property="twitter:description" content="Para agregar un nuevo feature, se seguirá el siguiente flujo:Para agregar un nuevo feature, se seguirá el siguiente flujo:">
-    <meta property="twitter:image" content="https://sofietorch.github.io/univalle_app/univalle_app/assets/images/card-feature-on-bakclog.png">
+    <meta property="twitter:url" content="https://sofietorch.github.io/univalle_app/features/connectivity/">
+    <meta property="twitter:title" content="Connectivity">
+    <meta property="twitter:description" content="Verifica el estado de la conexión a internet.Verifica el estado de la conexión a internet.">
     
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("/univalle_app/doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
@@ -204,72 +202,43 @@
                 <div id="docs-sidebar-right-toggle"></div>
                
                 <!-- Page content  -->
-<doc-anchor-target id="adding-new-features" class="break-words">
+<doc-anchor-target id="connectivity" class="break-words">
     <h1>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#adding-new-features">#</doc-anchor-trigger>
-        <span>Adding new features</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#connectivity">#</doc-anchor-trigger>
+        <span>Connectivity</span>
     </h1>
 </doc-anchor-target>
-<doc-anchor-target id="defining-feature">
+<doc-anchor-target id="main-pupose">
     <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#defining-feature">#</doc-anchor-trigger>
-        <span>Defining feature</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#main-pupose">#</doc-anchor-trigger>
+        <span>Main pupose</span>
     </h2>
 </doc-anchor-target>
-<p>Para agregar un nuevo feature, se seguirá el siguiente flujo:</p>
-<ol>
-<li><p>Se crea un card en Trello (o se utiliza uno ya existente) en la columna <strong>Backlog</strong>. Éste card tendrá la etiqueta <em>feature</em>. En caso de ser algo general y no tan específico (ej.: la navegación, conexión a internet), se agregará también la etiqueta <em>general</em>:<br />
-<img src="../../assets/images/card-feature-on-bakclog.png" alt="" /></p>
-</li>
-<li><p>Dentro del card, se agrega una descripción detallando el feature, como también el flujo de éste. Con flujo nos referimos a los pasos a seguir por el usuario para utilizar el feature:<br />
-<img src="../../assets/images/feature-card-flow-description.png" alt="" /></p>
-</li>
-<li><p>Por comodidad y para aclarar las ideas, se puede agregar una lista de tareas al card, con los pasos a seguir para completar el desarrollo del feature:<br />
-<img src="../../assets/images/feature-card-todo-checklist.png" alt="" /></p>
-</li>
-<li><p>En caso de que el feature tenga mockups, éstos deben adjuntarse al card a través de Zeplin:<br />
-<img src="../../assets/images/zeplin-mockups-attachment.png" alt="" /></p>
-</li>
-<li><p>Se agrega a los encargados del feature al card.<br />
-<img src="../../assets/images/feature-card-add-members.png" alt="" /></p>
-</li>
-</ol>
-<doc-anchor-target id="developing-feature">
+<p>Verifica el estado de la conexión a internet.</p>
+<doc-anchor-target id="workflow">
     <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#developing-feature">#</doc-anchor-trigger>
-        <span>Developing feature</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#workflow">#</doc-anchor-trigger>
+        <span>Workflow</span>
     </h2>
 </doc-anchor-target>
-<p>Cuando el feature empiece a desarrollarse, éste seguirá el siguiente flujo:</p>
-<ol>
-<li><p>Como se utiliza GitFlow como branching model, al iniciar un nuevo feature el encargado del desarrollo del feature debe crear una nueva rama para éste en el repositorio, con el siguiente formato:</p>
-<p><code v-pre>feature/ #item - título significativo</code></p>
-<p>En donde:</p>
+<p>En cuanto la aplicación se inicia, se ha de verificar en todo momento el estado de la conexión a internet, ya que la necesita para su funcionamiento.<br />
+Si el dispositivo pierde la conexión a internet, se mostrará una ventana emergente (dialog) informando de la pérdida de conexión y bloqueando el uso de la app. Dicho mensaje desaparecerá cuando la conexión a internet se recupere, además, también se mostrará un snackbar informando que la conexión ha sido recuperada.</p>
+<doc-anchor-target id="behaviour">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#behaviour">#</doc-anchor-trigger>
+        <span>Behaviour</span>
+    </h2>
+</doc-anchor-target>
 <ul>
-<li><strong>#item</strong> es el número del card perteneciente al feature en Trello.</li>
-<li><strong>título significativo</strong> es el título del feature, debe ser lo suficientemente largo o corto para expresar claridad.</li>
+<li>Se hace uso del package <a href="https://pub.dev/packages/connectivity_plus">connectivity_plus</a> para la verificación de conexión.</li>
+<li>Se manejan los eventos Requested, Lost y Retrieved.
+<ul>
+<li>El evento Requested se dispara al iniciar la aplicación, para inicializar la verificación de conexión. Al recibir este evento, el bloc hace una llamada inicial de verificación y se suscribe al stream del objeto Connectivity del package connectivity_plus para escuchar los cambios en la conexión.</li>
+<li>Los eventos Lost y Retrieved informan sobre el cambio de conexión, son disparados por el objeto Connectivity del package connectivity_plus cuando ocurre dicho cambio.</li>
 </ul>
-<p>Por ejemplo, en el feature:<br />
-<img src="../../assets/images/finished-feature-card.png" alt="" /><br />
-El nombre de su rama será:
-<strong><code v-pre>feature/15-navigation</code></strong></p>
 </li>
-<li><p>Se mueve el card del feature a la columna/etapa <strong>Development</strong>. Siguiendo la arquitectura, al empezar a desarrollar el feature, se debe crear una carpeta dentro de <code v-pre>lib/</code> con el nombre del feature (ej.: <code v-pre>lib/connectivity/</code>) y realizar su desarrollo dentro de esta carpeta.</p>
-</li>
-<li><p>Cuando el desarrollo del feature termine, se ha de escribir los tests correspondientes al feature y el card pasará a la columna/etapa <strong>Testing</strong>. Para que esta etapa se considere terminada, debe tener un coverage de mínimo 80%, aunque lo <strong>ideal es el 100%</strong></p>
-</li>
-<li><p>Una vez terminada la etapa de testing, se procede con la etapa de documentación y se mueve el card a la respectiva columna (<strong>Documentation</strong>). En esta etapa se ha de agregar la documentación necesaria para que los demás miembros del equipo entiendan el funcionamiento del feature y también puedan trabajar fácilmente con él en caso de que lo necesiten. Se puede encontrar más info sobre cómo escribir documentación en <a href="../documentation/">esta sección</a>.</p>
-</li>
-<li><p>Terminada la etapa de documentación, el código está listo para subirse. Se creará un pull request desde la rama del feature hacia la rama <strong>develop</strong>, con una descripción de lo que se trabajó. Luego de crear el pull request, el proceso de análisis automático se disparará. En caso de que el análisis no acepte el pull request, se debe seguir trabajando en el feature hasta que este proceso lo apruebe. En caso de que el análisis apruebe el pull request, el feature pasará a la etapa de <strong>Code Review</strong>.</p>
-</li>
-<li><p>Dentro de la etapa <strong>Code Review</strong>, el desarrollador del feature ha de esperar a que su código sea revisado y aprobado por al menos dos personas del equipo, denominadas reviewers. En caso de que los reviewers no aprueben el código, el desarrollador debe seguir con el feature hasta que éste sea aprobado.</p>
-</li>
-<li><p>Una vez el código es aprobado en el code review, el feature es integrado a la rama <em>develop</em> y oficialmente está terminado! Ahora se puede mover su card a la columna <strong>Done</strong>.</p>
-</li>
-</ol>
-<blockquote>
-<p>Cabe recalcar que en caso de que se encuentren fallos o bugs, un feature siempre puede ser re-abierto, y el proceso descrito anteriormente volverá a iniciar, hasta que el bug sea resuelto. La única diferencia será el nombre de la rama, en donde en lugar de <code v-pre>feature/</code>, será <code v-pre>fix/</code>.</p>
-</blockquote>
+<li></li>
+</ul>
 
 
 
@@ -281,20 +250,20 @@ El nombre de su rama será:
             
 <nav class="flex mt-14">
     <div class="w-1/2">
-        <a class="px-5 py-4 h-full flex items-center break-all md:break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="/univalle_app/guides/folder_structure/">
+        <a class="px-5 py-4 h-full flex items-center break-all md:break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="/univalle_app/guides/documentation/">
             <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
             <span>
                 <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
-                <span class="block mt-1">Folder structure</span>
+                <span class="block mt-1">About documentation</span>
             </span>
         </a>
     </div>
 
     <div class="w-1/2">
-        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-all md:break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="/univalle_app/guides/documentation/">
+        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-all md:break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="/univalle_app/architecture/overview/">
             <span>
                 <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
-                <span class="block mt-1">About documentation</span>
+                <span class="block mt-1">Overview</span>
             </span>
             <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
         </a>
@@ -342,6 +311,6 @@ El nombre de su rama será:
 
         <div id="docs-overlay-target"></div>
 
-        <script>window.__DOCS__ = { "title": "Adding new features", icon: "file", hasPrism: false, hasMermaid: false, hasMath: false }</script>
+        <script>window.__DOCS__ = { "title": "Connectivity", icon: "file", hasPrism: false, hasMermaid: false, hasMath: false }</script>
     </body>
 </html>

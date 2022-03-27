@@ -28,11 +28,11 @@
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("/univalle_app/doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="/univalle_app/assets/logo.svg" rel="icon" />
-    <link href="/univalle_app/resources/css/retype.css?v=1.11.2.701709156097" rel="stylesheet" data-turbo-track="reload" />
+    <link href="/univalle_app/resources/css/retype.css?v=1.11.2.701726686259" rel="stylesheet" data-turbo-track="reload" />
 
-    <script type="text/javascript" src="/univalle_app/resources/js/config.js?v=1.11.2.701709156097" defer data-turbo-track="reload"></script>
+    <script type="text/javascript" src="/univalle_app/resources/js/config.js?v=1.11.2.701726686259" defer data-turbo-track="reload"></script>
     <script type="text/javascript" src="/univalle_app/resources/js/retype.js?v=1.11.2" defer data-turbo-track="reload"></script>
-    <script id="lunr-js" type="text/javascript" src="/univalle_app/resources/js/lunr.js?v=1.11.2.701709156097" defer></script>
+    <script id="lunr-js" type="text/javascript" src="/univalle_app/resources/js/lunr.js?v=1.11.2.701726686259" defer></script>
 </head>
     <body>
         <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -301,9 +301,9 @@ Por ahora sólo se la desarrollará en español, por lo que esta carpeta está e
 <li><em>View:</em> La funcionalidad de este widget será dibujar la pantalla como tal, usando los componentes/widgets necesarios. Está oriendtado a sólo la vista, sin preocuparse de los repositories o bloc&#x27;s.</li>
 </ul>
 </li>
-<li><p><strong>Widgets:</strong></p>
+<li><p><strong>Widgets:</strong> Los widgets/componentes pertenecientes al feature, que serán usados sólo por ese feature.</p>
 </li>
-<li><p><strong>Bloc:</strong></p>
+<li><p><strong>Bloc:</strong> El Bussiness Logic Object perteneciente al feature, con sus respectivos estados, eventos y el bloc como tal.</p>
 </li>
 </ul>
 <doc-anchor-target id="data">
@@ -313,8 +313,8 @@ Por ahora sólo se la desarrollará en español, por lo que esta carpeta está e
     </h3>
 </doc-anchor-target>
 <ul>
-<li><strong>Repositories:</strong></li>
-<li><strong>Providers:</strong></li>
+<li><strong>Providers:</strong> Contendrá diferentes archivos y clases de Providers. Éstos estarán encargados de hacer peticiones en crudo a la API Rest, una petición por método, un provider puede tener varios métodos.</li>
+<li><strong>Repositories:</strong> Contendrá diferentes archivos y clases de Repositories. Éstos estarán encargados de llamar a los providers a hacer peticiones y retornar los datos listos para utilizar, cada método puede hacer una o más llamadas a uno o más providers, lo necesario para retornar los datos listos para ser usados.</li>
 </ul>
 <doc-anchor-target id="models">
     <h3>
@@ -322,6 +322,7 @@ Por ahora sólo se la desarrollará en español, por lo que esta carpeta está e
         <span>Models</span>
     </h3>
 </doc-anchor-target>
+<p>Las clases de la lógica de negocio, por lo general, una clase por archivo.</p>
 
 
 
