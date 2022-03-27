@@ -54,7 +54,7 @@ flutter_*.png
 linked_*.ds
 unlinked.ds
 unlinked_spec.ds
-.fvm/flutter_sdk
+.fvm/
 
 # Android related
 **/android/**/gradle-wrapper.jar
@@ -122,7 +122,6 @@ app.*.map.json
 !/dev/ci/**/Gemfile.lock
 !.vscode/extensions.json
 !.vscode/launch.json
-!.vscode/settings.json
 !.idea/codeStyles/
 !.idea/dictionaries/
 !.idea/runConfigurations/
