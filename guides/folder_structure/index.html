@@ -28,11 +28,11 @@
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("/univalle_app/doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="/univalle_app/assets/logo.svg" rel="icon" />
-    <link href="/univalle_app/resources/css/retype.css?v=1.11.2.701726686259" rel="stylesheet" data-turbo-track="reload" />
+    <link href="/univalle_app/resources/css/retype.css?v=1.11.2.701744676972" rel="stylesheet" data-turbo-track="reload" />
 
-    <script type="text/javascript" src="/univalle_app/resources/js/config.js?v=1.11.2.701726686259" defer data-turbo-track="reload"></script>
+    <script type="text/javascript" src="/univalle_app/resources/js/config.js?v=1.11.2.701744676972" defer data-turbo-track="reload"></script>
     <script type="text/javascript" src="/univalle_app/resources/js/retype.js?v=1.11.2" defer data-turbo-track="reload"></script>
-    <script id="lunr-js" type="text/javascript" src="/univalle_app/resources/js/lunr.js?v=1.11.2.701726686259" defer></script>
+    <script id="lunr-js" type="text/javascript" src="/univalle_app/resources/js/lunr.js?v=1.11.2.701744676972" defer></script>
 </head>
     <body>
         <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -297,7 +297,7 @@ Por ahora sólo se la desarrollará en español, por lo que esta carpeta está e
 <ul>
 <li><p><strong>Pages:</strong> Contendrá los archivos para cada página, sin importar si es sólo una o son más. Una página en realidad es un concepto más orientado al diseño, como una pantalla, y al ser intuitivo se lo manejará en el proyecto en el proyecto. Sin embargo, para estructurar de forma adecuada una página y no tenga conflictos con los widgets ni el bloc, cada página se dividirá en dos widgets: <code v-pre>page</code> y <code v-pre>view</code>.</p>
 <ul>
-<li><em>Page:</em> Un widget cuya función será sólo inicializar los repositories y bloc&#x27;s necesarios, ya sea usando un BlocProvider o un RepositoryProvider. Tendrá como child al <code v-pre>view</code> de la página.</li>
+<li><em>Page:</em> Un widget cuya función será sólo inicializar los repositories y bloc&#x27;s necesarios, ya sea usando un <code v-pre>BlocProvider</code> o un <code v-pre>RepositoryProvider</code>. Tendrá como child al <code v-pre>view</code> de la página.</li>
 <li><em>View:</em> La funcionalidad de este widget será dibujar la pantalla como tal, usando los componentes/widgets necesarios. Está oriendtado a sólo la vista, sin preocuparse de los repositories o bloc&#x27;s.</li>
 </ul>
 </li>

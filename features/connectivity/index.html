@@ -9,28 +9,28 @@
     <!-- Primary Meta Tags -->
     <title>Connectivity</title>
     <meta name="title" content="Connectivity">
-    <meta name="description" content="Verifica el estado de la conexión a internet.Verifica el estado de la conexión a internet." />
+    <meta name="description" content="Connected Verifica el estado de la conexión a internet.Verifica el estado de la conexión a internet." />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://sofietorch.github.io/univalle_app/features/connectivity/">
     <meta property="og:title" content="Connectivity">
-    <meta property="og:description" content="Verifica el estado de la conexión a internet.Verifica el estado de la conexión a internet.">
+    <meta property="og:description" content="Connected Verifica el estado de la conexión a internet.Verifica el estado de la conexión a internet.">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://sofietorch.github.io/univalle_app/features/connectivity/">
     <meta property="twitter:title" content="Connectivity">
-    <meta property="twitter:description" content="Verifica el estado de la conexión a internet.Verifica el estado de la conexión a internet.">
+    <meta property="twitter:description" content="Connected Verifica el estado de la conexión a internet.Verifica el estado de la conexión a internet.">
     
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("/univalle_app/doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="/univalle_app/assets/logo.svg" rel="icon" />
-    <link href="/univalle_app/resources/css/retype.css?v=1.11.2.701726686259" rel="stylesheet" data-turbo-track="reload" />
+    <link href="/univalle_app/resources/css/retype.css?v=1.11.2.701744676972" rel="stylesheet" data-turbo-track="reload" />
 
-    <script type="text/javascript" src="/univalle_app/resources/js/config.js?v=1.11.2.701726686259" defer data-turbo-track="reload"></script>
+    <script type="text/javascript" src="/univalle_app/resources/js/config.js?v=1.11.2.701744676972" defer data-turbo-track="reload"></script>
     <script type="text/javascript" src="/univalle_app/resources/js/retype.js?v=1.11.2" defer data-turbo-track="reload"></script>
-    <script id="lunr-js" type="text/javascript" src="/univalle_app/resources/js/lunr.js?v=1.11.2.701726686259" defer></script>
+    <script id="lunr-js" type="text/javascript" src="/univalle_app/resources/js/lunr.js?v=1.11.2.701744676972" defer></script>
 </head>
     <body>
         <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -208,12 +208,6 @@
         <span>Connectivity</span>
     </h1>
 </doc-anchor-target>
-<doc-anchor-target id="main-pupose">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#main-pupose">#</doc-anchor-trigger>
-        <span>Main pupose</span>
-    </h2>
-</doc-anchor-target>
 <p>Verifica el estado de la conexión a internet.</p>
 <doc-anchor-target id="workflow">
     <h2>
@@ -231,13 +225,32 @@ Si el dispositivo pierde la conexión a internet, se mostrará una ventana emerg
 </doc-anchor-target>
 <ul>
 <li>Se hace uso del package <a href="https://pub.dev/packages/connectivity_plus">connectivity_plus</a> para la verificación de conexión.</li>
-<li>Se manejan los eventos Requested, Lost y Retrieved.
+<li>Se reciben los eventos <code v-pre>Requested</code>, <code v-pre>Lost</code> y <code v-pre>Retrieved</code>.
 <ul>
-<li>El evento Requested se dispara al iniciar la aplicación, para inicializar la verificación de conexión. Al recibir este evento, el bloc hace una llamada inicial de verificación y se suscribe al stream del objeto Connectivity del package connectivity_plus para escuchar los cambios en la conexión.</li>
+<li>El evento <code v-pre>Requested</code> se dispara al iniciar la aplicación, para inicializar la verificación de conexión. Al recibir este evento, el bloc hace una llamada inicial de verificación y se suscribe al stream del objeto <code v-pre>Connectivity</code> del package connectivity_plus para escuchar los cambios en la conexión.</li>
 <li>Los eventos Lost y Retrieved informan sobre el cambio de conexión, son disparados por el objeto Connectivity del package connectivity_plus cuando ocurre dicho cambio.</li>
 </ul>
 </li>
-<li></li>
+<li>Se retornan los estados <code v-pre>Initial</code>, <code v-pre>Loading</code>, <code v-pre>Connected</code> y <code v-pre>Disconnected</code>.
+<ul>
+<li><code v-pre>Initial</code> es el estado inicial del bloc al ser creado y no recibir ningún evento.</li>
+<li><code v-pre>Loading</code> se retornará luego de recibir el evento Requested y antes de recibir algún evento sobre el estado de la conexión, refleja que la verificación de conectividad está cargando.</li>
+<li><code v-pre>Connected</code> y <code v-pre>Disconnected</code> son retornados luego de los eventos <code v-pre>Lost</code> y <code v-pre>Retrieved</code>, para que la interfaz sepa del estado de la conexión y cambie de acuerdo a ésta.</li>
+</ul>
+</li>
+</ul>
+<doc-anchor-target id="about-user-interface">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#about-user-interface">#</doc-anchor-trigger>
+        <span>About user interface</span>
+    </h3>
+</doc-anchor-target>
+<p>Respecto a la interfaz, los eventos que enviará y los estados que recibirá, están los siguientes puntos a considerar:</p>
+<ul>
+<li>Al iniciar la aplicación se instancia un <code v-pre>ConnectivityBloc</code> y se envía el evento <code v-pre>Requested</code>.</li>
+<li>Al recibir el estado <code v-pre>Disconnected</code>, se mostrará el dialog <code v-pre>ConnectivityLostDialog</code>, el cual informa sobre el estado de la conexión (es decir, sin conexión) y bloquea el uso de la app.</li>
+<li>Al recibir el estado <code v-pre>Connected</code> luego de un <code v-pre>Disconnected</code>, el dialog anterior se cerrará y desbloqueará la app, además se mostrará un snackbar informando que la conexión ha sido recuperada.</li>
+<li>Al recibir el estado <code v-pre>Connected</code> al principio, no habrá cambios y la app funcionará con normalidad hasta que un nuevo estado sea recibido.</li>
 </ul>
 
 
