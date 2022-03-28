@@ -44,9 +44,9 @@ jobs:
         run: mv doc/api docs/static
 
       - name: 📝 Generating Docs
-        uses: retypeapp/action-build@v1
+        uses: retypeapp/action-build@v2
 
       - name: ☁️ Publishing to GitHub Pages
-        uses: retypeapp/action-github-pages@v1
+        uses: retypeapp/action-github-pages@v2
         with:
           update-branch: true

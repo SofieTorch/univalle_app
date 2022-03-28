@@ -19,6 +19,8 @@ footer:
   copyright: "&copy; Copyright {{ year }}. All rights reserved."
 include:
   - **/static/**
+templating:
+  enabled: true
 snippets:
   lineNumbers:
     - *
