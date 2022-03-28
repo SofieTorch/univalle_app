@@ -43,7 +43,7 @@ Simplemente una abstracción para inicializar el Material App usado por al aplic
 Las funcionalidades de la app, una carpeta por funcionalidad. Por lo general, cada feature tendrá sus widgets, páginas y BLoC, pero puede haber casos en los que no tenga páginas, o no tenga widgets. Sin embargo, casi siempre (por no decir siempre) cada feature tendrá un BLoC.
 
 * **Pages:** Contendrá los archivos para cada página, sin importar si es sólo una o son más. Una página en realidad es un concepto más orientado al diseño, como una pantalla, y al ser intuitivo se lo manejará en el proyecto en el proyecto. Sin embargo, para estructurar de forma adecuada una página y no tenga conflictos con los widgets ni el bloc, cada página se dividirá en dos widgets: `page` y `view`.
-  * *Page:* Un widget cuya función será sólo inicializar los repositories y bloc's necesarios, ya sea usando un BlocProvider o un RepositoryProvider. Tendrá como child al `view` de la página.
+  * *Page:* Un widget cuya función será sólo inicializar los repositories y bloc's necesarios, ya sea usando un `BlocProvider` o un `RepositoryProvider`. Tendrá como child al `view` de la página.
   * *View:* La funcionalidad de este widget será dibujar la pantalla como tal, usando los componentes/widgets necesarios. Está oriendtado a sólo la vista, sin preocuparse de los repositories o bloc's.
 
 * **Widgets:** Los widgets/componentes pertenecientes al feature, que serán usados sólo por ese feature.
