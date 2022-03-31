@@ -12,29 +12,23 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:univalle_app/connectivity/connectivity.dart';
 import 'package:univalle_app/counter/counter.dart';
 import 'package:univalle_app/l10n/l10n.dart';
+import 'package:univalle_app/router.dart';
 import 'package:univalle_app/theme/theme.dart';
 
 class App extends StatelessWidget {
-  const App({Key? key}) : super(key: key);
+  App({Key? key}) : super(key: key);
+  final AppRouter _router = AppRouter();
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => ConnectivityBloc(Connectivity())
-        ..add(
-          const ConnectivityRequested(),
-        ),
-      child: MaterialApp(
-        theme: AppTheme.light,
-        localizationsDelegates: const [
-          AppLocalizations.delegate,
-          GlobalMaterialLocalizations.delegate,
-        ],
-        supportedLocales: AppLocalizations.supportedLocales,
-        home: const ConnectivityListener(
-          child: CounterPage(),
-        ),
-      ),
+    return MaterialApp(
+      theme: AppTheme.light,
+      localizationsDelegates: const [
+        AppLocalizations.delegate,
+        GlobalMaterialLocalizations.delegate,
+      ],
+      supportedLocales: AppLocalizations.supportedLocales,
+      onGenerateRoute: _router.onGenerateRoute,
     );
   }
 }
