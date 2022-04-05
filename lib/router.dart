@@ -7,7 +7,6 @@ import 'package:univalle_app/log_in/log_in.dart';
 
 class AppRouter {
   final ConnectivityBloc connectivityBloc = ConnectivityBloc(Connectivity());
-    
 
   Route onGenerateRoute(RouteSettings routeSettings) {
     switch (routeSettings.name) {
