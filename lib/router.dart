@@ -11,15 +11,6 @@ class AppRouter {
 
   Route onGenerateRoute(RouteSettings routeSettings) {
     switch (routeSettings.name) {
-      case '/':
-        return MaterialPageRoute<Widget>(
-          builder: (_) {
-            return BlocProvider<ConnectivityBloc>.value(
-              value: connectivityBloc..add(const ConnectivityRequested()),
-              child: const ConnectivityListener(child: HomePage()),
-            );
-          },
-        );
       case '/login':
         return MaterialPageRoute<Widget>(
           builder: (_) {
@@ -29,6 +20,7 @@ class AppRouter {
             );
           },
         );
+      case '/':
       default:
         return MaterialPageRoute<Widget>(
           builder: (_) {
