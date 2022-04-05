@@ -1,7 +1,7 @@
 {
     "@@locale": "es",
-    "counterAppBarTitle": "Contador",
-    "@counterAppBarTitle": {
-        "description": "Texto mostrado en la AppBar de la página del contador"
+    "university": "Univalle",
+    "@university": {
+        "description": "Nombre de la universidad, para los headers de las pantallas"
     }
 }
