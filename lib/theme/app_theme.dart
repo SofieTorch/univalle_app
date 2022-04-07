@@ -52,6 +52,9 @@ class AppTheme {
         unselectedItemColor: AppColors.shiraz.shade400,
         elevation: 0.5,
         type: BottomNavigationBarType.fixed,
+        showUnselectedLabels: false,
+        unselectedIconTheme: const IconThemeData(size: 28),
+        selectedIconTheme: const IconThemeData(size: 24),
       ),
 
       /// Sets the default shape, colors, elevation and padding

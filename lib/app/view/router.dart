@@ -1,8 +1,8 @@
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:univalle_app/app/app.dart';
 import 'package:univalle_app/connectivity/connectivity.dart';
-import 'package:univalle_app/home/pages/home_page.dart';
 import 'package:univalle_app/log_in/log_in.dart';
 
 class AppRouter {
@@ -25,7 +25,7 @@ class AppRouter {
           builder: (_) {
             return BlocProvider<ConnectivityBloc>.value(
               value: connectivityBloc..add(const ConnectivityRequested()),
-              child: const ConnectivityListener(child: HomePage()),
+              child: const ConnectivityListener(child: RootPage()),
             );
           },
         );

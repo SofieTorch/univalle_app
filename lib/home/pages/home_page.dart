@@ -7,10 +7,8 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final l10n = context.l10n;
-    return Scaffold(
-      body: Center(
-        child: Text('${l10n.university} Home'),
-      ),
+    return Center(
+      child: Text(l10n.navItemHome),
     );
   }
 }
