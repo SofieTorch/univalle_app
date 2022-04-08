@@ -1,5 +1,8 @@
 part of 'app.dart';
 
+/// The main widget for the app, besides MaterialApp.
+/// Initializes the navigation management with the [Navigation Cubit]
+/// and provides it to its view, [_RootView].
 class RootPage extends StatelessWidget {
   const RootPage({Key? key}) : super(key: key);
 
@@ -12,6 +15,10 @@ class RootPage extends StatelessWidget {
   }
 }
 
+/// The main view for the app,
+/// contains the needed structure to navigate through
+/// the app and visualize pages.
+/// Listens to [NavigationCubit] for navigation management.
 class _RootView extends StatelessWidget {
   const _RootView({Key? key}) : super(key: key);
 

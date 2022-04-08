@@ -1,5 +1,7 @@
 part of 'navigation_cubit.dart';
 
+/// Reflects a page with and index relative to its order.
+/// Base class for navigation state, emitted by [NavigationCubit].
 abstract class NavigationState extends Equatable {
   const NavigationState(this.index);
   final int index;

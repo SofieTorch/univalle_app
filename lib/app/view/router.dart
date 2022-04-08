@@ -1,8 +1,12 @@
 part of 'app.dart';
 
+/// Manages app routes and bloc providers needed through
+/// all the application.
 class AppRouter {
   final ConnectivityBloc connectivityBloc = ConnectivityBloc(Connectivity());
 
+  /// Maps a given route to its corresponding page, initializing
+  /// the necessary bloc providers for the page.
   Route onGenerateRoute(RouteSettings routeSettings) {
     switch (routeSettings.name) {
       case '/login':
