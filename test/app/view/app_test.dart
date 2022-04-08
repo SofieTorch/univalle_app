@@ -27,7 +27,7 @@ void main() {
           as BottomNavigationBar;
 
       expect(bottomNavbar.currentIndex, 1);
-      // TODO: when academic page exists, replace the HomePage
+      // to do: when academic page exists, replace the HomePage
       // in the line above with AcademicPage
       expect(find.byType(HomePage), findsOneWidget);
     });
@@ -47,7 +47,7 @@ void main() {
           as BottomNavigationBar;
 
       expect(bottomNavbar.currentIndex, 2);
-      // TODO: when academic page exists, replace the HomePage
+      // to do: when academic page exists, replace the HomePage
       // in the line above with PaymentsPage
       expect(find.byType(HomePage), findsOneWidget);
     });
@@ -67,7 +67,7 @@ void main() {
           as BottomNavigationBar;
 
       expect(bottomNavbar.currentIndex, 3);
-      // TODO: when academic page exists, replace the HomePage
+      // to do: when academic page exists, replace the HomePage
       // in the line above with ProfilePage
       expect(find.byType(HomePage), findsOneWidget);
     });
