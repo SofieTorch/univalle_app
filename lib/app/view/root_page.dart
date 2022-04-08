@@ -1,9 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
-import 'package:univalle_app/app/navigation/cubit/navigation_cubit.dart';
-import 'package:univalle_app/home/home.dart';
-import 'package:univalle_app/l10n/l10n.dart';
+part of 'app.dart';
 
 class RootPage extends StatelessWidget {
   const RootPage({Key? key}) : super(key: key);

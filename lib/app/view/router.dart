@@ -1,9 +1,4 @@
-import 'package:connectivity_plus/connectivity_plus.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:univalle_app/app/app.dart';
-import 'package:univalle_app/connectivity/connectivity.dart';
-import 'package:univalle_app/log_in/log_in.dart';
+part of 'app.dart';
 
 class AppRouter {
   final ConnectivityBloc connectivityBloc = ConnectivityBloc(Connectivity());
