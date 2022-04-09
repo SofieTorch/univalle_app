@@ -36,10 +36,16 @@ class AppTheme {
 
       /// Sets the default app bar background color to white, with dark
       /// text and 0.5 of elevation in order to match the design
-      appBarTheme: const AppBarTheme(
+      appBarTheme: AppBarTheme(
         color: AppColors.white,
-        foregroundColor: AppColors.matterhorn,
+        foregroundColor: AppColors.shiraz,
+        iconTheme: const IconThemeData(size: 32, color: AppColors.shiraz),
         elevation: 0.5,
+        actionsIconTheme: IconThemeData(
+          size: 32,
+          color: AppColors.gray.shade300,
+        ),
+        toolbarTextStyle: lightTextTheme.headline2,
       ),
 
       /// Sets the default background color, selected and

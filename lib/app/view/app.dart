@@ -27,6 +27,7 @@ class App extends StatelessWidget {
       ],
       supportedLocales: AppLocalizations.supportedLocales,
       onGenerateRoute: _router.onGenerateRoute,
+      debugShowCheckedModeBanner: false,
     );
   }
 }

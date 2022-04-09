@@ -26,7 +26,21 @@ class _RootView extends StatelessWidget {
   Widget build(BuildContext context) {
     final l10n = context.l10n;
     return Scaffold(
-      appBar: AppBar(title: Text(l10n.university)),
+      appBar: AppBar(
+        title: Row(
+          children: [
+            const Icon(AppIcons.university),
+            const SizedBox(width: 8),
+            Text(l10n.university),
+          ],
+        ),
+        actions: const [
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 16),
+            child: Icon(MdiIcons.menu),
+          ),
+        ],
+      ),
       bottomNavigationBar: BottomNavigationBar(
         items: [
           BottomNavigationBarItem(
