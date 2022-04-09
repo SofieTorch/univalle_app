@@ -34,10 +34,16 @@ class _RootView extends StatelessWidget {
             Text(l10n.university),
           ],
         ),
-        actions: const [
+        actions: [
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16),
-            child: Icon(MdiIcons.menu),
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            child: IconButton(
+              icon: const Icon(MdiIcons.menu),
+              onPressed: () => showModalBottomSheet<Widget>(
+                context: context,
+                builder: (_) => const BottomSheetMenu(),
+              ),
+            ),
           ),
         ],
       ),

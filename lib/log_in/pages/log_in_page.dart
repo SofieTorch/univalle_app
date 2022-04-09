@@ -5,8 +5,10 @@ class LogInPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: Text('Log in'),
+    return const Scaffold(
+      body: Center(
+        child: Text('Log in'),
+      ),
     );
   }
 }

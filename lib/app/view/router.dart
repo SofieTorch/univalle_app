@@ -5,11 +5,14 @@ part of 'app.dart';
 class AppRouter {
   final ConnectivityBloc connectivityBloc = ConnectivityBloc(Connectivity());
 
+  static const String home = '/';
+  static const String logIn = '/login';
+
   /// Maps a given route to its corresponding page, initializing
   /// the necessary bloc providers for the page.
   Route onGenerateRoute(RouteSettings routeSettings) {
     switch (routeSettings.name) {
-      case '/login':
+      case AppRouter.logIn:
         return MaterialPageRoute<Widget>(
           builder: (_) {
             return BlocProvider<ConnectivityBloc>.value(
@@ -18,7 +21,7 @@ class AppRouter {
             );
           },
         );
-      case '/':
+      case AppRouter.home:
       default:
         return MaterialPageRoute<Widget>(
           builder: (_) {

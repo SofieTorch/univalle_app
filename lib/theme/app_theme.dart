@@ -131,6 +131,20 @@ class AppTheme {
         labelStyle: AppTextStyle.overline.copyWith(color: AppColors.gray),
         padding: const EdgeInsets.all(4),
       ),
+
+      bottomSheetTheme: const BottomSheetThemeData(
+        backgroundColor: AppColors.white,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(
+            top: Radius.circular(24),
+          ),
+        ),
+      ),
+
+      listTileTheme: const ListTileThemeData(
+        iconColor: AppColors.matterhorn,
+        horizontalTitleGap: 8,
+      ),
     );
   }
 }
