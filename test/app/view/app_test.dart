@@ -2,18 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:univalle_app/app/app.dart';
+import 'package:univalle_app/app/widgets/widgets.dart';
 import 'package:univalle_app/home/home.dart';
+import 'package:univalle_app/procedures/procedures.dart';
 
 void main() {
-  group('App', () {
-    testWidgets('renders Home', (tester) async {
-      await tester.pumpWidget(App());
-      expect(find.byType(RootPage), findsOneWidget);
-      expect(find.byType(HomePage), findsOneWidget);
-    });
+  testWidgets('renders Home', (tester) async {
+    const app = App();
+    await tester.pumpWidget(app);
+    expect(find.byType(RootPage), findsOneWidget);
+    expect(find.byType(HomePage), findsOneWidget);
+  });
 
+  group('Bottom navigation bar navigation', () {
     testWidgets('renders and navigates to Academic page', (tester) async {
-      await tester.pumpWidget(App());
+      await tester.pumpWidget(const App());
       await tester.tap(
         find.descendant(
           of: find.byType(BottomNavigationBar),
@@ -33,7 +36,7 @@ void main() {
     });
 
     testWidgets('renders and navigates to Payments page', (tester) async {
-      await tester.pumpWidget(App());
+      await tester.pumpWidget(const App());
       await tester.tap(
         find.descendant(
           of: find.byType(BottomNavigationBar),
@@ -53,7 +56,7 @@ void main() {
     });
 
     testWidgets('renders and navigates to Profile page', (tester) async {
-      await tester.pumpWidget(App());
+      await tester.pumpWidget(const App());
       await tester.tap(
         find.descendant(
           of: find.byType(BottomNavigationBar),
@@ -71,5 +74,34 @@ void main() {
       // in the line above with ProfilePage
       expect(find.byType(HomePage), findsOneWidget);
     });
+  });
+
+  group('Bottom sheet menu navigation', () {
+    testWidgets(
+      'opens bottom sheet menu when clicking on its icon',
+      (WidgetTester tester) async {
+        await tester.pumpWidget(const App());
+        expect(find.byIcon(MdiIcons.menu), findsOneWidget);
+
+        await tester.tap(find.byIcon(MdiIcons.menu));
+        await tester.pumpAndSettle();
+
+        expect(find.byType(BottomSheetMenu), findsOneWidget);
+      },
+    );
+
+    testWidgets(
+      'launch Procedure Types page when clicking on its element inside menu',
+      (WidgetTester tester) async {
+        await tester.pumpWidget(const App());
+        await tester.tap(find.byIcon(MdiIcons.menu));
+        await tester.pumpAndSettle();
+        await tester.tap(find.byIcon(MdiIcons.clipboardTextClockOutline));
+        await tester.pumpAndSettle();
+
+        expect(find.byType(ProceduresPage), findsOneWidget);
+        expect(find.byType(BottomSheetMenu), findsNothing);
+      },
+    );
   });
 }
