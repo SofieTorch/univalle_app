@@ -15,8 +15,14 @@ import 'package:univalle_app/theme/theme.dart';
 part 'root_page.dart';
 part 'router.dart';
 
-class App extends StatelessWidget {
-  App({Key? key}) : super(key: key);
+class App extends StatefulWidget {
+  const App({Key? key}) : super(key: key);
+
+  @override
+  State<App> createState() => _AppState();
+}
+
+class _AppState extends State<App> {
   final AppRouter _router = AppRouter();
 
   @override
@@ -32,5 +38,11 @@ class App extends StatelessWidget {
       initialRoute: AppRouter.home,
       debugShowCheckedModeBanner: false,
     );
+  }
+
+  @override
+  void dispose() {
+    _router.dispose();
+    super.dispose();
   }
 }
