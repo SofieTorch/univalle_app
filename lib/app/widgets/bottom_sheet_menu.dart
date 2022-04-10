@@ -30,12 +30,10 @@ class BottomSheetMenu extends StatelessWidget {
         ListTile(
           leading: const Icon(MdiIcons.bookEducationOutline),
           title: Text(l10n.menuItemLibrary),
-          onTap: () {},
         ),
         ListTile(
           leading: const Icon(MdiIcons.fileDocumentMultipleOutline),
           title: Text(l10n.menuItemDocuments),
-          onTap: () {},
         ),
         ListTile(
           leading: const Icon(MdiIcons.clipboardTextClockOutline),
@@ -45,12 +43,10 @@ class BottomSheetMenu extends StatelessWidget {
         ListTile(
           leading: const Icon(MdiIcons.ticketPercentOutline),
           title: Text(l10n.menuItemDiscounts),
-          onTap: () {},
         ),
         ListTile(
           leading: const Icon(MdiIcons.map),
           title: Text(l10n.menuItemCampus),
-          onTap: () {},
         ),
       ],
     );
