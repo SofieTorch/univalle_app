@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:univalle_app/app/view/app.dart';
+import 'package:univalle_app/l10n/l10n.dart';
 import 'package:univalle_app/theme/theme.dart';
 
 class BottomSheetMenu extends StatelessWidget {
@@ -13,6 +14,7 @@ class BottomSheetMenu extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = context.l10n;
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
@@ -27,27 +29,27 @@ class BottomSheetMenu extends StatelessWidget {
         ),
         ListTile(
           leading: const Icon(MdiIcons.bookEducationOutline),
-          title: const Text('Explora la biblioteca'),
+          title: Text(l10n.menuItemLibrary),
           onTap: () => _navigateTo(AppRouter.logIn, context),
         ),
         ListTile(
           leading: const Icon(MdiIcons.fileDocumentMultipleOutline),
-          title: const Text('Revisa tus documentos'),
+          title: Text(l10n.menuItemDocuments),
           onTap: () {},
         ),
         ListTile(
           leading: const Icon(MdiIcons.clipboardTextClockOutline),
-          title: const Text('Conoce los tipos de trámites'),
+          title: Text(l10n.menuItemProcedures),
           onTap: () {},
         ),
         ListTile(
           leading: const Icon(MdiIcons.ticketPercentOutline),
-          title: const Text('Conoce tus descuentos'),
+          title: Text(l10n.menuItemDiscounts),
           onTap: () {},
         ),
         ListTile(
           leading: const Icon(MdiIcons.map),
-          title: const Text('Explora el campus'),
+          title: Text(l10n.menuItemCampus),
           onTap: () {},
         ),
       ],

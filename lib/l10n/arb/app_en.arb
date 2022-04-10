@@ -19,5 +19,25 @@
     "navItemProfile": "Profile",
     "@navItemProfile": {
         "description": "Label for user profile page on bottom navigation bar"
+    },
+    "menuItemLibrary": "Explore the library",
+    "@menuItemLibrary": {
+        "description": "Label for library page in bottom sheet navigation menu"
+    },
+    "menuItemDocuments": "Check your documents",
+    "@menuItemDocuments": {
+        "description": "Label for documents page in bottom sheet navigation menu"
+    },
+    "menuItemProcedures": "Know the procedure types",
+    "@menuItemProcedures": {
+        "description": "Label for procedures page in bottom sheet navigation menu"
+    },
+    "menuItemDiscounts": "Know your discounts",
+    "@menuItemDiscounts": {
+        "description": "Label for discounts page in bottom sheet navigation menu"
+    },
+    "menuItemCampus": "Explore the campus",
+    "@menuItemCampus": {
+        "description": "Label for places page in bottom sheet navigation menu"
     }
 }

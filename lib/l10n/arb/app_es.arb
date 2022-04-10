@@ -19,5 +19,25 @@
     "navItemProfile": "Perfil",
     "@navItemProfile": {
         "description": "Etiqueta para la página de perfil en la barra de navegación"
+    },
+    "menuItemLibrary": "Explora la biblioteca",
+    "@menuItemLibrary": {
+        "description": "Etiqueta para la página de biblioteca en el menú emergente de navegación"
+    },
+    "menuItemDocuments": "Revisa tus documentos",
+    "@menuItemDocuments": {
+        "description": "Etiqueta para la página de documentos en el menú emergente de navegación"
+    },
+    "menuItemProcedures": "Conoce los tipos de trámites",
+    "@menuItemProcedures": {
+        "description": "Etiqueta para la página de trámites en el menú emergente de navegación"
+    },
+    "menuItemDiscounts": "Conoce tus descuentos",
+    "@menuItemDiscounts": {
+        "description": "Etiqueta para la página de descuentos en el menú emergente de navegación"
+    },
+    "menuItemCampus": "Explora el campus",
+    "@menuItemCampus": {
+        "description": "Etiqueta para la página de lugares en el menú emergente de navegación"
     }
 }
