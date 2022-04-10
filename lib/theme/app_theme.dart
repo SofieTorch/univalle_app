@@ -38,8 +38,8 @@ class AppTheme {
       /// text and 0.5 of elevation in order to match the design
       appBarTheme: AppBarTheme(
         color: AppColors.white,
-        foregroundColor: AppColors.shiraz,
-        iconTheme: const IconThemeData(size: 32, color: AppColors.shiraz),
+        foregroundColor: AppColors.matterhorn,
+        iconTheme: const IconThemeData(size: 32, color: AppColors.matterhorn),
         elevation: 0.5,
         actionsIconTheme: IconThemeData(
           size: 32,

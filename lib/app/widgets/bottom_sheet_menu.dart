@@ -7,7 +7,7 @@ class BottomSheetMenu extends StatelessWidget {
   const BottomSheetMenu({Key? key}) : super(key: key);
 
   void _navigateTo(String route, BuildContext context) {
-    // Navigator.pop(context);
+    Navigator.pop(context);
     Navigator.pushNamed(context, route);
   }
 
@@ -28,7 +28,7 @@ class BottomSheetMenu extends StatelessWidget {
         ListTile(
           leading: const Icon(MdiIcons.bookEducationOutline),
           title: const Text('Explora la biblioteca'),
-          onTap: () {},
+          onTap: () => _navigateTo(AppRouter.logIn, context),
         ),
         ListTile(
           leading: const Icon(MdiIcons.fileDocumentMultipleOutline),

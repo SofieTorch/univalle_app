@@ -17,6 +17,12 @@ class ConnectivityListener extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocListener<ConnectivityBloc, ConnectivityState>(
+      listenWhen: (previous, current) {
+        final wasLoading = previous == ConnectivityState.loading;
+        final isConnected = current == ConnectivityState.connected;
+
+        return !(wasLoading && isConnected);
+      },
       listener: (context, state) {
         if (state == ConnectivityState.disconnected) {
           showDialog<void>(
@@ -31,15 +37,13 @@ class ConnectivityListener extends StatelessWidget {
           );
         }
         if (state == ConnectivityState.connected) {
-          if (Navigator.of(context).canPop()) {
-            Navigator.of(context).pop();
-            ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(
-                content: Text('¡Conexión recuperada!'),
-                duration: Duration(seconds: 2),
-              ),
-            );
-          }
+          Navigator.of(context).pop();
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              content: Text('¡Conexión recuperada!'),
+              duration: Duration(seconds: 2),
+            ),
+          );
         }
       },
       child: child,

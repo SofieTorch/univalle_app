@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:univalle_app/app/navigation/navigation.dart';
-import 'package:univalle_app/app/widgets/bottom_sheet_menu.dart';
+import 'package:univalle_app/app/widgets/widgets.dart';
 import 'package:univalle_app/connectivity/connectivity.dart';
 import 'package:univalle_app/home/home.dart';
 import 'package:univalle_app/l10n/l10n.dart';
@@ -28,7 +28,7 @@ class App extends StatelessWidget {
       ],
       supportedLocales: AppLocalizations.supportedLocales,
       onGenerateRoute: _router.onGenerateRoute,
-      initialRoute: AppRouter.logIn,
+      initialRoute: AppRouter.home,
       debugShowCheckedModeBanner: false,
     );
   }

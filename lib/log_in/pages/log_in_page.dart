@@ -5,8 +5,9 @@ class LogInPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
+    return Scaffold(
+      appBar: AppBar(title: const Text('Log in')),
+      body: const Center(
         child: Text('Log in'),
       ),
     );
