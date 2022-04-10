@@ -7,6 +7,7 @@ class AppRouter {
 
   static const String home = '/';
   static const String logIn = '/login';
+  static const String procedures = '/procedures';
 
   /// Maps a given route to its corresponding page, initializing
   /// the necessary bloc providers for the page.
@@ -18,6 +19,15 @@ class AppRouter {
             return BlocProvider<ConnectivityBloc>.value(
               value: connectivityBloc..add(const ConnectivityRequested()),
               child: const ConnectivityListener(child: LogInPage()),
+            );
+          },
+        );
+      case AppRouter.procedures:
+        return MaterialPageRoute<Widget>(
+          builder: (_) {
+            return BlocProvider<ConnectivityBloc>.value(
+              value: connectivityBloc..add(const ConnectivityRequested()),
+              child: const ConnectivityListener(child: ProceduresPage()),
             );
           },
         );

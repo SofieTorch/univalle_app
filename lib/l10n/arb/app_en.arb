@@ -39,5 +39,9 @@
     "menuItemCampus": "Explore the campus",
     "@menuItemCampus": {
         "description": "Label for places page in bottom sheet navigation menu"
+    },
+    "pageTitleProcedures": "Procedure types",
+    "@pageTitleProcedures": {
+        "description": "Title for procedure types page"
     }
 }

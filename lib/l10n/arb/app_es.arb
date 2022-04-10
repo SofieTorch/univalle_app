@@ -39,5 +39,9 @@
     "menuItemCampus": "Explora el campus",
     "@menuItemCampus": {
         "description": "Etiqueta para la página de lugares en el menú emergente de navegación"
+    },
+    "pageTitleProcedures": "Tipos de trámites",
+    "@pageTitleProcedures": {
+        "description": "Título de la página de tipos de trámites"
     }
 }
