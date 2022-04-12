@@ -10,18 +10,21 @@
     <meta name="generator" content="Retype 2.2">
 
     <!-- Primary Meta Tags -->
-    <title>Univalle m&#243;vil</title>
-    <meta name="title" content="Univalle móvil">
+    <title>Navigation</title>
+    <meta name="title" content="Navigation">
+    <meta name="description" content="Administración de la navegación en la aplicación." />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://sofietorch.github.io/univalle_app/">
-    <meta property="og:title" content="Univalle móvil">
+    <meta property="og:url" content="https://sofietorch.github.io/univalle_app/features/navigation/">
+    <meta property="og:title" content="Navigation">
+    <meta property="og:description" content="Administración de la navegación en la aplicación.">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://sofietorch.github.io/univalle_app/">
-    <meta property="twitter:title" content="Univalle móvil">
+    <meta property="twitter:url" content="https://sofietorch.github.io/univalle_app/features/navigation/">
+    <meta property="twitter:title" content="Navigation">
+    <meta property="twitter:description" content="Administración de la navegación en la aplicación.">
 
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("/univalle_app/doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
@@ -31,6 +34,7 @@
     <script type="text/javascript" src="/univalle_app/resources/js/config.js?v=2.2.703090527616" defer data-turbo-track="reload"></script>
     <script type="text/javascript" src="/univalle_app/resources/js/retype.js?v=2.2" defer data-turbo-track="reload"></script>
     <script id="lunr-js" type="text/javascript" src="/univalle_app/resources/js/lunr.js?v=2.2.703090527616" defer></script>
+    <script id="prism-js" type="text/javascript" src="/univalle_app/resources/js/prism.js?v=2.2.703090527616" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -184,12 +188,66 @@
                                 <div id="docs-sidebar-right-toggle"></div>
                 
                                 <!-- Page content  -->
-<doc-anchor-target id="univalle-móvil" class="break-words">
+<doc-anchor-target id="navigation" class="break-words">
     <h1>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#univalle-móvil">#</doc-anchor-trigger>
-        <span>Univalle móvil</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#navigation">#</doc-anchor-trigger>
+        <span>Navigation</span>
     </h1>
 </doc-anchor-target>
+<p>Administración de la navegación en la aplicación.</p>
+<doc-anchor-target id="generated-routes">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#generated-routes">#</doc-anchor-trigger>
+        <span>Generated routes</span>
+    </h2>
+</doc-anchor-target>
+<p>Las rutas principales de la aplicación, declaradas en la clase <code v-pre>AppRouter</code>. Por ahora sólo existen dos:</p>
+<ol>
+<li><code v-pre>/</code> o <code v-pre>default</code>: la cual es la ruta principal y por defecto de la app, la cual redirige a la <code v-pre>RootPage</code>, en donde se encuentra la estructura principal para la navegación a través de la barra de navegación inferior.</li>
+<li><code v-pre>/login</code>: que enruta hacia la página de inicio de sesión.</li>
+</ol>
+<p>Dentro de cada ruta se inicializan los Blocs necesarios en todas las rutas de la aplicación, por ejemplo:</p>
+<ul>
+<li><code v-pre>ConnectivityBloc</code>, para verificar la conexión a internet, es necesario en todas las rutas, ya que se ha de verificar la conexión en todo momento.</li>
+<li>En lugar de instanciar nuevos objetos de <code v-pre>ConnectivityBloc</code> en cada ruta, o peor aún, instanciar uno nuevo en cada página; es más eficiente manejar una sola instancia de Connectivity BlocProvider para todas las rutas y así evitar la instanciación de objetos innecesarios.</li>
+<li>Para esto, se maneja una sola instancia de <code v-pre>ConnectivityBloc</code> dentro de la clase <code v-pre>AppRouter</code>, y con <code v-pre>BlocProvider.value()</code> se provee esta instancia a cada ruta. <code v-pre>BlocProvider.value()</code> toma un Bloc ya existente y lo provee, por lo que utilizarlo es conveniente en esta situación en la que sólo queremos una instancia para todas las rutas.</li>
+</ul>
+<doc-anchor-target id="bottom-navigation-bar">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#bottom-navigation-bar">#</doc-anchor-trigger>
+        <span>Bottom navigation bar</span>
+    </h2>
+</doc-anchor-target>
+<p>La barra de navegación inferior es la forma principal de navegar entre páginas. Se encuentra dentro de RootView y administra su estado utilizando un NavigationCubit, el cual es instanciado y proveído desde <code v-pre>RootPage</code>.</p>
+<p>Actualmente se cuenta con cuatro páginas principales: Inicio, Académica, Pagos y Perfil. Cada una se traduce en un elemento de la barra de navegación.</p>
+<doc-anchor-target id="behaviour">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#behaviour">#</doc-anchor-trigger>
+        <span>Behaviour</span>
+    </h3>
+</doc-anchor-target>
+<p>Para el manejo de estado de la barra de navegación inferior y por ende, el cambio de interfaz al hacer click en un elemento de ésta, se utiliza un <code v-pre>NavigationCubit</code>.</p>
+<ul>
+<li>El estado inicial de <code v-pre>NavigationCubit</code> es <code v-pre>NavigationHome</code>, que se traduce en la página Home siendo la página inicial de la app.</li>
+<li><code v-pre>NavigationCubit</code> contiene el método <code v-pre>changePage()</code>, el cual recibe el índice de la página a la que se está navegando. Este método mapea el índice con el estado que refleja la página correspondiente (de acuerdo al orden de los elementos en la barra de navegación) y lo emite. Por ejemplo:
+<ul>
+<li><code v-pre>changePage(0) =&gt; emits NavigationHome</code>, ya que la página Home o Inicio es la primera en la barra de navegación.</li>
+<li><code v-pre>changePage(3) =&gt; emits NavigationProfile</code>, ya que la página Profile o Perfil es la cuarta en la barra de navegación.</li>
+</ul>
+</li>
+<li>La interfaz, al recibir el nuevo estado, retorna la página correspondiente a éste.</li>
+<li>Además, cada estado contiene un índice, el cual es leído por la barra de navegación para actualizar su elemento seleccionado:
+<div class="codeblock-wrapper"><doc-codeblock>
+<div class="codeblock-title">root_page.dart #3-5</div>
+<pre class="language-dart"><code v-pre class="language-dart">BottomNavigationBar(
+    ...
+    currentIndex: context.select(
+        (NavigationCubit cubit) =&gt; cubit.state.index,
+    ),
+),</code></pre>
+</doc-codeblock></div>
+</li>
+</ul>
 
                                 
                                 <!-- Required only on API pages -->
@@ -199,13 +257,20 @@
                             
                                 <nav class="flex mt-14">
                                     <div class="w-1/2">
+                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="/univalle_app/features/connectivity/">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
+                                            <span>
+                                                <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
+                                                <span class="block mt-1">Connectivity</span>
+                                            </span>
+                                        </a>
                                     </div>
                             
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l rounded-r-lg transition-colors duration-150 relative hover:z-5" href="/univalle_app/guides/getting_started/">
+                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="/univalle_app/architecture/overview/">
                                             <span>
                                                 <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
-                                                <span class="block mt-1">Getting started</span>
+                                                <span class="block mt-1">Overview</span>
                                             </span>
                                             <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                         </a>
@@ -249,6 +314,6 @@
 
     <div id="docs-overlay-target"></div>
 
-    <script>window.__DOCS__ = { "title": "Welcome", icon: "file", hasPrism: false, hasMermaid: false, hasMath: false }</script>
+    <script>window.__DOCS__ = { "title": "Navigation", icon: "file", hasPrism: true, hasMermaid: false, hasMath: false }</script>
 </body>
 </html>
