@@ -33,3 +33,7 @@ flutter:
   assets:
     - assets/
     - assets/illustrations/
+  fonts:
+    - family:  AppIcons
+      fonts:
+       - asset: assets/fonts/AppIcons.ttf
