@@ -1,7 +1,23 @@
 {
     "@@locale": "es",
-    "counterAppBarTitle": "Contador",
-    "@counterAppBarTitle": {
-        "description": "Texto mostrado en la AppBar de la página del contador"
+    "university": "Univalle",
+    "@university": {
+        "description": "Nombre de la universidad, para los headers de las pantallas"
+    },
+    "navItemHome": "Inicio",
+    "@navItemHome": {
+        "description": "Etiqueta para la página de inicio en la barra de navegación"
+    },
+    "navItemAcademic": "Académica",
+    "@navItemAcademic": {
+        "description": "Etiqueta para la página académica en la barra de navegación"
+    },
+    "navItemPayments": "Pagos",
+    "@navItemPayments": {
+        "description": "Etiqueta para la página de pagos en la barra de navegación"
+    },
+    "navItemProfile": "Perfil",
+    "@navItemProfile": {
+        "description": "Etiqueta para la página de perfil en la barra de navegación"
     }
 }

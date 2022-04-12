@@ -5,7 +5,6 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:univalle_app/connectivity/connectivity.dart';
-import 'package:univalle_app/counter/counter.dart';
 import 'package:univalle_app/l10n/l10n.dart';
 
 class MockConnectivityBloc
@@ -35,7 +34,7 @@ void main() {
       );
 
       await tester.pumpApp(
-        widget: const ConnectivityListener(child: CounterPage()),
+        widget: const ConnectivityListener(child: Scaffold()),
         bloc: connectivityBloc,
       );
 
@@ -60,7 +59,7 @@ void main() {
       );
 
       await tester.pumpApp(
-        widget: const ConnectivityListener(child: CounterPage()),
+        widget: const ConnectivityListener(child: Scaffold()),
         bloc: connectivityBloc,
       );
 
@@ -87,7 +86,7 @@ void main() {
       );
 
       await tester.pumpApp(
-        widget: const ConnectivityListener(child: CounterPage()),
+        widget: const ConnectivityListener(child: Scaffold()),
         bloc: connectivityBloc,
       );
 
@@ -114,7 +113,7 @@ void main() {
       );
 
       await tester.pumpApp(
-        widget: const ConnectivityListener(child: CounterPage()),
+        widget: const ConnectivityListener(child: Scaffold()),
         bloc: connectivityBloc,
       );
 

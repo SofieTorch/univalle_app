@@ -1,7 +1,23 @@
 {
     "@@locale": "en",
-    "counterAppBarTitle": "Counter",
-    "@counterAppBarTitle": {
-        "description": "Text shown in the AppBar of the Counter Page"
+    "university": "Univalle",
+    "@university": {
+        "description": "University name, placed on headers of screens"
+    },
+    "navItemHome": "Home",
+    "@navItemHome": {
+        "description": "Label for home page on bottom navigation bar"
+    },
+    "navItemAcademic": "Academic",
+    "@navItemAcademic": {
+        "description": "Label for academic page on bottom navigation bar"
+    },
+    "navItemPayments": "Payments",
+    "@navItemPayments": {
+        "description": "Label for payments page on bottom navigation bar"
+    },
+    "navItemProfile": "Profile",
+    "@navItemProfile": {
+        "description": "Label for user profile page on bottom navigation bar"
     }
 }
