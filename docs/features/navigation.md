@@ -3,10 +3,11 @@
 Administración de la navegación en la aplicación.
 
 ## Generated routes
-Las rutas principales de la aplicación, declaradas en la clase `AppRouter`. Por ahora sólo existen dos:
+Las rutas principales de la aplicación, declaradas en la clase `AppRouter`. Por ahora existen las siguientes:
 
 1. `/` o `default`: la cual es la ruta principal y por defecto de la app, la cual redirige a la `RootPage`, en donde se encuentra la estructura principal para la navegación a través de la barra de navegación inferior.
-2. `/login`: que enruta hacia la página de inicio de sesión.
+2. `/login`: enruta hacia la página de inicio de sesión.
+3. `/procedures`: enruta hacia la página de trámites / tipos de trámites.
 
 Dentro de cada ruta se inicializan los Blocs necesarios en todas las rutas de la aplicación, por ejemplo:
 
@@ -36,3 +37,12 @@ Para el manejo de estado de la barra de navegación inferior y por ende, el camb
         ),
     ),
     ```
+## Bottom sheet menu
+El menú emergente, el cual se abre desde el ícono a la derecha del tool bar, permite la navegacion a las rutas "secundarias" de la app:
+* Biblioteca (*explora la biblioteca*)
+* Documentos (*revisa tus documentos*)
+* Trámites (*conoce los tipos de trámites*)
+* Descuentos (*conoce tus descuentos*)
+* Lugares (*explora el campus*)
+
+Para esto, utiliza las rutas de `onGeneratedRoute` en `AppRouter` y navega a cada pantalla a través de `Navigator.pushNamed()`.
