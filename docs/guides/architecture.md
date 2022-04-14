@@ -15,7 +15,9 @@ Se puede visualizar de una mejor manera con el siguiente diagrama:
 ## Entities
 * Al hablar de entidades nos estaremos refiriendo a las clases de la lógica de negocio. Son independientes a paquetes, es decir, no debería existir una entidad que tenga como atributo algún componente de Flutter u otro paquete (ni siquiera los colores!).  
 * Algo en común que, por lo general, tendrá cada entidad será un constructor `fromJson()`, el cual nos permitirá instanciar una entidad a partir de una estructura JSON. Esto es útil, por ejemplo, al realizar peticiones HTTP desde los repositories.  
-* Las entidades no dependen de nada, pero seguramente todo lo demás dependerá de las entidades, tanto los features como los repositories, despues de todo es la lógica de negocio ;) es por eso que en el diagrama se puede ver esa dependencia de cada elemento con las entidades, a través de las flechas de colores.
+* Las entidades no dependen de nada, pero seguramente todo lo demás dependerá de las entidades, tanto los features como los repositories, despues de todo es la lógica de negocio ;) es por eso que en el diagrama se puede ver esa dependencia de cada elemento con las entidades, a través de las flechas de colores.  
+A continuación se encuentra un diagrama de clases, representando las entidades/modelos:  
+![](../assets/class_diagram.svg)
 
 ## Repositories
 * Los repositorios son los encargados de obtener datos, absolutamente nada más. Por lo general realizarán peticiones HTTP al servidor, y retornarán la respuesta obtenida utilizando las entities adecuadas.
