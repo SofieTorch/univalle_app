@@ -36,10 +36,16 @@ class AppTheme {
 
       /// Sets the default app bar background color to white, with dark
       /// text and 0.5 of elevation in order to match the design
-      appBarTheme: const AppBarTheme(
+      appBarTheme: AppBarTheme(
         color: AppColors.white,
         foregroundColor: AppColors.matterhorn,
+        iconTheme: const IconThemeData(size: 32, color: AppColors.matterhorn),
         elevation: 0.5,
+        actionsIconTheme: IconThemeData(
+          size: 32,
+          color: AppColors.gray.shade300,
+        ),
+        toolbarTextStyle: lightTextTheme.headline2,
       ),
 
       /// Sets the default background color, selected and
@@ -124,6 +130,20 @@ class AppTheme {
         backgroundColor: AppColors.gray.shade200,
         labelStyle: AppTextStyle.overline.copyWith(color: AppColors.gray),
         padding: const EdgeInsets.all(4),
+      ),
+
+      bottomSheetTheme: const BottomSheetThemeData(
+        backgroundColor: AppColors.white,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(
+            top: Radius.circular(24),
+          ),
+        ),
+      ),
+
+      listTileTheme: const ListTileThemeData(
+        iconColor: AppColors.matterhorn,
+        horizontalTitleGap: 8,
       ),
     );
   }
