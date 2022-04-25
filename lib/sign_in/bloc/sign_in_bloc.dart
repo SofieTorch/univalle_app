@@ -44,7 +44,7 @@ class SignInBloc extends Bloc<SignInEvent, SignInState> {
     );
   }
 
-  void _onSubmitted(
+  Future<void> _onSubmitted(
     SignInSubmitted event,
     Emitter<SignInState> emit,
   ) async {

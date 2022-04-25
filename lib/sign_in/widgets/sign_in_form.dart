@@ -4,6 +4,8 @@ import 'package:formz/formz.dart';
 import 'package:univalle_app/sign_in/sign_in.dart';
 
 class SignInForm extends StatelessWidget {
+  const SignInForm({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return BlocListener<SignInBloc, SignInState>(
