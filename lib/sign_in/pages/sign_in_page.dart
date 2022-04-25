@@ -19,7 +19,7 @@ class SignInPage extends StatelessWidget {
                   RepositoryProvider.of<AuthenticationRepository>(context),
             );
           },
-          child: SignInForm(),
+          child: const SignInForm(),
         ),
       ),
     );
