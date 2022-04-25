@@ -36,7 +36,10 @@ class AuthenticationRepository {
   ///
   /// Emits an authenticated status if successful.
   /// Throws a [SignInFailure] if the server does not respond ok.
-  Future<void> signIn(String code, String password) async {
+  Future<void> signIn({
+    required String code,
+    required String password,
+  }) async {
     final response = await _requestSignIn(code, password);
     if (response.statusCode == 200) {
       await _prefs.setCode(code);
