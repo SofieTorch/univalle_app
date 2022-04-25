@@ -14,6 +14,7 @@ import 'package:univalle_app/home/home.dart';
 import 'package:univalle_app/l10n/l10n.dart';
 import 'package:univalle_app/procedures/procedures.dart';
 import 'package:univalle_app/sign_in/sign_in.dart';
+import 'package:univalle_app/splash/splash.dart';
 import 'package:univalle_app/theme/theme.dart';
 
 part 'root_page.dart';
@@ -45,7 +46,7 @@ class App extends StatelessWidget {
             ),
           );
         }
-        return Container();
+        return const SplashPage();
       },
     );
   }
@@ -74,7 +75,7 @@ class __AppViewState extends State<_AppView> {
       ],
       supportedLocales: AppLocalizations.supportedLocales,
       onGenerateRoute: _router.onGenerateRoute,
-      initialRoute: AppRouter.home,
+      initialRoute: AppRouter.splash,
       navigatorKey: _navigatorKey,
       debugShowCheckedModeBanner: false,
       builder: (context, child) {
