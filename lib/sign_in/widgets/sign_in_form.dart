@@ -25,18 +25,18 @@ class SignInForm extends StatelessWidget {
             );
         }
       },
-      child: Align(
-        alignment: const Alignment(0, -1 / 3),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            _StudentCodeInput(),
-            const Padding(padding: EdgeInsets.all(12)),
-            _PasswordInput(),
-            const Padding(padding: EdgeInsets.all(12)),
-            _LoginButton(),
-          ],
-        ),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(l10n.signInStudentCodeLabel),
+          _StudentCodeInput(),
+          const Padding(padding: EdgeInsets.all(6)),
+          Text(l10n.signInPasswordLabel),
+          _PasswordInput(),
+          const Padding(padding: EdgeInsets.all(12)),
+          _LoginButton(),
+        ],
       ),
     );
   }
@@ -104,19 +104,25 @@ class _PasswordInput extends StatelessWidget {
 class _LoginButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final l10n = context.l10n;
     return BlocBuilder<SignInBloc, SignInState>(
       buildWhen: (previous, current) => previous.status != current.status,
       builder: (context, state) {
         return state.status.isSubmissionInProgress
             ? const CircularProgressIndicator()
-            : ElevatedButton(
-                key: const Key('loginForm_continue_raisedButton'),
-                onPressed: state.status.isValidated
-                    ? () {
-                        context.read<SignInBloc>().add(const SignInSubmitted());
-                      }
-                    : null,
-                child: const Text('Login'),
+            : SizedBox(
+                width: double.infinity,
+                child: ElevatedButton(
+                  key: const Key('loginForm_continue_raisedButton'),
+                  onPressed: state.status.isValidated
+                      ? () {
+                          context
+                              .read<SignInBloc>()
+                              .add(const SignInSubmitted());
+                        }
+                      : null,
+                  child: Text(l10n.signInButtonText),
+                ),
               );
       },
     );

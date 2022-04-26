@@ -35,6 +35,7 @@ flutter:
   assets:
     - assets/
     - assets/illustrations/
+    - assets/images/
   fonts:
     - family:  AppIcons
       fonts:

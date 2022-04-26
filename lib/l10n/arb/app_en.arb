@@ -49,5 +49,10 @@
     "authUserBlockedFailure": "This user has been locked, contact support for help.",
     "authUserDoesNotExistFailure": "This user does not exist, contact support if it is an error.",
     "authIncorrectPasswordFailure": "Password entered is incorrect.",
-    "authUnexpectedFailure": "An unexpected error has ocurred, please try again."
+    "authUnexpectedFailure": "An unexpected error has ocurred, please try again.",
+    "signInButtonText": "SIGN IN",
+    "signInStudentCodeLabel": "Student code",
+    "signInPasswordLabel": "Password",
+    "signInWelcomeHeader": "Welcome!",
+    "signInMessageHeader": "Sign in to continue"
 }

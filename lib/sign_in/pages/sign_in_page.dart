@@ -9,17 +9,32 @@ class SignInPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.all(12),
-        child: BlocProvider<SignInBloc>(
-          create: (context) {
-            return SignInBloc(
-              authenticationRepository:
-                  RepositoryProvider.of<AuthenticationRepository>(context),
-            );
-          },
-          child: const SignInForm(),
-        ),
+      body: CustomScrollView(
+        slivers: [
+          SliverFillRemaining(
+            hasScrollBody: false,
+            child: Padding(
+              padding: const EdgeInsets.all(16),
+              child: Expanded(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    const SignInHeader(),
+                    BlocProvider<SignInBloc>(
+                      create: (context) {
+                        return SignInBloc(
+                          authRepository:
+                              context.read<AuthenticationRepository>(),
+                        );
+                      },
+                      child: const SignInForm(),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          )
+        ],
       ),
     );
   }
