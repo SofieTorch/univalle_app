@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:formz/formz.dart';
+import 'package:univalle_app/exceptions/sign_in_failure.dart';
+import 'package:univalle_app/l10n/l10n.dart';
 import 'package:univalle_app/sign_in/sign_in.dart';
 
 class SignInForm extends StatelessWidget {
@@ -8,13 +10,18 @@ class SignInForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = context.l10n;
     return BlocListener<SignInBloc, SignInState>(
       listener: (context, state) {
         if (state.status.isSubmissionFailure) {
           ScaffoldMessenger.of(context)
             ..hideCurrentSnackBar()
             ..showSnackBar(
-              const SnackBar(content: Text('Authentication Failure')),
+              SnackBar(
+                content: Text(
+                  _getErrorMessage(state.error!, l10n),
+                ),
+              ),
             );
         }
       },
@@ -33,11 +40,24 @@ class SignInForm extends StatelessWidget {
       ),
     );
   }
+
+  String _getErrorMessage(SignInFailure failure, AppLocalizations l10n) {
+    if (failure is UserLockedFailure) {
+      return l10n.authUserBlockedFailure;
+    } else if (failure is UserDoesNotExistFailure) {
+      return l10n.authUserDoesNotExistFailure;
+    } else if (failure is IncorrectPasswordFailure) {
+      return l10n.authIncorrectPasswordFailure;
+    } else {
+      return l10n.authUnexpectedFailure;
+    }
+  }
 }
 
 class _StudentCodeInput extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final l10n = context.l10n;
     return BlocBuilder<SignInBloc, SignInState>(
       buildWhen: (previous, current) =>
           previous.studentCode != current.studentCode,
@@ -48,8 +68,9 @@ class _StudentCodeInput extends StatelessWidget {
               .read<SignInBloc>()
               .add(SignInStudentCodeChanged(studentCode)),
           decoration: InputDecoration(
-            labelText: 'studentCode',
-            errorText: state.studentCode.invalid ? 'invalid studentCode' : null,
+            errorText: state.studentCode.invalid
+                ? l10n.studentCodeInputEmptyError
+                : null,
           ),
         );
       },
@@ -60,17 +81,19 @@ class _StudentCodeInput extends StatelessWidget {
 class _PasswordInput extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final l10n = context.l10n;
     return BlocBuilder<SignInBloc, SignInState>(
       buildWhen: (previous, current) => previous.password != current.password,
       builder: (context, state) {
         return TextField(
           key: const Key('loginForm_passwordInput_textField'),
+          keyboardType: TextInputType.number,
           onChanged: (password) =>
               context.read<SignInBloc>().add(SignInPasswordChanged(password)),
           obscureText: true,
           decoration: InputDecoration(
-            labelText: 'password',
-            errorText: state.password.invalid ? 'invalid password' : null,
+            errorText:
+                state.password.invalid ? l10n.passwordInputEmptyError : null,
           ),
         );
       },

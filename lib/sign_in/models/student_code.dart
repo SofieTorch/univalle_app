@@ -8,6 +8,8 @@ class StudentCode extends FormzInput<String, StudentCodeValidationError> {
 
   @override
   StudentCodeValidationError? validator(String? value) {
-    return value?.isNotEmpty == true ? null : StudentCodeValidationError.empty;
+    return value?.trim().isNotEmpty == true
+        ? null
+        : StudentCodeValidationError.empty;
   }
 }

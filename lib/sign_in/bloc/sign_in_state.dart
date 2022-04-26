@@ -5,21 +5,25 @@ class SignInState extends Equatable {
     this.status = FormzStatus.pure,
     this.studentCode = const StudentCode.pure(),
     this.password = const Password.pure(),
+    this.error,
   });
 
   final FormzStatus status;
   final StudentCode studentCode;
   final Password password;
+  final SignInFailure? error;
 
   SignInState copyWith({
     FormzStatus? status,
     StudentCode? studentCode,
     Password? password,
+    SignInFailure? error,
   }) {
     return SignInState(
       status: status ?? this.status,
       studentCode: studentCode ?? this.studentCode,
       password: password ?? this.password,
+      error: error,
     );
   }
 

@@ -43,5 +43,11 @@
     "pageTitleProcedures": "Tipos de trámites",
     "@pageTitleProcedures": {
         "description": "Título de la página de tipos de trámites"
-    }
+    },
+    "studentCodeInputEmptyError": "El código de estudiante no debe estar vacío",
+    "passwordInputEmptyError": "La contraseña no debe estar vacía",
+    "authUserBlockedFailure": "El usuario ha sido bloqueado, contacta a soporte por ayuda.",
+    "authUserDoesNotExistFailure": "El usuario con el que intentas ingresar no existe, contacta a soporte si este es un error.",
+    "authIncorrectPasswordFailure": "La contraseña ingresada es incorrecta.",
+    "authUnexpectedFailure": "Ha ocurrido un error inesperado, inténtalo otra vez."
 }

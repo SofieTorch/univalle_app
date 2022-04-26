@@ -2,6 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:formz/formz.dart';
 import 'package:univalle_app/data/repositories/authentication_repository.dart';
+import 'package:univalle_app/exceptions/sign_in_failure.dart';
 import 'package:univalle_app/sign_in/models/models.dart';
 
 part 'sign_in_event.dart';
@@ -48,17 +49,29 @@ class SignInBloc extends Bloc<SignInEvent, SignInState> {
     SignInSubmitted event,
     Emitter<SignInState> emit,
   ) async {
-    if (state.status.isValidated) {
-      emit(state.copyWith(status: FormzStatus.submissionInProgress));
-      try {
-        await _authenticationRepository.signIn(
-          code: state.studentCode.value,
-          password: state.password.value,
-        );
-        emit(state.copyWith(status: FormzStatus.submissionSuccess));
-      } catch (_) {
-        emit(state.copyWith(status: FormzStatus.submissionFailure));
-      }
+    if (!state.status.isValidated) return;
+    emit(state.copyWith(status: FormzStatus.submissionInProgress));
+
+    try {
+      await _authenticationRepository.signIn(
+        code: state.studentCode.value.toUpperCase(),
+        password: state.password.value,
+      );
+      emit(state.copyWith(status: FormzStatus.submissionSuccess));
+    } on SignInFailure catch (e) {
+      emit(
+        state.copyWith(
+          error: e,
+          status: FormzStatus.submissionFailure,
+        ),
+      );
+    } catch (_) {
+      emit(
+        state.copyWith(
+          error: const SignInFailure(),
+          status: FormzStatus.submissionFailure,
+        ),
+      );
     }
   }
 }
