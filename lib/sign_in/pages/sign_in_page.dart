@@ -15,22 +15,20 @@ class SignInPage extends StatelessWidget {
             hasScrollBody: false,
             child: Padding(
               padding: const EdgeInsets.all(16),
-              child: Expanded(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    const SignInHeader(),
-                    BlocProvider<SignInBloc>(
-                      create: (context) {
-                        return SignInBloc(
-                          authRepository:
-                              context.read<AuthenticationRepository>(),
-                        );
-                      },
-                      child: const SignInForm(),
-                    ),
-                  ],
-                ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  const SignInHeader(),
+                  BlocProvider<SignInBloc>(
+                    create: (context) {
+                      return SignInBloc(
+                        authRepository:
+                            context.read<AuthenticationRepository>(),
+                      );
+                    },
+                    child: const SignInForm(),
+                  ),
+                ],
               ),
             ),
           )

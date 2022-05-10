@@ -1,3 +1,3 @@
 class Environment {
-  static const host = String.fromEnvironment('host');
+  static const host = 'univalle-app.herokuapp.com';
 }

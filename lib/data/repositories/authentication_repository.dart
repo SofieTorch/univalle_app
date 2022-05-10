@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:convert';
 
 import 'package:http/http.dart' as http;
 import 'package:univalle_app/data/providers/storage_provider.dart';
@@ -41,7 +42,7 @@ class AuthenticationRepository {
     required String password,
   }) async {
     final response = await _requestSignIn(code, password);
-    if (response.statusCode == 200) {
+    if (response.statusCode == 302) {
       await _prefs.setCode(code);
       await _prefs.setToken(password);
       _controller.add(AuthenticationStatus.authenticated);
@@ -52,14 +53,14 @@ class AuthenticationRepository {
 
   /// Sends the corresponding http request to authenticate user.
   Future<http.Response> _requestSignIn(String code, String password) async {
-    final queryParams = {'code': code, 'password': password};
-    final endpoint = Uri.http(
-      Environment.host,
-      '/auth',
-      queryParams,
-    );
+    final body = {'cuenta': code, 'pin': int.parse(password)};
+    final endpoint = Uri.https(Environment.host, '/auth');
 
-    return http.get(endpoint);
+    return http.post(
+      endpoint,
+      body: jsonEncode(body),
+      headers: {'Content-Type': 'application/json'},
+    );
   }
 
   /// Signs out the current user.
