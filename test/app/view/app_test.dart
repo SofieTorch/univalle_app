@@ -1,22 +1,63 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:univalle_app/app/app.dart';
 import 'package:univalle_app/app/widgets/widgets.dart';
 import 'package:univalle_app/home/home.dart';
 import 'package:univalle_app/procedures/procedures.dart';
+import 'package:univalle_app/sign_in/sign_in.dart';
+import 'package:univalle_app/splash/splash.dart';
 
 void main() {
-  testWidgets('renders Home', (tester) async {
-    final app = App();
-    await tester.pumpWidget(app);
-    // expect(find.byType(RootPage), findsOneWidget);
-    expect(find.byType(Container), findsOneWidget);
+  group('Authentication workflow', () {
+    testWidgets('renders Splash screen at first', (tester) async {
+      await tester.pumpWidget(App());
+      await tester.pump();
+      expect(find.byType(SplashView), findsOneWidget);
+    });
+
+    testWidgets(
+      '''
+        renders Sign in page when shared preferences
+        sign in values does not exists.
+        ''',
+      (tester) async {
+        final app = App();
+        SharedPreferences.setMockInitialValues({});
+        await tester.pumpWidget(app);
+        await tester.pumpAndSettle();
+        expect(find.byType(SignInPage), findsOneWidget);
+      },
+    );
+
+    testWidgets(
+      '''
+        renders Home page when shared preferences
+        sign in values exists.
+        ''',
+      (tester) async {
+        final app = App();
+        SharedPreferences.setMockInitialValues({
+          'code': 'TCS0028814',
+          'token': 'TCS0028814:144963',
+        });
+        await tester.pumpWidget(app);
+        await tester.pumpAndSettle();
+        expect(find.byType(HomePage), findsOneWidget);
+      },
+    );
   });
 
   group('Bottom navigation bar navigation', () {
     testWidgets('renders and navigates to Academic page', (tester) async {
-      await tester.pumpWidget(App());
+      final app = App();
+      SharedPreferences.setMockInitialValues({
+        'code': 'TCS0028814',
+        'token': 'TCS0028814:144963',
+      });
+      await tester.pumpWidget(app);
+      await tester.pumpAndSettle();
       await tester.tap(
         find.descendant(
           of: find.byType(BottomNavigationBar),
@@ -25,7 +66,6 @@ void main() {
       );
 
       await tester.pump();
-
       final bottomNavbar = tester.firstWidget(find.byType(BottomNavigationBar))
           as BottomNavigationBar;
 
@@ -36,7 +76,13 @@ void main() {
     });
 
     testWidgets('renders and navigates to Payments page', (tester) async {
-      await tester.pumpWidget(App());
+      final app = App();
+      SharedPreferences.setMockInitialValues({
+        'code': 'TCS0028814',
+        'token': 'TCS0028814:144963',
+      });
+      await tester.pumpWidget(app);
+      await tester.pumpAndSettle();
       await tester.tap(
         find.descendant(
           of: find.byType(BottomNavigationBar),
@@ -56,7 +102,13 @@ void main() {
     });
 
     testWidgets('renders and navigates to Profile page', (tester) async {
-      await tester.pumpWidget(App());
+      final app = App();
+      SharedPreferences.setMockInitialValues({
+        'code': 'TCS0028814',
+        'token': 'TCS0028814:144963',
+      });
+      await tester.pumpWidget(app);
+      await tester.pumpAndSettle();
       await tester.tap(
         find.descendant(
           of: find.byType(BottomNavigationBar),
@@ -80,7 +132,13 @@ void main() {
     testWidgets(
       'opens bottom sheet menu when clicking on its icon',
       (WidgetTester tester) async {
-        await tester.pumpWidget(App());
+        final app = App();
+        SharedPreferences.setMockInitialValues({
+          'code': 'TCS0028814',
+          'token': 'TCS0028814:144963',
+        });
+        await tester.pumpWidget(app);
+        await tester.pumpAndSettle();
         expect(find.byIcon(MdiIcons.menu), findsOneWidget);
 
         await tester.tap(find.byIcon(MdiIcons.menu));
@@ -93,7 +151,13 @@ void main() {
     testWidgets(
       'launch Procedure Types page when clicking on its element inside menu',
       (WidgetTester tester) async {
-        await tester.pumpWidget(App());
+        final app = App();
+        SharedPreferences.setMockInitialValues({
+          'code': 'TCS0028814',
+          'token': 'TCS0028814:144963',
+        });
+        await tester.pumpWidget(app);
+        await tester.pumpAndSettle();
         await tester.tap(find.byIcon(MdiIcons.menu));
         await tester.pumpAndSettle();
         await tester.tap(find.byIcon(MdiIcons.clipboardTextClockOutline));

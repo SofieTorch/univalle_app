@@ -1,5 +1,7 @@
+import 'package:equatable/equatable.dart';
+
 /// Thrown during the log in/sign in process if a failure occurs.
-class SignInFailure implements Exception {
+class SignInFailure extends Equatable implements Exception {
   const SignInFailure() : _message = 'An unknown exception occurred.';
 
   /// Create an authentication error message
@@ -21,6 +23,9 @@ class SignInFailure implements Exception {
 
   /// The associated error message.
   String get message => _message;
+
+  @override
+  List<Object?> get props => [message];
 }
 
 /// Thrown when the user trying to authenticate is blocked.
