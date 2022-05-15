@@ -63,7 +63,7 @@ class _StudentCodeInput extends StatelessWidget {
           previous.studentCode != current.studentCode,
       builder: (context, state) {
         return TextField(
-          key: const Key('loginForm_studentCodeInput_textField'),
+          key: const Key('signinForm_studentCode_textField'),
           onChanged: (studentCode) => context
               .read<SignInBloc>()
               .add(SignInStudentCodeChanged(studentCode)),
@@ -86,7 +86,7 @@ class _PasswordInput extends StatelessWidget {
       buildWhen: (previous, current) => previous.password != current.password,
       builder: (context, state) {
         return TextField(
-          key: const Key('loginForm_passwordInput_textField'),
+          key: const Key('signinForm_password_textField'),
           keyboardType: TextInputType.number,
           onChanged: (password) =>
               context.read<SignInBloc>().add(SignInPasswordChanged(password)),
@@ -113,7 +113,7 @@ class _LoginButton extends StatelessWidget {
             : SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
-                  key: const Key('loginForm_continue_raisedButton'),
+                  key: const Key('signinForm_submition_elevatedButton'),
                   onPressed: state.status.isValidated
                       ? () {
                           context

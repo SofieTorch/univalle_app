@@ -231,6 +231,32 @@ void main() {
           verify(mockAuthRepository.logOut).called(1);
         },
       );
+
+      blocTest<AuthenticationBloc, AuthenticationState>(
+        '''
+        emits [AuthenticationState.unknown()] when
+        AuthenticationStatusChanged(AuthenticationStatus.unknown) is added.
+        ''',
+        setUp: () {
+          when(() => mockAuthRepository.status).thenAnswer(
+            (_) => Stream<AuthenticationStatus>.fromIterable([]),
+          );
+
+          when(() => mockAuthRepository.currentUser).thenAnswer(
+            (_) async => User.empty,
+          );
+        },
+        build: () => AuthenticationBloc(authRepository: mockAuthRepository),
+        act: (bloc) => bloc
+          ..add(AuthenticationRequested())
+          ..add(
+            const AuthenticationStatusChanged(AuthenticationStatus.unknown),
+          ),
+        skip: 1,
+        expect: () => const <AuthenticationState>[
+          AuthenticationState.unknown(),
+        ],
+      );
     },
   );
 }

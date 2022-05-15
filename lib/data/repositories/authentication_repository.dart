@@ -2,7 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
-import 'package:univalle_app/data/providers/storage_provider.dart';
+import 'package:univalle_app/data/providers/providers.dart';
 import 'package:univalle_app/environment.dart';
 import 'package:univalle_app/exceptions/exceptions.dart';
 import 'package:univalle_app/models/user.dart';
@@ -13,10 +13,14 @@ enum AuthenticationStatus { unknown, authenticated, unauthenticated }
 /// Repository which manages user authentication.
 class AuthenticationRepository {
   AuthenticationRepository({
-    required StorageProvider prefs,
-  }) : _prefs = prefs;
+    required StorageProvider storageProvider,
+    HttpProvider? httpProvider,
+  }) : _storageProvider = storageProvider {
+    _httpProvider = httpProvider ?? _httpProvider;
+  }
 
-  final StorageProvider _prefs;
+  final StorageProvider _storageProvider;
+  HttpProvider _httpProvider = HttpProvider(http.Client());
   final _controller = StreamController<AuthenticationStatus>();
 
   /// Stream of [AuthenticationStatus] which will emit a new value
@@ -30,7 +34,7 @@ class AuthenticationRepository {
   Future<User> get currentUser async {
     // As _prefs.code returns an empty string by default,
     // the user returned will be equal to User.empty.
-    return User(code: _prefs.code);
+    return User(code: _storageProvider.code);
   }
 
   /// Signs in with the provided [code] and [password].
@@ -43,8 +47,8 @@ class AuthenticationRepository {
   }) async {
     final response = await _requestSignIn(code, password);
     if (response.statusCode == 302) {
-      await _prefs.setCode(code);
-      await _prefs.setToken(password);
+      await _storageProvider.setCode(code);
+      await _storageProvider.setToken(password);
       _controller.add(AuthenticationStatus.authenticated);
     } else {
       throw SignInFailure.fromCode(response.statusCode);
@@ -56,7 +60,7 @@ class AuthenticationRepository {
     final body = {'cuenta': code, 'pin': int.parse(password)};
     final endpoint = Uri.https(Environment.host, '/auth');
 
-    return http.post(
+    return _httpProvider.post(
       endpoint,
       body: jsonEncode(body),
       headers: {'Content-Type': 'application/json'},
@@ -67,8 +71,8 @@ class AuthenticationRepository {
   ///
   /// Emits an unauthenticated status if successful.
   Future<void> logOut() async {
-    await _prefs.removeCode();
-    await _prefs.removeToken();
+    await _storageProvider.removeCode();
+    await _storageProvider.removeToken();
     _controller.add(AuthenticationStatus.unauthenticated);
   }
 

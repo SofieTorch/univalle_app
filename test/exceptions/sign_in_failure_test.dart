@@ -3,6 +3,10 @@ import 'package:univalle_app/exceptions/sign_in_failure.dart';
 
 void main() {
   group('SignInFailure.fromCode factory', () {
+    test('Default message indicates the error is unknown', () {
+      expect(const SignInFailure().message, contains('unknown'));
+    });
+
     test('Builds [UserLockedFailure] when code is 423.', () {
       expect(SignInFailure.fromCode(423), UserLockedFailure());
     });

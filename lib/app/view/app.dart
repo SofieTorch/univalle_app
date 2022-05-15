@@ -34,7 +34,8 @@ class App extends StatelessWidget {
       builder: (_, AsyncSnapshot<SharedPreferences> snapshot) {
         if (snapshot.hasData) {
           _storageProvider = StorageProvider(prefs: snapshot.data!);
-          _authRepository = AuthenticationRepository(prefs: _storageProvider);
+          _authRepository =
+              AuthenticationRepository(storageProvider: _storageProvider);
 
           return RepositoryProvider.value(
             value: _authRepository,
