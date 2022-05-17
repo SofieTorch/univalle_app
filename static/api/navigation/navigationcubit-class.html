@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the NavigationCubit class from the navigation library, for the Dart programming language.">
+  <title>NavigationCubit class - navigation library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../static-assets/styles.css?v1">
+  <link rel="icon" href="../static-assets/favicon.png?v1">
+
+  
+</head>
+
+
+<body data-base-href="../"
+      data-using-base-href="false">
+
+<div id="overlay-under-drawer"></div>
+
+<header id="title">
+  <button id="sidenav-left-toggle" type="button">&nbsp;</button>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../index.html">univalle_app</a></li>
+    <li><a href="../navigation/navigation-library.html">navigation</a></li>
+    <li class="self-crumb">NavigationCubit class</li>
+  </ol>
+  <div class="self-name">NavigationCubit</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<main>
+
+
+  <div id="dartdoc-main-content" class="main-content">
+      <div>
+<h1><span class="kind-class">NavigationCubit</span> class 
+    <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
+ 
+</h1></div>
+
+    
+<section class="desc markdown">
+  <p>Manages navigation state for the main pages:
+Home, Academic, Payments and Profile.</p>
+<p>Currently used on RootPage, for its bottom navigation bar.
+Emits a <a href="../navigation/navigationstate-class.html">NavigationState</a>.</p>
+</section>
+
+
+
+    <section class="summary offset-anchor" id="constructors">
+      <h2>Constructors</h2>
+
+      <dl class="constructor-summary-list">
+        <dt id="NavigationCubit" class="callable">
+          <span class="name"><a href="../navigation/navigationcubit/navigationcubit.html">NavigationCubit</a></span><span class="signature">()</span>
+        </dt>
+        <dd>
+           
+        </dd>
+      </dl>
+    </section>
+
+    <section class="summary offset-anchor inherited" id="instance-properties">
+      <h2>Properties</h2>
+
+      <dl class="properties">
+        <dt id="hashCode" class="property inherited">
+  <span class="name"><a href="../navigation/navigationcubit/hashcode.html">hashCode</a></span>
+  <span class="signature">&#8594; int</span> 
+
+</dt>
+<dd class="inherited">
+  The hash code for this object. <a href="../navigation/navigationcubit/hashcode.html">[...]</a>
+  <div class="features">read-only, inherited</div>
+
+</dd>
+
+        <dt id="isClosed" class="property inherited">
+  <span class="name"><a href="../navigation/navigationcubit/isclosed.html">isClosed</a></span>
+  <span class="signature">&#8594; bool</span> 
+
+</dt>
+<dd class="inherited">
+  Whether the bloc is closed. <a href="../navigation/navigationcubit/isclosed.html">[...]</a>
+  <div class="features">read-only, inherited</div>
+
+</dd>
+
+        <dt id="runtimeType" class="property inherited">
+  <span class="name"><a href="../navigation/navigationcubit/runtimetype.html">runtimeType</a></span>
+  <span class="signature">&#8594; Type</span> 
+
+</dt>
+<dd class="inherited">
+  A representation of the runtime type of the object. 
+  <div class="features">read-only, inherited</div>
+
+</dd>
+
+        <dt id="state" class="property inherited">
+  <span class="name"><a href="../navigation/navigationcubit/state.html">state</a></span>
+  <span class="signature">&#8594; <a href="../navigation/navigationstate-class.html">NavigationState</a></span> 
+
+</dt>
+<dd class="inherited">
+  The current <a href="../navigation/navigationcubit/state.html">state</a>. 
+  <div class="features">read-only, inherited</div>
+
+</dd>
+
+        <dt id="stream" class="property inherited">
+  <span class="name"><a href="../navigation/navigationcubit/stream.html">stream</a></span>
+  <span class="signature">&#8594; Stream<span class="signature">&lt;<wbr><span class="type-parameter"><a href="../navigation/navigationstate-class.html">NavigationState</a></span>&gt;</span></span> 
+
+</dt>
+<dd class="inherited">
+  The current <a href="../navigation/navigationcubit/stream.html">stream</a> of states. 
+  <div class="features">read-only, inherited</div>
+
+</dd>
+
+      </dl>
+    </section>
+
+    <section class="summary offset-anchor" id="instance-methods">
+      <h2>Methods</h2>
+      <dl class="callables">
+        <dt id="addError" class="callable inherited">
+  <span class="name"><a href="../navigation/navigationcubit/adderror.html">addError</a></span><span class="signature">(<wbr><span class="parameter" id="addError-param-error"><span class="type-annotation">Object</span> <span class="parameter-name">error</span>, </span><span class="parameter" id="addError-param-stackTrace">[<span class="type-annotation">StackTrace?</span> <span class="parameter-name">stackTrace</span>]</span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Reports an <code>error</code> which triggers <a href="../navigation/navigationcubit/onerror.html">onError</a> with an optional <code>StackTrace</code>. 
+  <div class="features">@mustCallSuper, @protected, inherited</div>
+
+</dd>
+
+        <dt id="changePage" class="callable">
+  <span class="name"><a href="../navigation/navigationcubit/changepage.html">changePage</a></span><span class="signature">(<wbr><span class="parameter" id="changePage-param-index"><span class="type-annotation">int</span> <span class="parameter-name">index</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Maps an index to a state which reflect a page. <a href="../navigation/navigationcubit/changepage.html">[...]</a>
+  
+
+</dd>
+
+        <dt id="close" class="callable inherited">
+  <span class="name"><a href="../navigation/navigationcubit/close.html">close</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Closes the instance.
+This method should be called when the instance is no longer needed.
+Once <a href="../navigation/navigationcubit/close.html">close</a> is called, the instance can no longer be used. 
+  <div class="features">@mustCallSuper, inherited</div>
+
+</dd>
+
+        <dt id="emit" class="callable inherited">
+  <span class="name"><a href="../navigation/navigationcubit/emit.html">emit</a></span><span class="signature">(<wbr><span class="parameter" id="emit-param-state"><span class="type-annotation"><a href="../navigation/navigationstate-class.html">NavigationState</a></span> <span class="parameter-name">state</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Updates the <code>state</code> to the provided <code>state</code>.
+<a href="../navigation/navigationcubit/emit.html">emit</a> does nothing if the <code>state</code> being emitted
+is equal to the current <code>state</code>. <a href="../navigation/navigationcubit/emit.html">[...]</a>
+  <div class="features">@protected, @visibleForTesting, inherited</div>
+
+</dd>
+
+        <dt id="noSuchMethod" class="callable inherited">
+  <span class="name"><a href="../navigation/navigationcubit/nosuchmethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation">Invocation</span> <span class="parameter-name">invocation</span></span>)
+    <span class="returntype parameter">&#8594; dynamic</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Invoked when a non-existent method or property is accessed. <a href="../navigation/navigationcubit/nosuchmethod.html">[...]</a>
+  <div class="features">inherited</div>
+
+</dd>
+
+        <dt id="onChange" class="callable inherited">
+  <span class="name"><a href="../navigation/navigationcubit/onchange.html">onChange</a></span><span class="signature">(<wbr><span class="parameter" id="onChange-param-change"><span class="type-annotation">Change<span class="signature">&lt;<wbr><span class="type-parameter"><a href="../navigation/navigationstate-class.html">NavigationState</a></span>&gt;</span></span> <span class="parameter-name">change</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Called whenever a <code>change</code> occurs with the given <code>change</code>.
+A <code>change</code> occurs when a new <code>state</code> is emitted.
+<a href="../navigation/navigationcubit/onchange.html">onChange</a> is called before the <code>state</code> of the <code>cubit</code> is updated.
+<a href="../navigation/navigationcubit/onchange.html">onChange</a> is a great spot to add logging/analytics for a specific <code>cubit</code>. <a href="../navigation/navigationcubit/onchange.html">[...]</a>
+  <div class="features">@mustCallSuper, @protected, inherited</div>
+
+</dd>
+
+        <dt id="onError" class="callable inherited">
+  <span class="name"><a href="../navigation/navigationcubit/onerror.html">onError</a></span><span class="signature">(<wbr><span class="parameter" id="onError-param-error"><span class="type-annotation">Object</span> <span class="parameter-name">error</span>, </span><span class="parameter" id="onError-param-stackTrace"><span class="type-annotation">StackTrace</span> <span class="parameter-name">stackTrace</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Called whenever an <code>error</code> occurs and notifies <code>BlocObserver.onError</code>. <a href="../navigation/navigationcubit/onerror.html">[...]</a>
+  <div class="features">@mustCallSuper, @protected, inherited</div>
+
+</dd>
+
+        <dt id="toString" class="callable inherited">
+  <span class="name"><a href="../navigation/navigationcubit/tostring.html">toString</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; String</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  A string representation of this object. <a href="../navigation/navigationcubit/tostring.html">[...]</a>
+  <div class="features">inherited</div>
+
+</dd>
+
+      </dl>
+    </section>
+
+    <section class="summary offset-anchor inherited" id="operators">
+      <h2>Operators</h2>
+      <dl class="callables">
+        <dt id="operator ==" class="callable inherited">
+  <span class="name"><a href="../navigation/navigationcubit/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation">Object</span> <span class="parameter-name">other</span></span>)
+    <span class="returntype parameter">&#8594; bool</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  The equality operator. <a href="../navigation/navigationcubit/operator_equals.html">[...]</a>
+  <div class="features">inherited</div>
+
+</dd>
+
+      </dl>
+    </section>
+
+
+
+
+  </div> <!-- /.main-content -->
+
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+  <li><a href="../index.html">univalle_app</a></li>
+  <li><a href="../navigation/navigation-library.html">navigation</a></li>
+  <li class="self-crumb">NavigationCubit class</li>
+</ol>
+
+
+    <h5>navigation library</h5>
+    <ol>
+  <li class="section-title"><a href="../navigation/navigation-library.html#classes">Classes</a></li>
+  <li><a href="../navigation/navigationacademic-class.html">NavigationAcademic</a></li>
+  <li><a href="../navigation/navigationcubit-class.html">NavigationCubit</a></li>
+  <li><a href="../navigation/navigationhome-class.html">NavigationHome</a></li>
+  <li><a href="../navigation/navigationpayments-class.html">NavigationPayments</a></li>
+  <li><a href="../navigation/navigationprofile-class.html">NavigationProfile</a></li>
+  <li><a href="../navigation/navigationstate-class.html">NavigationState</a></li>
+
+
+
+
+
+
+
+
+</ol>
+
+  </div>
+
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+    <ol>
+
+    <li class="section-title"><a href="../navigation/navigationcubit-class.html#constructors">Constructors</a></li>
+    <li><a href="../navigation/navigationcubit/navigationcubit.html">NavigationCubit</a></li>
+
+
+    <li class="section-title inherited">
+      <a href="../navigation/navigationcubit-class.html#instance-properties">Properties</a>
+    </li>
+    <li class="inherited"><a href="../navigation/navigationcubit/hashcode.html">hashCode</a></li>
+    <li class="inherited"><a href="../navigation/navigationcubit/isclosed.html">isClosed</a></li>
+    <li class="inherited"><a href="../navigation/navigationcubit/runtimetype.html">runtimeType</a></li>
+    <li class="inherited"><a href="../navigation/navigationcubit/state.html">state</a></li>
+    <li class="inherited"><a href="../navigation/navigationcubit/stream.html">stream</a></li>
+
+    <li class="section-title"><a href="../navigation/navigationcubit-class.html#instance-methods">Methods</a></li>
+    <li class="inherited"><a href="../navigation/navigationcubit/adderror.html">addError</a></li>
+    <li><a href="../navigation/navigationcubit/changepage.html">changePage</a></li>
+    <li class="inherited"><a href="../navigation/navigationcubit/close.html">close</a></li>
+    <li class="inherited"><a href="../navigation/navigationcubit/emit.html">emit</a></li>
+    <li class="inherited"><a href="../navigation/navigationcubit/nosuchmethod.html">noSuchMethod</a></li>
+    <li class="inherited"><a href="../navigation/navigationcubit/onchange.html">onChange</a></li>
+    <li class="inherited"><a href="../navigation/navigationcubit/onerror.html">onError</a></li>
+    <li class="inherited"><a href="../navigation/navigationcubit/tostring.html">toString</a></li>
+
+    <li class="section-title inherited"><a href="../navigation/navigationcubit-class.html#operators">Operators</a></li>
+    <li class="inherited"><a href="../navigation/navigationcubit/operator_equals.html">operator ==</a></li>
+
+
+
+
+</ol>
+
+  </div><!--/.sidebar-offcanvas-->
+
+</main>
+
+<footer>
+  <span class="no-break">
+    univalle_app
+      1.0.0+1
+  </span>
+
+  
+</footer>
+
+
+
+<script src="../static-assets/highlight.pack.js?v1"></script>
+<script src="../static-assets/script.js?v1"></script>
+
+
+
+</body>
+
+</html>
+

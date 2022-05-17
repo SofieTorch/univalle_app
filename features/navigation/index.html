@@ -12,29 +12,29 @@
     <!-- Primary Meta Tags -->
     <title>Navigation</title>
     <meta name="title" content="Navigation">
-    <meta name="description" content="Administración de la navegación en la aplicación.Administración de la navegación en la aplicación." />
+    <meta name="description" content="Administración de la navegación en la aplicación." />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://sofietorch.github.io/univalle_app/features/navigation/">
     <meta property="og:title" content="Navigation">
-    <meta property="og:description" content="Administración de la navegación en la aplicación.Administración de la navegación en la aplicación.">
+    <meta property="og:description" content="Administración de la navegación en la aplicación.">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://sofietorch.github.io/univalle_app/features/navigation/">
     <meta property="twitter:title" content="Navigation">
-    <meta property="twitter:description" content="Administración de la navegación en la aplicación.Administración de la navegación en la aplicación.">
+    <meta property="twitter:description" content="Administración de la navegación en la aplicación.">
 
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("/univalle_app/doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="/univalle_app/assets/logo.svg" rel="icon" />
-    <link href="/univalle_app/resources/css/retype.css?v=2.2.703267315657" rel="stylesheet" data-turbo-track="reload" />
+    <link href="/univalle_app/resources/css/retype.css?v=2.2.706086745754" rel="stylesheet" data-turbo-track="reload" />
 
-    <script type="text/javascript" src="/univalle_app/resources/js/config.js?v=2.2.703267315657" defer data-turbo-track="reload"></script>
+    <script type="text/javascript" src="/univalle_app/resources/js/config.js?v=2.2.706086745754" defer data-turbo-track="reload"></script>
     <script type="text/javascript" src="/univalle_app/resources/js/retype.js?v=2.2" defer data-turbo-track="reload"></script>
-    <script id="lunr-js" type="text/javascript" src="/univalle_app/resources/js/lunr.js?v=2.2.703267315657" defer></script>
-    <script id="prism-js" type="text/javascript" src="/univalle_app/resources/js/prism.js?v=2.2.703267315657" defer></script>
+    <script id="lunr-js" type="text/javascript" src="/univalle_app/resources/js/lunr.js?v=2.2.706086745754" defer></script>
+    <script id="prism-js" type="text/javascript" src="/univalle_app/resources/js/prism.js?v=2.2.706086745754" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -201,10 +201,11 @@
         <span>Generated routes</span>
     </h2>
 </doc-anchor-target>
-<p>Las rutas principales de la aplicación, declaradas en la clase <code v-pre>AppRouter</code>. Por ahora sólo existen dos:</p>
+<p>Las rutas principales de la aplicación, declaradas en la clase <code v-pre>AppRouter</code>. Por ahora existen las siguientes:</p>
 <ol>
 <li><code v-pre>/</code> o <code v-pre>default</code>: la cual es la ruta principal y por defecto de la app, la cual redirige a la <code v-pre>RootPage</code>, en donde se encuentra la estructura principal para la navegación a través de la barra de navegación inferior.</li>
-<li><code v-pre>/login</code>: que enruta hacia la página de inicio de sesión.</li>
+<li><code v-pre>/login</code>: enruta hacia la página de inicio de sesión.</li>
+<li><code v-pre>/procedures</code>: enruta hacia la página de trámites / tipos de trámites.</li>
 </ol>
 <p>Dentro de cada ruta se inicializan los Blocs necesarios en todas las rutas de la aplicación, por ejemplo:</p>
 <ul>
@@ -248,6 +249,21 @@
 </doc-codeblock></div>
 </li>
 </ul>
+<doc-anchor-target id="bottom-sheet-menu">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#bottom-sheet-menu">#</doc-anchor-trigger>
+        <span>Bottom sheet menu</span>
+    </h2>
+</doc-anchor-target>
+<p>El menú emergente, el cual se abre desde el ícono a la derecha del tool bar, permite la navegacion a las rutas &quot;secundarias&quot; de la app:</p>
+<ul>
+<li>Biblioteca (<em>explora la biblioteca</em>)</li>
+<li>Documentos (<em>revisa tus documentos</em>)</li>
+<li>Trámites (<em>conoce los tipos de trámites</em>)</li>
+<li>Descuentos (<em>conoce tus descuentos</em>)</li>
+<li>Lugares (<em>explora el campus</em>)</li>
+</ul>
+<p>Para esto, utiliza las rutas de <code v-pre>onGeneratedRoute</code> en <code v-pre>AppRouter</code> y navega a cada pantalla a través de <code v-pre>Navigator.pushNamed()</code>.</p>
 
                                 
                                 <!-- Required only on API pages -->

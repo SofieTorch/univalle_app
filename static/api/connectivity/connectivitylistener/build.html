@@ -108,6 +108,12 @@ and</li>
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
   return BlocListener&lt;ConnectivityBloc, ConnectivityState&gt;(
+    listenWhen: (previous, current) {
+      final wasLoading = previous == ConnectivityState.loading;
+      final isConnected = current == ConnectivityState.connected;
+
+      return !(wasLoading &amp;&amp; isConnected);
+    },
     listener: (context, state) {
       if (state == ConnectivityState.disconnected) {
         showDialog&lt;void&gt;(
@@ -122,15 +128,13 @@ Widget build(BuildContext context) {
         );
       }
       if (state == ConnectivityState.connected) {
-        if (Navigator.of(context).canPop()) {
-          Navigator.of(context).pop();
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(
-              content: Text(&#39;¡Conexión recuperada!&#39;),
-              duration: Duration(seconds: 2),
-            ),
-          );
-        }
+        Navigator.of(context).pop();
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text(&#39;¡Conexión recuperada!&#39;),
+            duration: Duration(seconds: 2),
+          ),
+        );
       }
     },
     child: child,
