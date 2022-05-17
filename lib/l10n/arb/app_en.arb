@@ -54,5 +54,8 @@
     "signInStudentCodeLabel": "Student code",
     "signInPasswordLabel": "Password",
     "signInWelcomeHeader": "Welcome!",
-    "signInMessageHeader": "Sign in to continue"
+    "signInMessageHeader": "Sign in to continue",
+    "academicTabLabelNotes": "GRADES",
+    "academicTabLabelSchedule": "SCHEDULE",
+    "academicTabLabelSubjects": "SUBJECTS"
 }
