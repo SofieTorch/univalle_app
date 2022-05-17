@@ -8,6 +8,11 @@ import 'package:univalle_app/sign_in/models/models.dart';
 part 'sign_in_event.dart';
 part 'sign_in_state.dart';
 
+/// Manages the sign-in flow, listening to text field changes
+/// and the sign-in submission.
+///
+/// Requires an [AuthenticationRepository] where the sign-in
+/// request will be send to.
 class SignInBloc extends Bloc<SignInEvent, SignInState> {
   SignInBloc({required AuthenticationRepository authRepository})
       : _authenticationRepository = authRepository,
@@ -19,6 +24,8 @@ class SignInBloc extends Bloc<SignInEvent, SignInState> {
 
   final AuthenticationRepository _authenticationRepository;
 
+  /// Receives changes in the text field for student code
+  /// and updates the state with its value.
   void _onStudentCodeChanged(
     SignInStudentCodeChanged event,
     Emitter<SignInState> emit,
@@ -32,6 +39,8 @@ class SignInBloc extends Bloc<SignInEvent, SignInState> {
     );
   }
 
+  /// Receives changes in the text field for password
+  /// and updates the state with its value.
   void _onPasswordChanged(
     SignInPasswordChanged event,
     Emitter<SignInState> emit,
@@ -45,6 +54,11 @@ class SignInBloc extends Bloc<SignInEvent, SignInState> {
     );
   }
 
+  /// Sends a sign-in request with the credentials on the current state.
+  ///
+  /// * If the data is invalid, the submission will not proceed.
+  /// * If there is an exception while submitting the credentials,
+  /// the exception will be inside *state.error*.
   Future<void> _onSubmitted(
     SignInSubmitted event,
     Emitter<SignInState> emit,
