@@ -57,5 +57,7 @@
     "signInMessageHeader": "Inicia sesión para continuar",
     "academicTabLabelNotes": "NOTAS",
     "academicTabLabelSchedule": "HORARIO",
-    "academicTabLabelSubjects": "MATERIAS"
+    "academicTabLabelSubjects": "MATERIAS",
+    "subjectListEmpty": "Oh, no estás inscrito :(\n¡Esperamos verte pronto!",
+    "subjectItemGroupLabel": "Grupo"
 }

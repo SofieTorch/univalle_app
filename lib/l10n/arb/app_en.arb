@@ -57,5 +57,7 @@
     "signInMessageHeader": "Sign in to continue",
     "academicTabLabelNotes": "GRADES",
     "academicTabLabelSchedule": "SCHEDULE",
-    "academicTabLabelSubjects": "SUBJECTS"
+    "academicTabLabelSubjects": "SUBJECTS",
+    "subjectListEmpty": "Oh, you're not signed up :(\nHope to see you soon!",
+    "subjectItemGroupLabel": "Group"
 }

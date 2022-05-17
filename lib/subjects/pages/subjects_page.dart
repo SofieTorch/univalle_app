@@ -4,6 +4,7 @@ import 'package:univalle_app/data/providers/storage_provider.dart';
 import 'package:univalle_app/data/repositories/repositories.dart';
 import 'package:univalle_app/l10n/l10n.dart';
 import 'package:univalle_app/subjects/subjects.dart';
+import 'package:univalle_app/theme/theme.dart';
 
 class SubjectsPage extends StatelessWidget {
   const SubjectsPage({Key? key}) : super(key: key);
@@ -34,14 +35,14 @@ class _SubjectsView extends StatelessWidget {
         }
 
         if (state.status == SubjectListRequestStatus.success) {
-          print(state.courses);
           if (state.courses.isEmpty) {
-            return const Center(child: Text('No courses'));
+            return Center(child: Text(l10n.subjectListEmpty));
           }
 
           return ListView.builder(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
             itemCount: state.courses.length,
-            itemBuilder: (_, index) => Text(state.courses[index].subject),
+            itemBuilder: (_, index) => SubjectListItem(state.courses[index]),
           );
         }
 
