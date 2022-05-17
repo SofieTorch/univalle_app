@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:univalle_app/academic/academic.dart';
 import 'package:univalle_app/data/providers/storage_provider.dart';
 import 'package:univalle_app/data/repositories/repositories.dart';
-import 'package:univalle_app/l10n/l10n.dart';
 import 'package:univalle_app/subjects/subjects.dart';
-import 'package:univalle_app/theme/theme.dart';
 
 class SubjectsPage extends StatelessWidget {
   const SubjectsPage({Key? key}) : super(key: key);
@@ -27,7 +26,6 @@ class _SubjectsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final l10n = context.l10n;
     return BlocBuilder<SubjectListBloc, SubjectListState>(
       builder: (context, state) {
         if (state.status == SubjectListRequestStatus.failure) {
@@ -36,7 +34,7 @@ class _SubjectsView extends StatelessWidget {
 
         if (state.status == SubjectListRequestStatus.success) {
           if (state.courses.isEmpty) {
-            return Center(child: Text(l10n.subjectListEmpty));
+            return const NoEnrolledMessage();
           }
 
           return ListView.builder(

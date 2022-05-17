@@ -58,6 +58,6 @@
     "academicTabLabelNotes": "GRADES",
     "academicTabLabelSchedule": "SCHEDULE",
     "academicTabLabelSubjects": "SUBJECTS",
-    "subjectListEmpty": "Oh, you're not signed up :(\nHope to see you soon!",
+    "noEnrolledMessage": "Oh, you're not enrolled :(\nHope to see you soon!",
     "subjectItemGroupLabel": "Group"
 }

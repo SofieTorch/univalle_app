@@ -58,6 +58,6 @@
     "academicTabLabelNotes": "NOTAS",
     "academicTabLabelSchedule": "HORARIO",
     "academicTabLabelSubjects": "MATERIAS",
-    "subjectListEmpty": "Oh, no estás inscrito :(\n¡Esperamos verte pronto!",
+    "noEnrolledMessage": "Oh, no estás inscrito :(\n¡Esperamos verte pronto!",
     "subjectItemGroupLabel": "Grupo"
 }
