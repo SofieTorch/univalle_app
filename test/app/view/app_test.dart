@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:univalle_app/academic/academic.dart';
 import 'package:univalle_app/app/app.dart';
 import 'package:univalle_app/app/widgets/widgets.dart';
 import 'package:univalle_app/home/home.dart';
@@ -70,9 +71,7 @@ void main() {
           as BottomNavigationBar;
 
       expect(bottomNavbar.currentIndex, 1);
-      // to do: when academic page exists, replace the HomePage
-      // in the line above with AcademicPage
-      expect(find.byType(HomePage), findsOneWidget);
+      expect(find.byType(AcademicPage), findsOneWidget);
     });
 
     testWidgets('renders and navigates to Payments page', (tester) async {
