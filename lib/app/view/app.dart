@@ -10,6 +10,7 @@ import 'package:univalle_app/home/home.dart';
 import 'package:univalle_app/l10n/l10n.dart';
 import 'package:univalle_app/log_in/log_in.dart';
 import 'package:univalle_app/procedures/procedures.dart';
+import 'package:univalle_app/profile/profile.dart';
 import 'package:univalle_app/theme/theme.dart';
 
 part 'root_page.dart';

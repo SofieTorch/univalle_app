@@ -32,7 +32,7 @@ class _RootView extends StatelessWidget {
         builder: (_, state) {
           if (state is NavigationAcademic) return const HomePage();
           if (state is NavigationPayments) return const HomePage();
-          if (state is NavigationProfile) return const HomePage();
+          if (state is NavigationProfile) return const ProfilePage();
           return const HomePage();
         },
       ),
