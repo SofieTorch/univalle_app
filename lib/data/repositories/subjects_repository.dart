@@ -7,9 +7,12 @@ import 'package:univalle_app/models/models.dart';
 class SubjectsRepository {
   SubjectsRepository({
     required StorageProvider storageProvider,
-  }) : _provider = SubjectsProvider(storageProvider: storageProvider);
+    SubjectsProvider? provider,
+  }) {
+    _provider = provider ?? SubjectsProvider(storageProvider: storageProvider);
+  }
 
-  final SubjectsProvider _provider;
+  late SubjectsProvider _provider;
 
   Future<List<Course>> getCurrentCourses() async {
     final response = await _provider.requestCurrentSubjects();

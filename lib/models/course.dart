@@ -26,22 +26,6 @@ class Course extends Equatable {
   final String teacher;
   final String management;
 
-  Course copyWith({
-    int? id,
-    String? subject,
-    String? group,
-    String? teacher,
-    String? management,
-  }) {
-    return Course(
-      id: id ?? this.id,
-      subject: subject ?? this.subject,
-      group: group ?? this.group,
-      teacher: teacher ?? this.teacher,
-      management: management ?? this.management,
-    );
-  }
-
   @override
   List<Object?> get props => [id, subject, group, teacher, management];
 }

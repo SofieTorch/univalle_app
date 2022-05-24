@@ -10,11 +10,12 @@ class SubjectsProvider {
   SubjectsProvider({
     required StorageProvider storageProvider,
     HttpProvider? httpProvider,
-  })  : _httpProvider = httpProvider ?? HttpProvider(Client()),
-        _storageProvider = storageProvider;
+  }) : _storageProvider = storageProvider {
+    _httpProvider = httpProvider ?? _httpProvider;
+  }
 
-  final HttpProvider _httpProvider;
   final StorageProvider _storageProvider;
+  HttpProvider _httpProvider = HttpProvider(Client());
 
   Future<Response> requestCurrentSubjects() async {
     final endpoint = Uri.https(Environment.host, '/subjects');
