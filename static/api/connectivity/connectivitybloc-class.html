@@ -21,8 +21,7 @@
 </head>
 
 
-<body data-base-href="../"
-      data-using-base-href="false">
+<body data-base-href="../" data-using-base-href="false">
 
 <div id="overlay-under-drawer"></div>
 
@@ -57,18 +56,19 @@ Recieves <a href="../connectivity/connectivityevent-class.html">ConnectivityEven
 
 
 
-    <section class="summary offset-anchor" id="constructors">
-      <h2>Constructors</h2>
+    
+  <section class="summary offset-anchor" id="constructors">
+    <h2>Constructors</h2>
 
-      <dl class="constructor-summary-list">
+    <dl class="constructor-summary-list">
         <dt id="ConnectivityBloc" class="callable">
           <span class="name"><a href="../connectivity/connectivitybloc/connectivitybloc.html">ConnectivityBloc</a></span><span class="signature">(<span class="parameter" id="-param-_connectivity"><span class="type-annotation">Connectivity</span> <span class="parameter-name">_connectivity</span></span>)</span>
         </dt>
         <dd>
-           
+          
         </dd>
-      </dl>
-    </section>
+    </dl>
+  </section>
 
     <section class="summary offset-anchor inherited" id="instance-properties">
       <h2>Properties</h2>
@@ -80,7 +80,7 @@ Recieves <a href="../connectivity/connectivityevent-class.html">ConnectivityEven
 
 </dt>
 <dd class="inherited">
-  The hash code for this object. <a href="../connectivity/connectivitybloc/hashcode.html">[...]</a>
+  The hash code for this object.
   <div class="features">read-only, inherited</div>
 
 </dd>
@@ -91,7 +91,7 @@ Recieves <a href="../connectivity/connectivityevent-class.html">ConnectivityEven
 
 </dt>
 <dd class="inherited">
-  Whether the bloc is closed. <a href="../connectivity/connectivitybloc/isclosed.html">[...]</a>
+  Whether the bloc is closed.
   <div class="features">read-only, inherited</div>
 
 </dd>
@@ -102,7 +102,7 @@ Recieves <a href="../connectivity/connectivityevent-class.html">ConnectivityEven
 
 </dt>
 <dd class="inherited">
-  A representation of the runtime type of the object. 
+  A representation of the runtime type of the object.
   <div class="features">read-only, inherited</div>
 
 </dd>
@@ -113,7 +113,7 @@ Recieves <a href="../connectivity/connectivityevent-class.html">ConnectivityEven
 
 </dt>
 <dd class="inherited">
-  The current <a href="../connectivity/connectivitybloc/state.html">state</a>. 
+  The current <a href="../connectivity/connectivitybloc/state.html">state</a>.
   <div class="features">read-only, inherited</div>
 
 </dd>
@@ -124,7 +124,7 @@ Recieves <a href="../connectivity/connectivityevent-class.html">ConnectivityEven
 
 </dt>
 <dd class="inherited">
-  The current <a href="../connectivity/connectivitybloc/stream.html">stream</a> of states. 
+  The current <a href="../connectivity/connectivitybloc/stream.html">stream</a> of states.
   <div class="features">read-only, inherited</div>
 
 </dd>
@@ -132,9 +132,12 @@ Recieves <a href="../connectivity/connectivityevent-class.html">ConnectivityEven
       </dl>
     </section>
 
-    <section class="summary offset-anchor" id="instance-methods">
-      <h2>Methods</h2>
-      <dl class="callables">
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-methods">
+    <h2>Methods</h2>
+    <dl class="callables">
         <dt id="add" class="callable inherited">
   <span class="name"><a href="../connectivity/connectivitybloc/add.html">add</a></span><span class="signature">(<wbr><span class="parameter" id="add-param-event"><span class="type-annotation"><a href="../connectivity/connectivityevent-class.html">ConnectivityEvent</a></span> <span class="parameter-name">event</span></span>)
     <span class="returntype parameter">&#8594; void</span>
@@ -144,7 +147,7 @@ Recieves <a href="../connectivity/connectivityevent-class.html">ConnectivityEven
 </dt>
 <dd class="inherited">
   Notifies the <code>Bloc</code> of a new <code>event</code> which triggers
-all corresponding <code>EventHandler</code> instances. <a href="../connectivity/connectivitybloc/add.html">[...]</a>
+all corresponding <code>EventHandler</code> instances.
   <div class="features">inherited</div>
 
 </dd>
@@ -157,7 +160,7 @@ all corresponding <code>EventHandler</code> instances. <a href="../connectivity/
 
 </dt>
 <dd class="inherited">
-  Reports an <code>error</code> which triggers <a href="../connectivity/connectivitybloc/onerror.html">onError</a> with an optional <code>StackTrace</code>. 
+  Reports an <code>error</code> which triggers <a href="../connectivity/connectivitybloc/onerror.html">onError</a> with an optional <code>StackTrace</code>.
   <div class="features">@mustCallSuper, @protected, inherited</div>
 
 </dd>
@@ -175,7 +178,7 @@ This method should be called when a <code>Bloc</code> is no longer needed.
 Once <a href="../connectivity/connectivitybloc/close.html">close</a> is called, <code>events</code> that are <a href="../connectivity/connectivitybloc/add.html">add</a>ed will not be
 processed.
 In addition, if <a href="../connectivity/connectivitybloc/close.html">close</a> is called while <code>events</code> are still being
-processed, the <code>Bloc</code> will finish processing the pending <code>events</code>. 
+processed, the <code>Bloc</code> will finish processing the pending <code>events</code>.
   
 
 </dd>
@@ -190,7 +193,7 @@ processed, the <code>Bloc</code> will finish processing the pending <code>events
 <dd class="inherited">
   <strong><a href="../connectivity/connectivitybloc/emit.html">emit</a> is only for internal use and should never be called directly
 outside of tests. The <code>Emitter</code> instance provided to each <code>EventHandler</code>
-should be used instead.</strong> <a href="../connectivity/connectivitybloc/emit.html">[...]</a>
+should be used instead.</strong>
   <div class="features">@visibleForTesting, inherited</div>
 
 </dd>
@@ -203,7 +206,7 @@ should be used instead.</strong> <a href="../connectivity/connectivitybloc/emit.
 
 </dt>
 <dd class="inherited">
-  Invoked when a non-existent method or property is accessed. <a href="../connectivity/connectivitybloc/nosuchmethod.html">[...]</a>
+  Invoked when a non-existent method or property is accessed.
   <div class="features">inherited</div>
 
 </dd>
@@ -217,7 +220,7 @@ should be used instead.</strong> <a href="../connectivity/connectivitybloc/emit.
 </dt>
 <dd class="inherited">
   Register event handler for an event of type <code>E</code>.
-There should only ever be one event handler per event type <code>E</code>. <a href="../connectivity/connectivitybloc/on.html">[...]</a>
+There should only ever be one event handler per event type <code>E</code>.
   <div class="features">inherited</div>
 
 </dd>
@@ -233,7 +236,7 @@ There should only ever be one event handler per event type <code>E</code>. <a hr
   Called whenever a <code>change</code> occurs with the given <code>change</code>.
 A <code>change</code> occurs when a new <code>state</code> is emitted.
 <a href="../connectivity/connectivitybloc/onchange.html">onChange</a> is called before the <code>state</code> of the <code>cubit</code> is updated.
-<a href="../connectivity/connectivitybloc/onchange.html">onChange</a> is a great spot to add logging/analytics for a specific <code>cubit</code>. <a href="../connectivity/connectivitybloc/onchange.html">[...]</a>
+<a href="../connectivity/connectivitybloc/onchange.html">onChange</a> is a great spot to add logging/analytics for a specific <code>cubit</code>.
   <div class="features">@mustCallSuper, @protected, inherited</div>
 
 </dd>
@@ -246,7 +249,7 @@ A <code>change</code> occurs when a new <code>state</code> is emitted.
 
 </dt>
 <dd class="inherited">
-  Called whenever an <code>error</code> occurs and notifies <code>BlocObserver.onError</code>. <a href="../connectivity/connectivitybloc/onerror.html">[...]</a>
+  Called whenever an <code>error</code> occurs and notifies <code>BlocObserver.onError</code>.
   <div class="features">@mustCallSuper, @protected, inherited</div>
 
 </dd>
@@ -260,7 +263,7 @@ A <code>change</code> occurs when a new <code>state</code> is emitted.
 </dt>
 <dd class="inherited">
   Called whenever an <code>event</code> is <a href="../connectivity/connectivitybloc/add.html">add</a>ed to the <code>Bloc</code>.
-A great spot to add logging/analytics at the individual <code>Bloc</code> level. <a href="../connectivity/connectivitybloc/onevent.html">[...]</a>
+A great spot to add logging/analytics at the individual <code>Bloc</code> level.
   <div class="features">@mustCallSuper, @protected, inherited</div>
 
 </dd>
@@ -278,7 +281,7 @@ A <code>transition</code> occurs when a new <code>event</code> is added
 and a new state is <code>emitted</code> from a corresponding <code>EventHandler</code>.
 executed.
 <a href="../connectivity/connectivitybloc/ontransition.html">onTransition</a> is called before a <code>Bloc</code>'s <a href="../connectivity/connectivitybloc/state.html">state</a> has been updated.
-A great spot to add logging/analytics at the individual <code>Bloc</code> level. <a href="../connectivity/connectivitybloc/ontransition.html">[...]</a>
+A great spot to add logging/analytics at the individual <code>Bloc</code> level.
   <div class="features">@mustCallSuper, @protected, inherited</div>
 
 </dd>
@@ -291,17 +294,19 @@ A great spot to add logging/analytics at the individual <code>Bloc</code> level.
 
 </dt>
 <dd class="inherited">
-  A string representation of this object. <a href="../connectivity/connectivitybloc/tostring.html">[...]</a>
+  A string representation of this object.
   <div class="features">inherited</div>
 
 </dd>
 
-      </dl>
-    </section>
-
-    <section class="summary offset-anchor inherited" id="operators">
-      <h2>Operators</h2>
-      <dl class="callables">
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor inherited"
+      id="operators">
+    <h2>Operators</h2>
+    <dl class="callables">
         <dt id="operator ==" class="callable inherited">
   <span class="name"><a href="../connectivity/connectivitybloc/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation">Object</span> <span class="parameter-name">other</span></span>)
     <span class="returntype parameter">&#8594; bool</span>
@@ -310,15 +315,16 @@ A great spot to add logging/analytics at the individual <code>Bloc</code> level.
 
 </dt>
 <dd class="inherited">
-  The equality operator. <a href="../connectivity/connectivitybloc/operator_equals.html">[...]</a>
+  The equality operator.
   <div class="features">inherited</div>
 
 </dd>
 
-      </dl>
-    </section>
-
-
+    </dl>
+  </section>
+    
+    
+    
 
 
   </div> <!-- /.main-content -->
@@ -364,8 +370,8 @@ A great spot to add logging/analytics at the individual <code>Bloc</code> level.
   <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
     <ol>
 
-    <li class="section-title"><a href="../connectivity/connectivitybloc-class.html#constructors">Constructors</a></li>
-    <li><a href="../connectivity/connectivitybloc/connectivitybloc.html">ConnectivityBloc</a></li>
+        <li class="section-title"><a href="../connectivity/connectivitybloc-class.html#constructors">Constructors</a></li>
+          <li><a href="../connectivity/connectivitybloc/connectivitybloc.html">ConnectivityBloc</a></li>
 
 
     <li class="section-title inherited">
@@ -414,7 +420,7 @@ A great spot to add logging/analytics at the individual <code>Bloc</code> level.
 
 
 <script src="../static-assets/highlight.pack.js?v1"></script>
-<script src="../static-assets/script.js?v1"></script>
+<script src="../static-assets/docs.dart.js"></script>
 
 
 

@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the SubjectListBloc class from the subjects library, for the Dart programming language.">
+  <title>SubjectListBloc class - subjects library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../static-assets/styles.css?v1">
+  <link rel="icon" href="../static-assets/favicon.png?v1">
+
+  
+</head>
+
+
+<body data-base-href="../" data-using-base-href="false">
+
+<div id="overlay-under-drawer"></div>
+
+<header id="title">
+  <button id="sidenav-left-toggle" type="button">&nbsp;</button>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../index.html">univalle_app</a></li>
+    <li><a href="../subjects/subjects-library.html">subjects</a></li>
+    <li class="self-crumb">SubjectListBloc class</li>
+  </ol>
+  <div class="self-name">SubjectListBloc</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<main>
+
+
+  <div id="dartdoc-main-content" class="main-content">
+      <div>
+<h1><span class="kind-class">SubjectListBloc</span> class 
+    <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
+ 
+</h1></div>
+
+    
+<section class="desc markdown">
+  <p>Manages the subjects list, making the request and
+verifying its status.</p>
+<p>Uses <a href="../repositories/subjectsrepository-class.html">SubjectsRepository</a> to make the request.</p>
+</section>
+
+
+
+    
+  <section class="summary offset-anchor" id="constructors">
+    <h2>Constructors</h2>
+
+    <dl class="constructor-summary-list">
+        <dt id="SubjectListBloc" class="callable">
+          <span class="name"><a href="../subjects/subjectlistbloc/subjectlistbloc.html">SubjectListBloc</a></span><span class="signature">(<span class="parameter" id="-param-subjectsRepository">{<span>required</span> <span class="type-annotation"><a href="../repositories/subjectsrepository-class.html">SubjectsRepository</a></span> <span class="parameter-name">subjectsRepository</span>}</span>)</span>
+        </dt>
+        <dd>
+          
+        </dd>
+    </dl>
+  </section>
+
+    <section class="summary offset-anchor inherited" id="instance-properties">
+      <h2>Properties</h2>
+
+      <dl class="properties">
+        <dt id="hashCode" class="property inherited">
+  <span class="name"><a href="../subjects/subjectlistbloc/hashcode.html">hashCode</a></span>
+  <span class="signature">&#8594; int</span> 
+
+</dt>
+<dd class="inherited">
+  The hash code for this object.
+  <div class="features">read-only, inherited</div>
+
+</dd>
+
+        <dt id="isClosed" class="property inherited">
+  <span class="name"><a href="../subjects/subjectlistbloc/isclosed.html">isClosed</a></span>
+  <span class="signature">&#8594; bool</span> 
+
+</dt>
+<dd class="inherited">
+  Whether the bloc is closed.
+  <div class="features">read-only, inherited</div>
+
+</dd>
+
+        <dt id="runtimeType" class="property inherited">
+  <span class="name"><a href="../subjects/subjectlistbloc/runtimetype.html">runtimeType</a></span>
+  <span class="signature">&#8594; Type</span> 
+
+</dt>
+<dd class="inherited">
+  A representation of the runtime type of the object.
+  <div class="features">read-only, inherited</div>
+
+</dd>
+
+        <dt id="state" class="property inherited">
+  <span class="name"><a href="../subjects/subjectlistbloc/state.html">state</a></span>
+  <span class="signature">&#8594; <a href="../subjects/subjectliststate-class.html">SubjectListState</a></span> 
+
+</dt>
+<dd class="inherited">
+  The current <a href="../subjects/subjectlistbloc/state.html">state</a>.
+  <div class="features">read-only, inherited</div>
+
+</dd>
+
+        <dt id="stream" class="property inherited">
+  <span class="name"><a href="../subjects/subjectlistbloc/stream.html">stream</a></span>
+  <span class="signature">&#8594; Stream<span class="signature">&lt;<wbr><span class="type-parameter"><a href="../subjects/subjectliststate-class.html">SubjectListState</a></span>&gt;</span></span> 
+
+</dt>
+<dd class="inherited">
+  The current <a href="../subjects/subjectlistbloc/stream.html">stream</a> of states.
+  <div class="features">read-only, inherited</div>
+
+</dd>
+
+      </dl>
+    </section>
+
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-methods">
+    <h2>Methods</h2>
+    <dl class="callables">
+        <dt id="add" class="callable inherited">
+  <span class="name"><a href="../subjects/subjectlistbloc/add.html">add</a></span><span class="signature">(<wbr><span class="parameter" id="add-param-event"><span class="type-annotation"><a href="../subjects/subjectlistevent-class.html">SubjectListEvent</a></span> <span class="parameter-name">event</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Notifies the <code>Bloc</code> of a new <code>event</code> which triggers
+all corresponding <code>EventHandler</code> instances.
+  <div class="features">inherited</div>
+
+</dd>
+
+        <dt id="addError" class="callable inherited">
+  <span class="name"><a href="../subjects/subjectlistbloc/adderror.html">addError</a></span><span class="signature">(<wbr><span class="parameter" id="addError-param-error"><span class="type-annotation">Object</span> <span class="parameter-name">error</span>, </span><span class="parameter" id="addError-param-stackTrace">[<span class="type-annotation">StackTrace?</span> <span class="parameter-name">stackTrace</span>]</span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Reports an <code>error</code> which triggers <a href="../subjects/subjectlistbloc/onerror.html">onError</a> with an optional <code>StackTrace</code>.
+  <div class="features">@mustCallSuper, @protected, inherited</div>
+
+</dd>
+
+        <dt id="close" class="callable inherited">
+  <span class="name"><a href="../subjects/subjectlistbloc/close.html">close</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Closes the <code>event</code> and <code>state</code> <code>Streams</code>.
+This method should be called when a <code>Bloc</code> is no longer needed.
+Once <a href="../subjects/subjectlistbloc/close.html">close</a> is called, <code>events</code> that are <a href="../subjects/subjectlistbloc/add.html">add</a>ed will not be
+processed.
+In addition, if <a href="../subjects/subjectlistbloc/close.html">close</a> is called while <code>events</code> are still being
+processed, the <code>Bloc</code> will finish processing the pending <code>events</code>.
+  <div class="features">@mustCallSuper, inherited</div>
+
+</dd>
+
+        <dt id="emit" class="callable inherited">
+  <span class="name"><a href="../subjects/subjectlistbloc/emit.html">emit</a></span><span class="signature">(<wbr><span class="parameter" id="emit-param-state"><span class="type-annotation"><a href="../subjects/subjectliststate-class.html">SubjectListState</a></span> <span class="parameter-name">state</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  <strong><a href="../subjects/subjectlistbloc/emit.html">emit</a> is only for internal use and should never be called directly
+outside of tests. The <code>Emitter</code> instance provided to each <code>EventHandler</code>
+should be used instead.</strong>
+  <div class="features">@visibleForTesting, inherited</div>
+
+</dd>
+
+        <dt id="noSuchMethod" class="callable inherited">
+  <span class="name"><a href="../subjects/subjectlistbloc/nosuchmethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation">Invocation</span> <span class="parameter-name">invocation</span></span>)
+    <span class="returntype parameter">&#8594; dynamic</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Invoked when a non-existent method or property is accessed.
+  <div class="features">inherited</div>
+
+</dd>
+
+        <dt id="on" class="callable inherited">
+  <span class="name"><a href="../subjects/subjectlistbloc/on.html">on</a></span><span class="signature">&lt;<wbr><span class="type-parameter">E extends Event</span>&gt;</span><span class="signature">(<wbr><span class="parameter" id="on-param-handler"><span class="type-annotation">EventHandler<span class="signature">&lt;<wbr><span class="type-parameter">E</span>, <span class="type-parameter"><a href="../subjects/subjectliststate-class.html">SubjectListState</a></span>&gt;</span></span> <span class="parameter-name">handler</span>, </span><span class="parameter" id="on-param-transformer">{<span class="type-annotation">EventTransformer<span class="signature">&lt;<wbr><span class="type-parameter">E</span>&gt;</span>?</span> <span class="parameter-name">transformer</span>}</span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Register event handler for an event of type <code>E</code>.
+There should only ever be one event handler per event type <code>E</code>.
+  <div class="features">inherited</div>
+
+</dd>
+
+        <dt id="onChange" class="callable inherited">
+  <span class="name"><a href="../subjects/subjectlistbloc/onchange.html">onChange</a></span><span class="signature">(<wbr><span class="parameter" id="onChange-param-change"><span class="type-annotation">Change<span class="signature">&lt;<wbr><span class="type-parameter"><a href="../subjects/subjectliststate-class.html">SubjectListState</a></span>&gt;</span></span> <span class="parameter-name">change</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Called whenever a <code>change</code> occurs with the given <code>change</code>.
+A <code>change</code> occurs when a new <code>state</code> is emitted.
+<a href="../subjects/subjectlistbloc/onchange.html">onChange</a> is called before the <code>state</code> of the <code>cubit</code> is updated.
+<a href="../subjects/subjectlistbloc/onchange.html">onChange</a> is a great spot to add logging/analytics for a specific <code>cubit</code>.
+  <div class="features">@mustCallSuper, @protected, inherited</div>
+
+</dd>
+
+        <dt id="onError" class="callable inherited">
+  <span class="name"><a href="../subjects/subjectlistbloc/onerror.html">onError</a></span><span class="signature">(<wbr><span class="parameter" id="onError-param-error"><span class="type-annotation">Object</span> <span class="parameter-name">error</span>, </span><span class="parameter" id="onError-param-stackTrace"><span class="type-annotation">StackTrace</span> <span class="parameter-name">stackTrace</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Called whenever an <code>error</code> occurs and notifies <code>BlocObserver.onError</code>.
+  <div class="features">@mustCallSuper, @protected, inherited</div>
+
+</dd>
+
+        <dt id="onEvent" class="callable inherited">
+  <span class="name"><a href="../subjects/subjectlistbloc/onevent.html">onEvent</a></span><span class="signature">(<wbr><span class="parameter" id="onEvent-param-event"><span class="type-annotation"><a href="../subjects/subjectlistevent-class.html">SubjectListEvent</a></span> <span class="parameter-name">event</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Called whenever an <code>event</code> is <a href="../subjects/subjectlistbloc/add.html">add</a>ed to the <code>Bloc</code>.
+A great spot to add logging/analytics at the individual <code>Bloc</code> level.
+  <div class="features">@mustCallSuper, @protected, inherited</div>
+
+</dd>
+
+        <dt id="onTransition" class="callable inherited">
+  <span class="name"><a href="../subjects/subjectlistbloc/ontransition.html">onTransition</a></span><span class="signature">(<wbr><span class="parameter" id="onTransition-param-transition"><span class="type-annotation">Transition<span class="signature">&lt;<wbr><span class="type-parameter"><a href="../subjects/subjectlistevent-class.html">SubjectListEvent</a></span>, <span class="type-parameter"><a href="../subjects/subjectliststate-class.html">SubjectListState</a></span>&gt;</span></span> <span class="parameter-name">transition</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Called whenever a <code>transition</code> occurs with the given <code>transition</code>.
+A <code>transition</code> occurs when a new <code>event</code> is added
+and a new state is <code>emitted</code> from a corresponding <code>EventHandler</code>.
+executed.
+<a href="../subjects/subjectlistbloc/ontransition.html">onTransition</a> is called before a <code>Bloc</code>'s <a href="../subjects/subjectlistbloc/state.html">state</a> has been updated.
+A great spot to add logging/analytics at the individual <code>Bloc</code> level.
+  <div class="features">@mustCallSuper, @protected, inherited</div>
+
+</dd>
+
+        <dt id="toString" class="callable inherited">
+  <span class="name"><a href="../subjects/subjectlistbloc/tostring.html">toString</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; String</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  A string representation of this object.
+  <div class="features">inherited</div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor inherited"
+      id="operators">
+    <h2>Operators</h2>
+    <dl class="callables">
+        <dt id="operator ==" class="callable inherited">
+  <span class="name"><a href="../subjects/subjectlistbloc/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation">Object</span> <span class="parameter-name">other</span></span>)
+    <span class="returntype parameter">&#8594; bool</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  The equality operator.
+  <div class="features">inherited</div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+    
+    
+
+
+  </div> <!-- /.main-content -->
+
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+  <li><a href="../index.html">univalle_app</a></li>
+  <li><a href="../subjects/subjects-library.html">subjects</a></li>
+  <li class="self-crumb">SubjectListBloc class</li>
+</ol>
+
+
+    <h5>subjects library</h5>
+    <ol>
+  <li class="section-title"><a href="../subjects/subjects-library.html#classes">Classes</a></li>
+  <li><a href="../subjects/subjectlistbloc-class.html">SubjectListBloc</a></li>
+  <li><a href="../subjects/subjectlistevent-class.html">SubjectListEvent</a></li>
+  <li><a href="../subjects/subjectlistitem-class.html">SubjectListItem</a></li>
+  <li><a href="../subjects/subjectlistrequested-class.html">SubjectListRequested</a></li>
+  <li><a href="../subjects/subjectliststate-class.html">SubjectListState</a></li>
+  <li><a href="../subjects/subjectspage-class.html">SubjectsPage</a></li>
+  <li><a href="../subjects/subjectsview-class.html">SubjectsView</a></li>
+
+
+
+
+
+
+  <li class="section-title"><a href="../subjects/subjects-library.html#enums">Enums</a></li>
+  <li><a href="../subjects/subjectlistrequeststatus.html">SubjectListRequestStatus</a></li>
+
+
+</ol>
+
+  </div>
+
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+    <ol>
+
+        <li class="section-title"><a href="../subjects/subjectlistbloc-class.html#constructors">Constructors</a></li>
+          <li><a href="../subjects/subjectlistbloc/subjectlistbloc.html">SubjectListBloc</a></li>
+
+
+    <li class="section-title inherited">
+      <a href="../subjects/subjectlistbloc-class.html#instance-properties">Properties</a>
+    </li>
+    <li class="inherited"><a href="../subjects/subjectlistbloc/hashcode.html">hashCode</a></li>
+    <li class="inherited"><a href="../subjects/subjectlistbloc/isclosed.html">isClosed</a></li>
+    <li class="inherited"><a href="../subjects/subjectlistbloc/runtimetype.html">runtimeType</a></li>
+    <li class="inherited"><a href="../subjects/subjectlistbloc/state.html">state</a></li>
+    <li class="inherited"><a href="../subjects/subjectlistbloc/stream.html">stream</a></li>
+
+    <li class="section-title"><a href="../subjects/subjectlistbloc-class.html#instance-methods">Methods</a></li>
+    <li class="inherited"><a href="../subjects/subjectlistbloc/add.html">add</a></li>
+    <li class="inherited"><a href="../subjects/subjectlistbloc/adderror.html">addError</a></li>
+    <li class="inherited"><a href="../subjects/subjectlistbloc/close.html">close</a></li>
+    <li class="inherited"><a href="../subjects/subjectlistbloc/emit.html">emit</a></li>
+    <li class="inherited"><a href="../subjects/subjectlistbloc/nosuchmethod.html">noSuchMethod</a></li>
+    <li class="inherited"><a href="../subjects/subjectlistbloc/on.html">on</a></li>
+    <li class="inherited"><a href="../subjects/subjectlistbloc/onchange.html">onChange</a></li>
+    <li class="inherited"><a href="../subjects/subjectlistbloc/onerror.html">onError</a></li>
+    <li class="inherited"><a href="../subjects/subjectlistbloc/onevent.html">onEvent</a></li>
+    <li class="inherited"><a href="../subjects/subjectlistbloc/ontransition.html">onTransition</a></li>
+    <li class="inherited"><a href="../subjects/subjectlistbloc/tostring.html">toString</a></li>
+
+    <li class="section-title inherited"><a href="../subjects/subjectlistbloc-class.html#operators">Operators</a></li>
+    <li class="inherited"><a href="../subjects/subjectlistbloc/operator_equals.html">operator ==</a></li>
+
+
+
+
+</ol>
+
+  </div><!--/.sidebar-offcanvas-->
+
+</main>
+
+<footer>
+  <span class="no-break">
+    univalle_app
+      1.0.0+1
+  </span>
+
+  
+</footer>
+
+
+
+<script src="../static-assets/highlight.pack.js?v1"></script>
+<script src="../static-assets/docs.dart.js"></script>
+
+
+
+</body>
+
+</html>
+
