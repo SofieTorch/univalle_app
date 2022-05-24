@@ -6,6 +6,10 @@ import 'package:univalle_app/models/models.dart';
 part 'subject_list_event.dart';
 part 'subject_list_state.dart';
 
+/// Manages the subjects list, making the request and
+/// verifying its status.
+///
+/// Uses [SubjectsRepository] to make the request.
 class SubjectListBloc extends Bloc<SubjectListEvent, SubjectListState> {
   SubjectListBloc({required SubjectsRepository subjectsRepository})
       : _repository = subjectsRepository,
@@ -15,6 +19,8 @@ class SubjectListBloc extends Bloc<SubjectListEvent, SubjectListState> {
 
   final SubjectsRepository _repository;
 
+  /// Sends a http request to retrieve current
+  /// student courses/subjects.
   Future<void> _onSubjectListRequested(
     SubjectListRequested event,
     Emitter<SubjectListState> emit,

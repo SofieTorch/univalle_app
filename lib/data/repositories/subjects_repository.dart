@@ -4,6 +4,7 @@ import 'package:univalle_app/data/providers/storage_provider.dart';
 import 'package:univalle_app/data/providers/subjects_provider.dart';
 import 'package:univalle_app/models/models.dart';
 
+/// Manages all the requests related to subjects/courses.
 class SubjectsRepository {
   SubjectsRepository({
     required StorageProvider storageProvider,
@@ -14,6 +15,7 @@ class SubjectsRepository {
 
   late SubjectsProvider _provider;
 
+  /// Retrieves courses where the student is currently enrolled in.
   Future<List<Course>> getCurrentCourses() async {
     final response = await _provider.requestCurrentSubjects();
     if (response.statusCode != 200) {

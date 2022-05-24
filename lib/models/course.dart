@@ -9,6 +9,7 @@ class Course extends Equatable {
     this.management = '',
   });
 
+  /// Creates a Course instance from a json object.
   factory Course.fromJson(dynamic json) {
     final parsedJson = json as Map<String, dynamic>;
     return Course(
