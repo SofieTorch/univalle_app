@@ -38,10 +38,12 @@ class HttpProvider {
       encoding: encoding,
     );
   }
+
   Future<http.Response> get(
     Uri url, {
     Map<String, String>? headers,
   }) async {
+
     return client.get(
       url,
       headers: headers,

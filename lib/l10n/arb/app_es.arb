@@ -54,5 +54,10 @@
     "signInStudentCodeLabel": "Código de estudiante",
     "signInPasswordLabel": "Contraseña",
     "signInWelcomeHeader": "¡Bienvenido!",
-    "signInMessageHeader": "Inicia sesión para continuar"
+    "signInMessageHeader": "Inicia sesión para continuar",
+    "academicTabLabelNotes": "NOTAS",
+    "academicTabLabelSchedule": "HORARIO",
+    "academicTabLabelSubjects": "MATERIAS",
+    "noEnrolledMessage": "Oh, no estás inscrito :(\n¡Esperamos verte pronto!",
+    "subjectItemGroupLabel": "Grupo"
 }

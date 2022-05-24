@@ -1,9 +1,11 @@
 part of 'procedures_bloc.dart';
+
 enum ProcedureListRequestStatus { initial, loading, success, failure }
+
 class ProceduresState extends Equatable {
   const ProceduresState({
     this.status = ProcedureListRequestStatus.initial,
-    this.procedures = const<Procedure>[],
+    this.procedures = const <Procedure>[],
     this.errorMessage,
   });
 
@@ -13,7 +15,7 @@ class ProceduresState extends Equatable {
 
   ProceduresState copyWith({
     ProcedureListRequestStatus? status,
-    List<Procedure>? courses,
+    List<Procedure>? procedures,
     String? errorMessage,
   }) {
     return ProceduresState(
@@ -24,5 +26,5 @@ class ProceduresState extends Equatable {
   }
 
   @override
-  List<Object> get props => [];
+  List<Object> get props => [status, procedures];
 }
