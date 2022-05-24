@@ -54,5 +54,10 @@
     "signInStudentCodeLabel": "Student code",
     "signInPasswordLabel": "Password",
     "signInWelcomeHeader": "Welcome!",
-    "signInMessageHeader": "Sign in to continue"
+    "signInMessageHeader": "Sign in to continue",
+    "academicTabLabelNotes": "GRADES",
+    "academicTabLabelSchedule": "SCHEDULE",
+    "academicTabLabelSubjects": "SUBJECTS",
+    "noEnrolledMessage": "Oh, you're not enrolled :(\nHope to see you soon!",
+    "subjectItemGroupLabel": "Group"
 }

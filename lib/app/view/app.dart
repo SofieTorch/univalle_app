@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:univalle_app/academic/academic.dart';
 import 'package:univalle_app/app/navigation/navigation.dart';
 import 'package:univalle_app/app/widgets/widgets.dart';
 import 'package:univalle_app/authentication/authentication.dart';
@@ -37,8 +38,15 @@ class App extends StatelessWidget {
           _authRepository =
               AuthenticationRepository(storageProvider: _storageProvider);
 
-          return RepositoryProvider.value(
-            value: _authRepository,
+          return MultiRepositoryProvider(
+            providers: [
+              RepositoryProvider.value(
+                value: _authRepository,
+              ),
+              RepositoryProvider.value(
+                value: _storageProvider,
+              ),
+            ],
             child: BlocProvider<AuthenticationBloc>(
               create: (_) => AuthenticationBloc(
                 authRepository: _authRepository,

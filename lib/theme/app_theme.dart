@@ -145,6 +145,10 @@ class AppTheme {
         iconColor: AppColors.matterhorn,
         horizontalTitleGap: 8,
       ),
+
+      tabBarTheme: const TabBarTheme(
+        labelColor: AppColors.shiraz,
+      ),
     );
   }
 }
