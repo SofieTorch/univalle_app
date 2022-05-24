@@ -1,13 +1,6 @@
-
 import 'package:equatable/equatable.dart';
 
-class Procedure extends Equatable{
-  String name;
-  int estimatedDays;
-  double price;
-  bool requiresInvoice;
-  List<String> requirements;
-  
+class Procedure extends Equatable {
   Procedure({
     this.name = '',
     this.estimatedDays = 1,
@@ -16,16 +9,24 @@ class Procedure extends Equatable{
     this.requirements = const <String>[],
   });
 
-  Procedure.fromJson(Map<String, dynamic> json) :
-      name = json['name'] as String,
-      estimatedDays = json['estimatedDays'] as int,
-      price = json['price'] as double,
-      requiresInvoice = json['requiresInvoice'] as bool,
-      requirements = json['requirements'] as List<String>;
-  
+  factory Procedure.fromJson(dynamic json) {
+    final parsedJson = json as Map<String, dynamic>;
+    return Procedure(
+      name: parsedJson['name'] as String,
+      estimatedDays: parsedJson['estimatedDays'] as int,
+      price: parsedJson['price'] as double,
+      requiresInvoice: parsedJson['needsInvoice'] as bool,
+      requirements: parsedJson['requirements'] as List<String>,
+    );
+  }
+
+  String name;
+  int estimatedDays;
+  double price;
+  bool requiresInvoice;
+  List<String> requirements;
+
 
   @override
-  // TODO: implement props
-  List<Object?> get props => throw UnimplementedError();
-  
+  List<Object?> get props => [name, estimatedDays, price, requiresInvoice, requirements];
 }
