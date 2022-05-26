@@ -30,7 +30,7 @@ class _RootView extends StatelessWidget {
       bottomNavigationBar: const AppBottomNavigationBar(),
       body: BlocBuilder<NavigationCubit, NavigationState>(
         builder: (_, state) {
-          if (state is NavigationAcademic) return const HomePage();
+          if (state is NavigationAcademic) return const AcademicPage();
           if (state is NavigationPayments) return const HomePage();
           if (state is NavigationProfile) return const ProfilePage();
           return const HomePage();

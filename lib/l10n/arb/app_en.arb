@@ -43,5 +43,21 @@
     "pageTitleProcedures": "Procedure types",
     "@pageTitleProcedures": {
         "description": "Title for procedure types page"
-    }
+    },
+    "studentCodeInputEmptyError": "Don't leave the student code empty",
+    "passwordInputEmptyError": "Don't leave the password empty",
+    "authUserBlockedFailure": "This user has been locked, contact support for help.",
+    "authUserDoesNotExistFailure": "This user does not exist, contact support if it is an error.",
+    "authIncorrectPasswordFailure": "Password entered is incorrect.",
+    "authUnexpectedFailure": "An unexpected error has ocurred, please try again.",
+    "signInButtonText": "SIGN IN",
+    "signInStudentCodeLabel": "Student code",
+    "signInPasswordLabel": "Password",
+    "signInWelcomeHeader": "Welcome!",
+    "signInMessageHeader": "Sign in to continue",
+    "academicTabLabelNotes": "GRADES",
+    "academicTabLabelSchedule": "SCHEDULE",
+    "academicTabLabelSubjects": "SUBJECTS",
+    "noEnrolledMessage": "Oh, you're not enrolled :(\nHope to see you soon!",
+    "subjectItemGroupLabel": "Group"
 }
