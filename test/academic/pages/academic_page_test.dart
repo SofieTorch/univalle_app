@@ -7,6 +7,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:univalle_app/academic/academic.dart';
 import 'package:univalle_app/data/providers/storage_provider.dart';
 import 'package:univalle_app/l10n/l10n.dart';
+import 'package:univalle_app/schedule/pages/schedule_page.dart';
 import 'package:univalle_app/subjects/pages/subjects_page.dart';
 
 class MockSharedPreferences extends Mock implements SharedPreferences {}
@@ -36,7 +37,7 @@ void main() {
         await tester.pumpAndSettle();
 
         expect(find.text('This is the GRADES tab'), findsNothing);
-        expect(find.text('This is the SCHEDULE tab'), findsOneWidget);
+        expect(find.byType(SchedulePage), findsOneWidget);
         expect(find.byType(SubjectsPage), findsNothing);
       },
     );
