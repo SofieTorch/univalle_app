@@ -48,7 +48,7 @@ class _ProceduresView extends StatelessWidget {
                   itemCount: state.procedures.length,
                   shrinkWrap: true,
                   itemBuilder: (_, index) =>
-                      ProceduteCardv2(state.procedures[index]),
+                      ProcedureCard(state.procedures[index]),
                 );
               }
               return const CircularProgressIndicator();

@@ -1,36 +1,45 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
-import 'package:univalle_app/l10n/l10n.dart';
 import 'package:univalle_app/models/procedure.dart';
-import 'package:univalle_app/procedures/pages/procedures_page.dart';
+import 'package:univalle_app/procedures/widgets/cubit/procedure_item_cubit.dart';
 import 'package:univalle_app/theme/app_colors.dart';
 
-class ProceduteCardv2 extends StatefulWidget {
+class ProcedureCard extends StatelessWidget {
+  const ProcedureCard(this.procedure, {Key? key}) : super(key: key);
+
   final Procedure procedure;
-  const ProceduteCardv2(this.procedure, {Key? key}) : super(key: key);
 
-  @override
-  State<ProceduteCardv2> createState() => _ProceduteCardv2State();
-}
-
-class _ProceduteCardv2State extends State<ProceduteCardv2> {
-  IconData iconData = MdiIcons.chevronDown;
-  IconData iconData2 = MdiIcons.chevronUp;
   @override
   Widget build(BuildContext context) {
     //IconData iconDataAux = iconData;
+    return BlocProvider(
+      create: (_) => ProcedureItemCubit(procedure),
+      child: const ProcedureCardView(),
+    );
+  }
+}
+
+class ProcedureCardView extends StatelessWidget {
+  const ProcedureCardView({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final procedure = context.read<ProcedureItemCubit>().state.procedure;
+    final showRequirements = context.select<ProcedureItemCubit, bool>(
+        (value) => value.state.showRequirements);
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 16),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            widget.procedure.name,
+            procedure.name,
             style: Theme.of(context).textTheme.headline3,
           ),
           const SizedBox(height: 4),
           Text(
-            '${widget.procedure.estimatedDays} dias estimados',
+            '${procedure.estimatedDays} dias estimados',
             style: Theme.of(context)
                 .textTheme
                 .bodyText1!
@@ -43,34 +52,32 @@ class _ProceduteCardv2State extends State<ProceduteCardv2> {
               Row(
                 children: [
                   Chip(
-                      label: Text(
-                        widget.procedure.requiresInvoice
-                            ? 'Precisa factura'
-                            : 'No precisa factura',
-                        style: Theme.of(context).textTheme.overline,
-                      ),
-                      backgroundColor: AppColors.shiraz.shade100),
+                    label: Text(
+                      procedure.requiresInvoice
+                          ? 'Precisa factura'
+                          : 'No precisa factura',
+                      style: Theme.of(context).textTheme.overline,
+                    ),
+                    backgroundColor: AppColors.shiraz.shade100,
+                  ),
                   const SizedBox(
                     width: 4,
                   ),
                   Chip(
                       label: Text(
-                        'Costo ${widget.procedure.price} bs.',
+                        'Costo ${procedure.price} bs.',
                         style: Theme.of(context).textTheme.overline,
                       ),
                       backgroundColor: AppColors.gray.shade200),
                 ],
               ),
-              //const Icon(MdiIcons.chevronDown),
+
               //button to display the list
               ElevatedButton(
                 onPressed: () {
-                  setState(() {
-                    if (iconData != iconData2) {
-                      iconData = MdiIcons.chevronUp;
-                    } else
-                      iconData = MdiIcons.chevronDown;
-                  });
+                  context
+                      .read<ProcedureItemCubit>()
+                      .changeRequirementsVisibility();
                 },
                 style: ElevatedButton.styleFrom(
                   primary: AppColors.white,
@@ -78,15 +85,33 @@ class _ProceduteCardv2State extends State<ProceduteCardv2> {
                   shape: const CircleBorder(),
                 ),
                 child: Icon(
-                  iconData,
+                  showRequirements ? MdiIcons.chevronUp : MdiIcons.chevronDown,
                   size: 30,
                   color: AppColors.matterhorn,
                 ),
               ),
             ],
           ),
+          if (showRequirements) RequirementsList(procedure),
         ],
       ),
+    );
+  }
+}
+
+class RequirementsList extends StatelessWidget {
+  const RequirementsList(this.procedure, {Key? key}) : super(key: key);
+  final Procedure procedure;
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+      padding: const EdgeInsets.symmetric(
+        horizontal: 18,
+      ),
+      itemCount: procedure.requirements.length,
+      shrinkWrap: true,
+      itemBuilder: (_, index) => Text(procedure.requirements[index]),
     );
   }
 }

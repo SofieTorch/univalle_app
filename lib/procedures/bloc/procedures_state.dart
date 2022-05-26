@@ -6,12 +6,12 @@ class ProceduresState extends Equatable {
   const ProceduresState({
     this.status = ProcedureListRequestStatus.initial,
     this.procedures = const <Procedure>[],
-    this.errorMessage,
+    this.errorMessage = '',
   });
 
   final ProcedureListRequestStatus status;
   final List<Procedure> procedures;
-  final String? errorMessage;
+  final String errorMessage;
 
   ProceduresState copyWith({
     ProcedureListRequestStatus? status,
@@ -26,5 +26,9 @@ class ProceduresState extends Equatable {
   }
 
   @override
-  List<Object> get props => [status, procedures];
+  List<Object> get props => [
+        status,
+        procedures,
+        errorMessage,
+      ];
 }

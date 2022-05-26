@@ -6,4 +6,5 @@ abstract class ProceduresEvent extends Equatable {
   @override
   List<Object> get props => [];
 }
+
 class ProcedureListRequested extends ProceduresEvent {}
