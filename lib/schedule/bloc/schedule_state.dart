@@ -7,13 +7,11 @@ class ScheduleState extends Equatable {
     this.status = ScheduleRequestStatus.initial,
     this.schedule = Schedule.empty,
     this.errorMessage = '',
-    this.selectedDay = 1,
   });
 
   final ScheduleRequestStatus status;
   final Schedule schedule;
   final String errorMessage;
-  final int selectedDay;
 
   ScheduleState copyWith({
     ScheduleRequestStatus? status,
@@ -25,10 +23,9 @@ class ScheduleState extends Equatable {
       status: status ?? this.status,
       schedule: schedule ?? this.schedule,
       errorMessage: errorMessage ?? this.errorMessage,
-      selectedDay: selectedDay ?? this.selectedDay,
     );
   }
 
   @override
-  List<Object> get props => [status, schedule, errorMessage, selectedDay];
+  List<Object> get props => [status, schedule, errorMessage];
 }

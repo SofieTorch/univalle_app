@@ -12,7 +12,6 @@ class ScheduleBloc extends Bloc<ScheduleEvent, ScheduleState> {
   })  : _repository = scheduleRepository,
         super(const ScheduleState()) {
     on<ScheduleRequested>(_onScheduleRequested);
-    on<DayScheduleChanged>(_onDayScheduleChanged);
   }
 
   final ScheduleRepository _repository;
@@ -38,12 +37,5 @@ class ScheduleBloc extends Bloc<ScheduleEvent, ScheduleState> {
         ),
       );
     }
-  }
-
-  void _onDayScheduleChanged(
-    DayScheduleChanged event,
-    Emitter<ScheduleState> emit,
-  ) {
-    emit(state.copyWith(selectedDay: event.day));
   }
 }

@@ -10,12 +10,3 @@ class ScheduleRequested extends ScheduleEvent {
   @override
   List<Object> get props => [];
 }
-
-class DayScheduleChanged extends ScheduleEvent {
-  const DayScheduleChanged(this.day);
-
-  final int day;
-
-  @override
-  List<Object?> get props => [day];
-}
