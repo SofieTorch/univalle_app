@@ -22,7 +22,7 @@ class SubjectsProvider {
   /// Sends the corresponding http request to retrieve
   /// courses/subjects where the user is currently enrolled in.
   Future<Response> requestCurrentSubjects() async {
-    final endpoint = Uri.https(Environment.host, '/subjects');
+    final endpoint = Uri.http(Environment.host, '/subjects');
     final headers = <String, String>{
       HttpHeaders.authorizationHeader: 'Basic ${_storageProvider.token}'
     };
@@ -34,7 +34,7 @@ class SubjectsProvider {
   /// course/subject based on its id.
   Future<Response> requestSubject(int courseId) async {
     final params = {'courseId': courseId.toString()};
-    final endpoint = Uri.https(Environment.host, '/subject', params);
+    final endpoint = Uri.http(Environment.host, '/subject', params);
     final headers = <String, String>{
       HttpHeaders.authorizationHeader: 'Basic ${_storageProvider.token}'
     };
