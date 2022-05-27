@@ -59,5 +59,12 @@
     "academicTabLabelSchedule": "SCHEDULE",
     "academicTabLabelSubjects": "SUBJECTS",
     "noEnrolledMessage": "Oh, you're not enrolled :(\nHope to see you soon!",
-    "subjectItemGroupLabel": "Group"
+    "subjectItemGroupLabel": "Group",
+    "scheduleMondayLabel": "Monday",
+    "scheduleTuesdayLabel": "Tuesday",
+    "scheduleWednesdayLabel": "Wednesday",
+    "scheduleThrusdayLabel": "Thrusday",
+    "scheduleFridayLabel": "Friday",
+    "scheduleSaturdayLabel": "Saturday",
+    "dayScheduleNoClassesMessage": "Without classes for today :)"
 }

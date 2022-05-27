@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:univalle_app/l10n/l10n.dart';
+import 'package:univalle_app/schedule/schedule.dart';
 import 'package:univalle_app/subjects/subjects.dart';
 
 class AcademicPage extends StatelessWidget {
@@ -28,11 +29,7 @@ class AcademicPage extends StatelessWidget {
                     'This is the ${l10n.academicTabLabelNotes} tab',
                   ),
                 ),
-                Center(
-                  child: Text(
-                    'This is the ${l10n.academicTabLabelSchedule} tab',
-                  ),
-                ),
+                const SchedulePage(),
                 const SubjectsPage(),
               ],
             ),
