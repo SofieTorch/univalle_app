@@ -21,7 +21,7 @@ class ScheduleProvider {
   /// Sends an http request to get the corresponding
   /// schedule to the currently signed in student.
   Future<Response> requestSchedule() async {
-    final endpoint = Uri.http(Environment.host, '/schedule');
+    final endpoint = Uri.https(Environment.host, '/schedule');
     final headers = <String, String>{
       HttpHeaders.authorizationHeader: 'Basic ${_storageProvider.token}'
     };
