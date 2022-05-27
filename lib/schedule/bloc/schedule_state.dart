@@ -1,7 +1,13 @@
 part of 'schedule_bloc.dart';
 
+/// Http request's status when making the schedule request.
 enum ScheduleRequestStatus { initial, loading, success, failure }
 
+/// State emitted by [ScheduleBloc].
+///
+/// Contains the schedule and its request status
+/// ([ScheduleRequestStatus]), in addition of the
+/// error message incase the request throws an error.
 class ScheduleState extends Equatable {
   const ScheduleState({
     this.status = ScheduleRequestStatus.initial,
@@ -9,9 +15,14 @@ class ScheduleState extends Equatable {
     this.errorMessage = '',
   });
 
+  /// Status of the http request.
   final ScheduleRequestStatus status;
-  final Schedule schedule;
+
+  /// Error message when the http request was unsuccessful
+  /// or something unexpected happen.
   final String errorMessage;
+
+  final Schedule schedule;
 
   ScheduleState copyWith({
     ScheduleRequestStatus? status,

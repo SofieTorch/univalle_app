@@ -3,6 +3,7 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 import 'package:univalle_app/l10n/l10n.dart';
 import 'package:univalle_app/models/class_session.dart';
 
+/// Interface for one class session and its course.
 class ScheduleClassItem extends StatelessWidget {
   const ScheduleClassItem(this.classSession, {Key? key}) : super(key: key);
 

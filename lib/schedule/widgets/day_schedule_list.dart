@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:univalle_app/l10n/l10n.dart';
 import 'package:univalle_app/schedule/schedule.dart';
 
+/// List of class sessions, for one day.
 class DayScheduleList extends StatelessWidget {
   const DayScheduleList(this.day, {Key? key}) : super(key: key);
   final int day;

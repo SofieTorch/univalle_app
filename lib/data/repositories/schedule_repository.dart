@@ -4,6 +4,7 @@ import 'package:univalle_app/data/providers/schedule_provider.dart';
 import 'package:univalle_app/data/providers/subjects_provider.dart';
 import 'package:univalle_app/models/models.dart';
 
+/// Manages all the requests related to schedule.
 class ScheduleRepository {
   const ScheduleRepository({
     required ScheduleProvider scheduleProvider,
@@ -14,6 +15,8 @@ class ScheduleRepository {
   final ScheduleProvider _scheduleProvider;
   final SubjectsProvider _subjectsProvider;
 
+  /// Retrieves the schedule owned by the currently signed in
+  /// user and the corresponding course for each class session.
   Future<Schedule> getSchedule() async {
     final response = await _scheduleProvider.requestSchedule();
     if (response.statusCode != 200) {

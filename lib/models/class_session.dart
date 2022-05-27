@@ -22,6 +22,7 @@ class ClassSession extends Equatable {
     );
   }
 
+  /// Converts a String in format [HH:MM] to a DateTime object.
   static DateTime _getDateFromString(String date) {
     final dateArr = date.split(':').map(int.parse).toList();
     return DateTime(0, 0, 0, dateArr[0], dateArr[1]);

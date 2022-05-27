@@ -6,6 +6,10 @@ import 'package:univalle_app/models/schedule.dart';
 part 'schedule_event.dart';
 part 'schedule_state.dart';
 
+/// Manages the schedule, making the request and
+/// verifying its status.
+///
+/// Uses [ScheduleRepository] to request the schedule.
 class ScheduleBloc extends Bloc<ScheduleEvent, ScheduleState> {
   ScheduleBloc({
     required ScheduleRepository scheduleRepository,
@@ -16,6 +20,10 @@ class ScheduleBloc extends Bloc<ScheduleEvent, ScheduleState> {
 
   final ScheduleRepository _repository;
 
+  /// Calls to [ScheduleRepository.getSchedule] to retrieve
+  /// the user's schedule and emit it.
+  ///
+  /// Emits [ScheduleRequestStatus.failure] if something wrong happen.
   Future<void> _onScheduleRequested(
     ScheduleRequested event,
     Emitter<ScheduleState> emit,

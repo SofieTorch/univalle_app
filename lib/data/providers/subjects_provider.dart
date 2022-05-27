@@ -30,6 +30,8 @@ class SubjectsProvider {
     return _httpProvider.get(endpoint, headers: headers);
   }
 
+  /// Sends an http request to retrieve a single
+  /// course/subject based on its id.
   Future<Response> requestSubject(int courseId) async {
     final params = {'courseId': courseId.toString()};
     final endpoint = Uri.https(Environment.host, '/subject', params);
