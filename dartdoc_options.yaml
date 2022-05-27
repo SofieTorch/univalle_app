@@ -1,2 +1,2 @@
 dartdoc:
-  include: ['connectivity', 'sign_in', 'splash', 'models', 'exceptions', 'authentication', 'repositories', 'providers', 'navigation', 'academic', 'subjects']
+  include: ['connectivity', 'sign_in', 'splash', 'models', 'exceptions', 'authentication', 'repositories', 'providers', 'navigation', 'academic', 'subjects', 'schedule']
