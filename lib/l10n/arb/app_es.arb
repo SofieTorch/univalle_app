@@ -66,5 +66,8 @@
     "scheduleThrusdayLabel": "Jueves",
     "scheduleFridayLabel": "Viernes",
     "scheduleSaturdayLabel": "Sábado",
-    "dayScheduleNoClassesMessage": "Sin clases por hoy :)"
+    "dayScheduleNoClassesMessage": "Sin clases por hoy :)",
+    "nextClassErrorMessage": "Un error inesperado ocurrió :(",
+    "nextClassNoMoreClassesMessage": "No tienes más clases por hoy! :D",
+    "homePageNextClassLabel": "Próxima clase de hoy"
 }
