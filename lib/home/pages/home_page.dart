@@ -24,13 +24,13 @@ class HomePage extends StatelessWidget {
           ),
         ),
       )..add(const ScheduleRequested()),
-      child: const _HomeView(),
+      child: const HomeView(),
     );
   }
 }
 
-class _HomeView extends StatelessWidget {
-  const _HomeView({Key? key}) : super(key: key);
+class HomeView extends StatelessWidget {
+  const HomeView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
