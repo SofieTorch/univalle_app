@@ -4,6 +4,9 @@ import 'package:univalle_app/l10n/l10n.dart';
 import 'package:univalle_app/models/class_session.dart';
 import 'package:univalle_app/theme/app_colors.dart';
 
+/// Interface for next class session, similar to
+/// ScheduleClassItem, but with red background.
+/// Used on the home page.
 class NextClassCard extends StatelessWidget {
   const NextClassCard(this.classSession, {Key? key}) : super(key: key);
 
