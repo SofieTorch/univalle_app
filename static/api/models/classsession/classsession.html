@@ -31,7 +31,7 @@
     <li><a href="../../index.html">univalle_app</a></li>
     <li><a href="../../models/models-library.html">models</a></li>
     <li><a href="../../models/classsession-class.html">ClassSession</a></li>
-    <li class="self-crumb">ClassSession constructor</li>
+    <li class="self-crumb">ClassSession const constructor</li>
   </ol>
   <div class="self-name">ClassSession</div>
   <form class="search navbar-right" role="search">
@@ -48,11 +48,11 @@
     <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
 </h1></div>
 
-    <section class="multi-line-signature">
-      <span class="name ">ClassSession</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="-param-course">{<span class="type-annotation"><a href="../../models/course-class.html">Course</a></span> <span class="parameter-name">course</span> = <span class="default-value">const Course()</span>, </span></li>
-<li><span class="parameter" id="-param-classroom"><span class="type-annotation">String</span> <span class="parameter-name">classroom</span> = <span class="default-value">&#39;&#39;</span>, </span></li>
-<li><span class="parameter" id="-param-startTime"><span class="type-annotation">DateTime?</span> <span class="parameter-name">startTime</span>, </span></li>
-<li><span class="parameter" id="-param-endTime"><span class="type-annotation">DateTime?</span> <span class="parameter-name">endTime</span>}</span></li>
+    <section class="multi-line-signature">const
+      <span class="name ">ClassSession</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="-param-course">{<span>required</span> <span class="type-annotation"><a href="../../models/course-class.html">Course</a></span> <span class="parameter-name">course</span>, </span></li>
+<li><span class="parameter" id="-param-classroom"><span>required</span> <span class="type-annotation">String</span> <span class="parameter-name">classroom</span>, </span></li>
+<li><span class="parameter" id="-param-startTime"><span>required</span> <span class="type-annotation">DateTime</span> <span class="parameter-name">startTime</span>, </span></li>
+<li><span class="parameter" id="-param-endTime"><span>required</span> <span class="type-annotation">DateTime</span> <span class="parameter-name">endTime</span>}</span></li>
 </ol>)
     </section>
 
@@ -62,15 +62,12 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">ClassSession({
-  this.course = const Course(),
-  this.classroom = &#39;&#39;,
-  DateTime? startTime,
-  DateTime? endTime,
-}) {
-  this.startTime = startTime ?? DateTime.now();
-  this.endTime = endTime ?? DateTime.now();
-}</code></pre>
+  <pre class="language-dart"><code class="language-dart">const ClassSession({
+  required this.course,
+  required this.classroom,
+  required this.startTime,
+  required this.endTime,
+});</code></pre>
 </section>
 
 
@@ -87,7 +84,7 @@
   <li><a href="../../index.html">univalle_app</a></li>
   <li><a href="../../models/models-library.html">models</a></li>
   <li><a href="../../models/classsession-class.html">ClassSession</a></li>
-  <li class="self-crumb">ClassSession constructor</li>
+  <li class="self-crumb">ClassSession const constructor</li>
 </ol>
 
 
@@ -96,6 +93,7 @@
 
         <li class="section-title"><a href="../../models/classsession-class.html#constructors">Constructors</a></li>
           <li><a href="../../models/classsession/classsession.html">ClassSession</a></li>
+          <li><a href="../../models/classsession/classsession.empty.html">empty</a></li>
           <li><a href="../../models/classsession/classsession.fromjson.html">fromJson</a></li>
 
 
@@ -106,6 +104,7 @@
     <li><a href="../../models/classsession/course.html">course</a></li>
     <li><a href="../../models/classsession/endtime.html">endTime</a></li>
     <li class="inherited"><a href="../../models/classsession/hashcode.html">hashCode</a></li>
+    <li><a href="../../models/classsession/isempty.html">isEmpty</a></li>
     <li><a href="../../models/classsession/props.html">props</a></li>
     <li class="inherited"><a href="../../models/classsession/runtimetype.html">runtimeType</a></li>
     <li><a href="../../models/classsession/starttime.html">startTime</a></li>

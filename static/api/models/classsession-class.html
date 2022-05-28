@@ -58,10 +58,18 @@
 
     <dl class="constructor-summary-list">
         <dt id="ClassSession" class="callable">
-          <span class="name"><a href="../models/classsession/classsession.html">ClassSession</a></span><span class="signature">(<span class="parameter" id="-param-course">{<span class="type-annotation"><a href="../models/course-class.html">Course</a></span> <span class="parameter-name">course</span> = <span class="default-value">const Course()</span>, </span><span class="parameter" id="-param-classroom"><span class="type-annotation">String</span> <span class="parameter-name">classroom</span> = <span class="default-value">&#39;&#39;</span>, </span><span class="parameter" id="-param-startTime"><span class="type-annotation">DateTime?</span> <span class="parameter-name">startTime</span>, </span><span class="parameter" id="-param-endTime"><span class="type-annotation">DateTime?</span> <span class="parameter-name">endTime</span>}</span>)</span>
+          <span class="name"><a href="../models/classsession/classsession.html">ClassSession</a></span><span class="signature">(<span class="parameter" id="-param-course">{<span>required</span> <span class="type-annotation"><a href="../models/course-class.html">Course</a></span> <span class="parameter-name">course</span>, </span><span class="parameter" id="-param-classroom"><span>required</span> <span class="type-annotation">String</span> <span class="parameter-name">classroom</span>, </span><span class="parameter" id="-param-startTime"><span>required</span> <span class="type-annotation">DateTime</span> <span class="parameter-name">startTime</span>, </span><span class="parameter" id="-param-endTime"><span>required</span> <span class="type-annotation">DateTime</span> <span class="parameter-name">endTime</span>}</span>)</span>
         </dt>
         <dd>
           
+            <div class="constructor-modifier features">const</div>
+        </dd>
+        <dt id="ClassSession.empty" class="callable">
+          <span class="name"><a href="../models/classsession/classsession.empty.html">ClassSession.empty</a></span><span class="signature">()</span>
+        </dt>
+        <dd>
+          Creates an empty class session.
+            <div class="constructor-modifier features">factory</div>
         </dd>
         <dt id="ClassSession.fromJson" class="callable">
           <span class="name"><a href="../models/classsession/classsession.fromjson.html">ClassSession.fromJson</a></span><span class="signature">(<span class="parameter" id="fromJson-param-json"><span class="type-annotation">dynamic</span> <span class="parameter-name">json</span></span>)</span>
@@ -101,12 +109,12 @@
 
         <dt id="endTime" class="property">
   <span class="name"><a href="../models/classsession/endtime.html">endTime</a></span>
-  <span class="signature">&#8596; DateTime</span> 
+  <span class="signature">&#8594; DateTime</span> 
 
 </dt>
 <dd>
   
-  <div class="features">late, final</div>
+  <div class="features">final</div>
 
 </dd>
 
@@ -118,6 +126,17 @@
 <dd class="inherited">
   The hash code for this object.
   <div class="features">read-only, inherited</div>
+
+</dd>
+
+        <dt id="isEmpty" class="property">
+  <span class="name"><a href="../models/classsession/isempty.html">isEmpty</a></span>
+  <span class="signature">&#8594; bool</span> 
+
+</dt>
+<dd>
+  
+  <div class="features">read-only</div>
 
 </dd>
 
@@ -146,12 +165,12 @@ two instances are equal.
 
         <dt id="startTime" class="property">
   <span class="name"><a href="../models/classsession/starttime.html">startTime</a></span>
-  <span class="signature">&#8596; DateTime</span> 
+  <span class="signature">&#8594; DateTime</span> 
 
 </dt>
 <dd>
   
-  <div class="features">late, final</div>
+  <div class="features">final</div>
 
 </dd>
 
@@ -283,6 +302,7 @@ this instance's <a href="../models/classsession/props.html">props</a>.
 
         <li class="section-title"><a href="../models/classsession-class.html#constructors">Constructors</a></li>
           <li><a href="../models/classsession/classsession.html">ClassSession</a></li>
+          <li><a href="../models/classsession/classsession.empty.html">empty</a></li>
           <li><a href="../models/classsession/classsession.fromjson.html">fromJson</a></li>
 
 
@@ -293,6 +313,7 @@ this instance's <a href="../models/classsession/props.html">props</a>.
     <li><a href="../models/classsession/course.html">course</a></li>
     <li><a href="../models/classsession/endtime.html">endTime</a></li>
     <li class="inherited"><a href="../models/classsession/hashcode.html">hashCode</a></li>
+    <li><a href="../models/classsession/isempty.html">isEmpty</a></li>
     <li><a href="../models/classsession/props.html">props</a></li>
     <li class="inherited"><a href="../models/classsession/runtimetype.html">runtimeType</a></li>
     <li><a href="../models/classsession/starttime.html">startTime</a></li>

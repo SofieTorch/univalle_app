@@ -82,6 +82,18 @@
 
 </dd>
 
+        <dt id="nextClass" class="property">
+  <span class="name"><a href="../models/schedule/nextclass.html">nextClass</a></span>
+  <span class="signature">&#8594; <a href="../models/classsession-class.html">ClassSession</a></span> 
+
+</dt>
+<dd>
+  Next class for current day, returns <a href="../models/classsession/classsession.empty.html">ClassSession.empty</a>
+if there is no one.
+  <div class="features">read-only</div>
+
+</dd>
+
         <dt id="props" class="property">
   <span class="name"><a href="../models/schedule/props.html">props</a></span>
   <span class="signature">&#8594; List<span class="signature">&lt;<wbr><span class="type-parameter">Object?</span>&gt;</span></span> 
@@ -145,7 +157,8 @@ this instance's <a href="../models/schedule/props.html">props</a>.
 
 </dt>
 <dd>
-  
+  List of class sessions on the <code>day</code>, returns an
+empty list if there is none.
   
 
 </dd>
@@ -271,6 +284,7 @@ this instance's <a href="../models/schedule/props.html">props</a>.
       <a href="../models/schedule-class.html#instance-properties">Properties</a>
     </li>
     <li class="inherited"><a href="../models/schedule/hashcode.html">hashCode</a></li>
+    <li><a href="../models/schedule/nextclass.html">nextClass</a></li>
     <li><a href="../models/schedule/props.html">props</a></li>
     <li class="inherited"><a href="../models/schedule/runtimetype.html">runtimeType</a></li>
     <li><a href="../models/schedule/schedulemap.html">scheduleMap</a></li>
