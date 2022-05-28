@@ -5,14 +5,12 @@ import 'package:univalle_app/data/repositories/schedule_repository.dart';
 import 'package:univalle_app/home/home.dart';
 import 'package:univalle_app/l10n/l10n.dart';
 import 'package:univalle_app/schedule/schedule.dart';
-import 'package:univalle_app/theme/app_colors.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final l10n = context.l10n;
     return BlocProvider<ScheduleBloc>(
       create: (context) => ScheduleBloc(
         scheduleRepository: ScheduleRepository(
