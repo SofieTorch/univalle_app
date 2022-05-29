@@ -5,15 +5,11 @@ import 'package:univalle_app/l10n/l10n.dart';
 import 'package:univalle_app/schedule/schedule.dart';
 
 class NextClassBuilder extends StatelessWidget {
-  const NextClassBuilder({
-    Key? key,
-    required this.l10n,
-  }) : super(key: key);
-
-  final AppLocalizations l10n;
+  const NextClassBuilder({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final l10n = context.l10n;
     return BlocBuilder<ScheduleBloc, ScheduleState>(
       builder: (context, state) {
         if (state.status == ScheduleRequestStatus.failure) {

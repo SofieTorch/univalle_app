@@ -5,15 +5,11 @@ import 'package:univalle_app/home/home.dart';
 import 'package:univalle_app/l10n/l10n.dart';
 
 class GradesBriefBuilder extends StatelessWidget {
-  const GradesBriefBuilder({
-    Key? key,
-    required this.l10n,
-  }) : super(key: key);
-
-  final AppLocalizations l10n;
+  const GradesBriefBuilder({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final l10n = context.l10n;
     return BlocBuilder<GradeListBloc, GradeListState>(
       builder: (context, state) {
         if (state.status == GradeListRequestStatus.failure) {

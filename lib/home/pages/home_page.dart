@@ -64,14 +64,14 @@ class HomeView extends StatelessWidget {
               style: Theme.of(context).textTheme.headline3,
             ),
             const SizedBox(height: 8),
-            NextClassBuilder(l10n: l10n),
+            const NextClassBuilder(),
             const SizedBox(height: 16),
             Text(
               l10n.homePageGradesLabel,
               style: Theme.of(context).textTheme.headline3,
             ),
             const SizedBox(height: 8),
-            GradesBriefBuilder(l10n: l10n)
+            const GradesBriefBuilder(),
           ],
         ),
       ),
