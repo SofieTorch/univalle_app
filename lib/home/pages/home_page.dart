@@ -65,6 +65,7 @@ class HomeView extends StatelessWidget {
             ),
             const SizedBox(height: 8),
             NextClassBuilder(l10n: l10n),
+            const SizedBox(height: 16),
             Text(
               l10n.homePageGradesLabel,
               style: Theme.of(context).textTheme.headline3,
