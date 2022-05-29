@@ -64,61 +64,13 @@ class HomeView extends StatelessWidget {
               style: Theme.of(context).textTheme.headline3,
             ),
             const SizedBox(height: 8),
-            BlocBuilder<ScheduleBloc, ScheduleState>(
-              builder: (context, state) {
-                if (state.status == ScheduleRequestStatus.failure) {
-                  return AlertMessage(
-                    '${l10n.nextClassErrorMessage} ${state.errorMessage}',
-                  );
-                }
-
-                if (state.status == ScheduleRequestStatus.success) {
-                  final nextClass = state.schedule.nextClass;
-                  if (nextClass.isEmpty) {
-                    return AlertMessage(l10n.nextClassNoMoreClassesMessage);
-                  }
-
-                  return NextClassCard(state.schedule.nextClass);
-                }
-
-                return const CircularProgressIndicator();
-              },
-            ),
+            NextClassBuilder(l10n: l10n),
             Text(
               'Notas',
               style: Theme.of(context).textTheme.headline3,
             ),
             const SizedBox(height: 8),
-            BlocBuilder<GradeListBloc, GradeListState>(
-              builder: (context, state) {
-                if (state.status == GradeListRequestStatus.failure) {
-                  return AlertMessage(
-                    '${l10n.nextClassErrorMessage} ${state.errorMessage}',
-                  );
-                }
-
-                if (state.status == GradeListRequestStatus.success) {
-                  final management = state.grades.keys.toList()[0];
-                  final gradeList = state.grades[management]!;
-                  return ConstrainedBox(
-                    constraints: const BoxConstraints(
-                      maxHeight: 118,
-                      minHeight: 96,
-                    ),
-                    child: ListView.separated(
-                      scrollDirection: Axis.horizontal,
-                      itemCount: gradeList.length,
-                      itemBuilder: (_, index) {
-                        return SemestralGradeCard(gradeList[index]);
-                      },
-                      separatorBuilder: (_, index) => const SizedBox(width: 16),
-                    ),
-                  );
-                }
-
-                return const CircularProgressIndicator();
-              },
-            )
+            GradesBriefBuilder(l10n: l10n)
           ],
         ),
       ),
