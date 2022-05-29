@@ -70,6 +70,7 @@
     "nextClassErrorMessage": "An unexpected error ocurred :(",
     "nextClassNoMoreClassesMessage": "No more classes for today! :D",
     "homePageNextClassLabel": "Next class today",
+    "homePageGradesLabel": "Grades",
     "gradesPageManagementLabel": "Management",
     "gradesPageMidtermLabel": "midterm",
     "gradesPageFirstMidtermLabel": "First",
