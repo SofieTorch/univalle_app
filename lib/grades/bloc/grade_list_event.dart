@@ -10,3 +10,11 @@ class GradeListRequested extends GradeListEvent {
   @override
   List<Object> get props => [];
 }
+
+class ManagementChanged extends GradeListEvent {
+  const ManagementChanged(this.managementSelected);
+  final String managementSelected;
+
+  @override
+  List<Object?> get props => [managementSelected];
+}

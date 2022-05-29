@@ -14,7 +14,9 @@ class CourseGrade extends Equatable {
     return CourseGrade(
       course: const Course(),
       finalExam: parsedJson['final'] as double,
-      partials: parsedJson['partials'] as List<double>,
+      partials: (parsedJson['partials'] as List<dynamic>)
+          .map((dynamic e) => e as double)
+          .toList(),
       semestralGrade: parsedJson['semestral'] as double,
     );
   }
@@ -25,6 +27,18 @@ class CourseGrade extends Equatable {
   final double semestralGrade;
 
   bool get isApproved => semestralGrade > 50;
+
+  double get midtermsWeight {
+    if (partials.length == 4) return 0.2;
+    if (partials.length == 2) return 0.35;
+    return 0;
+  }
+
+  double get finalWeight {
+    if (partials.length == 4) return 0.2;
+    if (partials.length == 2) return 0.3;
+    return 1;
+  }
 
   CourseGrade copyWith({
     Course? course,

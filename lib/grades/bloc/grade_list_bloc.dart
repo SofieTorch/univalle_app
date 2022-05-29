@@ -12,6 +12,7 @@ class GradeListBloc extends Bloc<GradeListEvent, GradeListState> {
   })  : _repository = gradesRepository,
         super(const GradeListState()) {
     on<GradeListRequested>(_onGradeListRequested);
+    on<ManagementChanged>(_onManagementChanged);
   }
   final GradesRepository _repository;
 
@@ -37,5 +38,12 @@ class GradeListBloc extends Bloc<GradeListEvent, GradeListState> {
         ),
       );
     }
+  }
+
+  void _onManagementChanged(
+    ManagementChanged event,
+    Emitter<GradeListState> emit,
+  ) {
+    emit(state.copyWith(selectedManagement: event.managementSelected));
   }
 }

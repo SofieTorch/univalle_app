@@ -30,5 +30,5 @@ class GradeListState extends Equatable {
   }
 
   @override
-  List<Object> get props => [status, grades, errorMessage];
+  List<Object> get props => [status, grades, errorMessage, selectedManagement];
 }

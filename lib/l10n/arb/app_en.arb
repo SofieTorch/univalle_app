@@ -69,5 +69,12 @@
     "dayScheduleNoClassesMessage": "Without classes for today :)",
     "nextClassErrorMessage": "An unexpected error ocurred :(",
     "nextClassNoMoreClassesMessage": "No more classes for today! :D",
-    "homePageNextClassLabel": "Next class today"
+    "homePageNextClassLabel": "Next class today",
+    "gradesPageManagementLabel": "Management",
+    "gradesPageMidtermLabel": "midterm",
+    "gradesPageFirstMidtermLabel": "First",
+    "gradesPageSecondMidtermLabel": "Second",
+    "gradesPageThirdMidtermLabel": "Third",
+    "gradesPageFourthMidtermLabel": "Fourth",
+    "gradesPageFinalExamLabel": "Final exam"
 }
