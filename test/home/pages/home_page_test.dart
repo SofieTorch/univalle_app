@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
+import 'package:univalle_app/grades/grades.dart';
 import 'package:univalle_app/home/home.dart';
 import 'package:univalle_app/l10n/l10n.dart';
 import 'package:univalle_app/schedule/schedule.dart';
@@ -11,13 +12,19 @@ import 'package:univalle_app/schedule/schedule.dart';
 class MockScheduleBloc extends MockBloc<ScheduleEvent, ScheduleState>
     implements ScheduleBloc {}
 
+class MockGradeListBloc extends MockBloc<GradeListEvent, GradeListState>
+    implements GradeListBloc {}
+
 void main() {
   group('Home View: Next class', () {
     late MockScheduleBloc scheduleBloc;
+    late MockGradeListBloc gradeListBloc;
 
     setUp(() {
       scheduleBloc = MockScheduleBloc();
+      gradeListBloc = MockGradeListBloc();
       when(() => scheduleBloc.state).thenReturn(const ScheduleState());
+      when(() => gradeListBloc.state).thenReturn(const GradeListState());
     });
 
     testWidgets(
@@ -35,10 +42,19 @@ void main() {
           ]),
         );
 
-        await tester.pumpApp(bloc: scheduleBloc);
+        await tester.pumpApp(
+          scheduleBloc: scheduleBloc,
+          gradeListBloc: gradeListBloc,
+        );
         await tester.pump();
 
-        expect(find.byType(CircularProgressIndicator), findsOneWidget);
+        expect(
+          find.descendant(
+            of: find.byType(NextClassBuilder),
+            matching: find.byType(CircularProgressIndicator),
+          ),
+          findsOneWidget,
+        );
       },
     );
 
@@ -58,7 +74,10 @@ void main() {
           ]),
         );
 
-        await tester.pumpApp(bloc: scheduleBloc);
+        await tester.pumpApp(
+          scheduleBloc: scheduleBloc,
+          gradeListBloc: gradeListBloc,
+        );
         await tester.pump();
 
         expect(find.byType(AlertMessage), findsOneWidget);
@@ -82,7 +101,10 @@ void main() {
           ]),
         );
 
-        await tester.pumpApp(bloc: scheduleBloc);
+        await tester.pumpApp(
+          scheduleBloc: scheduleBloc,
+          gradeListBloc: gradeListBloc,
+        );
         await tester.pump();
 
         expect(find.byType(AlertMessage), findsOneWidget);
@@ -94,11 +116,19 @@ void main() {
 
 extension PumpApp on WidgetTester {
   Future<void> pumpApp({
-    required ScheduleBloc bloc,
+    required ScheduleBloc scheduleBloc,
+    required GradeListBloc gradeListBloc,
   }) {
     return pumpWidget(
-      BlocProvider<ScheduleBloc>.value(
-        value: bloc,
+      MultiBlocProvider(
+        providers: [
+          BlocProvider<ScheduleBloc>.value(
+            value: scheduleBloc,
+          ),
+          BlocProvider<GradeListBloc>.value(
+            value: gradeListBloc,
+          ),
+        ],
         child: const MaterialApp(
           localizationsDelegates: [
             AppLocalizations.delegate,

@@ -69,5 +69,13 @@
     "dayScheduleNoClassesMessage": "Sin clases por hoy :)",
     "nextClassErrorMessage": "Un error inesperado ocurrió :(",
     "nextClassNoMoreClassesMessage": "No tienes más clases por hoy! :D",
-    "homePageNextClassLabel": "Próxima clase de hoy"
+    "homePageNextClassLabel": "Próxima clase de hoy",
+    "homePageGradesLabel": "Notas",
+    "gradesPageManagementLabel": "Gestión",
+    "gradesPageMidtermLabel": "parcial",
+    "gradesPageFirstMidtermLabel": "Primer",
+    "gradesPageSecondMidtermLabel": "Segundo",
+    "gradesPageThirdMidtermLabel": "Tercer",
+    "gradesPageFourthMidtermLabel": "Cuarto",
+    "gradesPageFinalExamLabel": "Examen final"
 }

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:univalle_app/data/providers/providers.dart';
+import 'package:univalle_app/data/repositories/grades_repository.dart';
 import 'package:univalle_app/data/repositories/schedule_repository.dart';
+import 'package:univalle_app/grades/grades.dart';
 import 'package:univalle_app/home/home.dart';
 import 'package:univalle_app/l10n/l10n.dart';
 import 'package:univalle_app/schedule/schedule.dart';
@@ -11,17 +13,33 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<ScheduleBloc>(
-      create: (context) => ScheduleBloc(
-        scheduleRepository: ScheduleRepository(
-          scheduleProvider: ScheduleProvider(
-            storageProvider: context.read<StorageProvider>(),
-          ),
-          subjectsProvider: SubjectsProvider(
-            storageProvider: context.read<StorageProvider>(),
-          ),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<ScheduleBloc>(
+          create: (context) => ScheduleBloc(
+            scheduleRepository: ScheduleRepository(
+              scheduleProvider: ScheduleProvider(
+                storageProvider: context.read<StorageProvider>(),
+              ),
+              subjectsProvider: SubjectsProvider(
+                storageProvider: context.read<StorageProvider>(),
+              ),
+            ),
+          )..add(const ScheduleRequested()),
         ),
-      )..add(const ScheduleRequested()),
+        BlocProvider(
+          create: (context) => GradeListBloc(
+            gradesRepository: GradesRepository(
+              gradesProvider: GradesProvider(
+                storageProvider: context.read<StorageProvider>(),
+              ),
+              subjectsProvider: SubjectsProvider(
+                storageProvider: context.read<StorageProvider>(),
+              ),
+            ),
+          )..add(const GradeListRequested()),
+        ),
+      ],
       child: const HomeView(),
     );
   }
@@ -39,32 +57,21 @@ class HomeView extends StatelessWidget {
         padding: const EdgeInsets.all(16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
           children: [
             Text(
               l10n.homePageNextClassLabel,
               style: Theme.of(context).textTheme.headline3,
             ),
             const SizedBox(height: 8),
-            BlocBuilder<ScheduleBloc, ScheduleState>(
-              builder: (context, state) {
-                if (state.status == ScheduleRequestStatus.failure) {
-                  return AlertMessage(
-                    '${l10n.nextClassErrorMessage} ${state.errorMessage}',
-                  );
-                }
-
-                if (state.status == ScheduleRequestStatus.success) {
-                  final nextClass = state.schedule.nextClass;
-                  if (nextClass.isEmpty) {
-                    return AlertMessage(l10n.nextClassNoMoreClassesMessage);
-                  }
-
-                  return NextClassCard(state.schedule.nextClass);
-                }
-
-                return const CircularProgressIndicator();
-              },
-            )
+            const NextClassBuilder(),
+            const SizedBox(height: 16),
+            Text(
+              l10n.homePageGradesLabel,
+              style: Theme.of(context).textTheme.headline3,
+            ),
+            const SizedBox(height: 8),
+            const GradesBriefBuilder(),
           ],
         ),
       ),
