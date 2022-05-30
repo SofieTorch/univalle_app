@@ -4,6 +4,8 @@ import 'package:univalle_app/data/providers/providers.dart';
 import 'package:univalle_app/data/repositories/grades_repository.dart';
 import 'package:univalle_app/grades/grades.dart';
 
+/// Page to list grades. Initializes [GradeListBloc]
+/// and its repositories and providers.
 class GradesPage extends StatelessWidget {
   const GradesPage({Key? key}) : super(key: key);
 
@@ -25,6 +27,15 @@ class GradesPage extends StatelessWidget {
   }
 }
 
+/// View for [GradesPage].
+///
+/// Shows a grade list based on the current [GradeListState.selectedManagement],
+/// using [CourseGradesItem] and [DropDownGrades].
+///
+/// Displays a Text with [GradeListState.errorMessage] when
+/// [GradeListState.status] is [GradeListRequestStatus.failure].
+///
+/// Displays a CircularProgressIndicator otherwise.
 class GradesView extends StatelessWidget {
   const GradesView({Key? key}) : super(key: key);
 

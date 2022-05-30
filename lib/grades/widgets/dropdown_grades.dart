@@ -4,6 +4,9 @@ import 'package:univalle_app/grades/grades.dart';
 import 'package:univalle_app/l10n/l10n.dart';
 import 'package:univalle_app/theme/app_colors.dart';
 
+/// DropDown to change the currently displayed grade list
+/// selecting a management.
+/// Triggers [ManagementChanged].
 class DropDownGrades extends StatelessWidget {
   const DropDownGrades({Key? key}) : super(key: key);
 

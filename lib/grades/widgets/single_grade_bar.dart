@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:univalle_app/theme/app_colors.dart';
 
+/// Graphic bar to display a grade over 100,
+/// similar to a progress bar.
 class SingleGradeBar extends StatelessWidget {
   const SingleGradeBar({required this.grade, required this.color, Key? key})
       : super(key: key);

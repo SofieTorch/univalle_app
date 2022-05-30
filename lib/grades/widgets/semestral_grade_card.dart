@@ -2,6 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:univalle_app/models/models.dart';
 import 'package:univalle_app/theme/app_colors.dart';
 
+/// Interface to display only [CourseGrade.course.subject]
+/// and [CourseGrade.semestralGrade] from a [CourseGrade].
+///
+/// Its background is green if [CourseGrade.isApproved] is true,
+/// otherwise is [AppColors.gray.shade100].
 class SemestralGradeCard extends StatelessWidget {
   const SemestralGradeCard(this.courseGrade, {Key? key}) : super(key: key);
 

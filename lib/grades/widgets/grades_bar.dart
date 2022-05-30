@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:univalle_app/models/models.dart';
 import 'package:univalle_app/theme/app_colors.dart';
 
+/// Graphic bar for [CourseGrade.semestralGrade],
+/// divided by each [CourseGrade.partials] and [CourseGrade.finalExam],
+/// based on their weight.
 class GradesBar extends StatelessWidget {
   const GradesBar(this.courseGrade, {Key? key}) : super(key: key);
 

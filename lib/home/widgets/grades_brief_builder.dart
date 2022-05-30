@@ -4,6 +4,14 @@ import 'package:univalle_app/grades/grades.dart';
 import 'package:univalle_app/home/home.dart';
 import 'package:univalle_app/l10n/l10n.dart';
 
+/// Builds the grade list of the last management
+/// when [GradeListState.status] is [GradeListRequestStatus.success],
+/// using [SemestralGradeCard].
+///
+/// Shows an [AlertMessage] with the error message in case that
+/// [GradeListState.status] is [GradeListRequestStatus.failure].
+///
+/// Shows a CircularProgressIndicator otherwise.
 class GradesBriefBuilder extends StatelessWidget {
   const GradesBriefBuilder({Key? key}) : super(key: key);
 

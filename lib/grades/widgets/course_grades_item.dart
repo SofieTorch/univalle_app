@@ -3,6 +3,11 @@ import 'package:univalle_app/grades/widgets/widgets.dart';
 import 'package:univalle_app/l10n/l10n.dart';
 import 'package:univalle_app/models/models.dart';
 
+/// Interface to display a [CourseGrade].
+///
+/// Shows a bar graphic of the [CourseGrade.semestralGrade]
+/// through [GradesBar], and a [SingleGradeBar] for each
+/// item inside [CourseGrade.partials].
 class CourseGradesItem extends StatelessWidget {
   const CourseGradesItem(this.courseGrade, {Key? key}) : super(key: key);
 

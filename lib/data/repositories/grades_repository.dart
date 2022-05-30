@@ -3,6 +3,8 @@ import 'dart:convert';
 import 'package:univalle_app/data/providers/providers.dart';
 import 'package:univalle_app/models/models.dart';
 
+/// Manages the http requests for grades related
+/// data, returning objects ready to use.
 class GradesRepository {
   const GradesRepository({
     required GradesProvider gradesProvider,
@@ -13,6 +15,10 @@ class GradesRepository {
   final GradesProvider _gradesProvider;
   final SubjectsProvider _subjectsProvider;
 
+  /// Retrieves grades of the currently signed in student
+  /// and its corresponding courses, grouped by management.
+  ///
+  /// Throws an exception if some request fails.
   Future<Map<String, List<CourseGrade>>> getGrades() async {
     final response = await _gradesProvider.requestGrades();
     if (response.statusCode != 200) {

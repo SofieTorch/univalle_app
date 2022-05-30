@@ -9,6 +9,7 @@ class CourseGrade extends Equatable {
     this.semestralGrade = 0,
   });
 
+  /// Creates a CourseGrade instance from a json object.
   factory CourseGrade.fromJson(dynamic json) {
     final parsedJson = json as Map<String, dynamic>;
     return CourseGrade(
@@ -26,14 +27,18 @@ class CourseGrade extends Equatable {
   final double finalExam;
   final double semestralGrade;
 
+  /// Evaluates if [course] is approved. It is considerated
+  /// approved if [semestralGrade] is more than 50.
   bool get isApproved => semestralGrade > 50;
 
+  /// Percentage of the semester grade worth each midterm.
   double get midtermsWeight {
     if (partials.length == 4) return 0.2;
     if (partials.length == 2) return 0.35;
     return 0;
   }
 
+  /// Percentage of the semester grade worth the final exam.
   double get finalWeight {
     if (partials.length == 4) return 0.2;
     if (partials.length == 2) return 0.3;

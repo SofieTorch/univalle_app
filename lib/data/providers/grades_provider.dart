@@ -6,7 +6,8 @@ import 'package:univalle_app/data/providers/http_provider.dart';
 import 'package:univalle_app/data/providers/storage_provider.dart';
 import 'package:univalle_app/environment.dart';
 
-/// Sends http requests for grades related data.
+/// Sends http requests to retrieve
+/// grades related data.
 class GradesProvider {
   GradesProvider({
     required StorageProvider storageProvider,
