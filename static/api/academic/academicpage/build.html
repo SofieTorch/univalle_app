@@ -119,16 +119,12 @@ Widget build(BuildContext context) {
             Tab(text: l10n.academicTabLabelSubjects),
           ],
         ),
-        Expanded(
+        const Expanded(
           child: TabBarView(
             children: [
-              Center(
-                child: Text(
-                  &#39;This is the ${l10n.academicTabLabelNotes} tab&#39;,
-                ),
-              ),
-              const SchedulePage(),
-              const SubjectsPage(),
+              GradesPage(),
+              SchedulePage(),
+              SubjectsPage(),
             ],
           ),
         ),

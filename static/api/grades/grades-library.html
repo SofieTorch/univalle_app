@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="grades library API docs, for the Dart programming language.">
+  <title>grades library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../static-assets/styles.css?v1">
+  <link rel="icon" href="../static-assets/favicon.png?v1">
+
+  
+</head>
+
+
+<body data-base-href="../" data-using-base-href="false">
+
+<div id="overlay-under-drawer"></div>
+
+<header id="title">
+  <button id="sidenav-left-toggle" type="button">&nbsp;</button>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../index.html">univalle_app</a></li>
+    <li class="self-crumb">grades library</li>
+  </ol>
+  <div class="self-name">grades</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<main>
+
+
+  <div id="dartdoc-main-content" class="main-content">
+      <div>
+<h1><span class="kind-library">grades</span> library 
+    <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
+ 
+</h1></div>
+
+    
+
+
+    <section class="summary offset-anchor" id="classes">
+      <h2>Classes</h2>
+
+      <dl>
+        <dt id="CourseGradesItem">
+  <span class="name "><a href="../grades/coursegradesitem-class.html">CourseGradesItem</a></span> 
+
+</dt>
+<dd>
+  Interface to display a <a href="../models/coursegrade-class.html">CourseGrade</a>.
+</dd>
+
+        <dt id="DropDownGrades">
+  <span class="name "><a href="../grades/dropdowngrades-class.html">DropDownGrades</a></span> 
+
+</dt>
+<dd>
+  DropDown to change the currently displayed grade list
+selecting a management.
+Triggers <a href="../grades/managementchanged-class.html">ManagementChanged</a>.
+</dd>
+
+        <dt id="GradeListBloc">
+  <span class="name "><a href="../grades/gradelistbloc-class.html">GradeListBloc</a></span> 
+
+</dt>
+<dd>
+  Manages the logic related to grades,
+retrieving them when <a href="../grades/gradelistrequested-class.html">GradeListRequested</a> is added
+and updating the <a href="../grades/gradeliststate/selectedmanagement.html">GradeListState.selectedManagement</a>.
+</dd>
+
+        <dt id="GradeListEvent">
+  <span class="name "><a href="../grades/gradelistevent-class.html">GradeListEvent</a></span> 
+
+</dt>
+<dd>
+  Base class for <a href="../grades/gradelistbloc-class.html">GradeListBloc</a> events.
+</dd>
+
+        <dt id="GradeListRequested">
+  <span class="name "><a href="../grades/gradelistrequested-class.html">GradeListRequested</a></span> 
+
+</dt>
+<dd>
+  Triggered when grades have been requested.
+</dd>
+
+        <dt id="GradeListState">
+  <span class="name "><a href="../grades/gradeliststate-class.html">GradeListState</a></span> 
+
+</dt>
+<dd>
+  State of <a href="../grades/gradelistbloc-class.html">GradeListBloc</a>.
+</dd>
+
+        <dt id="GradesBar">
+  <span class="name "><a href="../grades/gradesbar-class.html">GradesBar</a></span> 
+
+</dt>
+<dd>
+  Graphic bar for <a href="../models/coursegrade/semestralgrade.html">CourseGrade.semestralGrade</a>,
+divided by each <a href="../models/coursegrade/partials.html">CourseGrade.partials</a> and <a href="../models/coursegrade/finalexam.html">CourseGrade.finalExam</a>,
+based on their weight.
+</dd>
+
+        <dt id="GradesPage">
+  <span class="name "><a href="../grades/gradespage-class.html">GradesPage</a></span> 
+
+</dt>
+<dd>
+  Page to list grades. Initializes <a href="../grades/gradelistbloc-class.html">GradeListBloc</a>
+and its repositories and providers.
+</dd>
+
+        <dt id="GradesView">
+  <span class="name "><a href="../grades/gradesview-class.html">GradesView</a></span> 
+
+</dt>
+<dd>
+  View for <a href="../grades/gradespage-class.html">GradesPage</a>.
+</dd>
+
+        <dt id="ManagementChanged">
+  <span class="name "><a href="../grades/managementchanged-class.html">ManagementChanged</a></span> 
+
+</dt>
+<dd>
+  Triggered when the selected management has changed
+to update the current selected grade list (that is shown to user).
+</dd>
+
+        <dt id="SemestralGradeCard">
+  <span class="name "><a href="../grades/semestralgradecard-class.html">SemestralGradeCard</a></span> 
+
+</dt>
+<dd>
+  Interface to display only <code>CourseGrade.course.subject</code>
+and <a href="../models/coursegrade/semestralgrade.html">CourseGrade.semestralGrade</a> from a <a href="../models/coursegrade-class.html">CourseGrade</a>.
+</dd>
+
+        <dt id="SingleGradeBar">
+  <span class="name "><a href="../grades/singlegradebar-class.html">SingleGradeBar</a></span> 
+
+</dt>
+<dd>
+  Graphic bar to display a grade over 100,
+similar to a progress bar.
+</dd>
+
+      </dl>
+    </section>
+
+
+
+
+
+
+    <section class="summary offset-anchor" id="enums">
+      <h2>Enums</h2>
+
+      <dl>
+        <dt id="GradeListRequestStatus">
+  <span class="name "><a href="../grades/gradelistrequeststatus.html">GradeListRequestStatus</a></span> 
+
+</dt>
+<dd>
+  Status for the http request made to retrieve grades.
+</dd>
+
+      </dl>
+    </section>
+
+
+
+  </div> <!-- /.main-content -->
+
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+  <li><a href="../index.html">univalle_app</a></li>
+  <li class="self-crumb">grades library</li>
+</ol>
+
+
+    <h5><span class="package-name">univalle_app</span> <span class="package-kind">package</span></h5>
+    <ol>
+      <li class="section-title">Libraries</li>
+      <li><a href="../academic/academic-library.html">academic</a></li>
+      <li><a href="../authentication/authentication-library.html">authentication</a></li>
+      <li><a href="../connectivity/connectivity-library.html">connectivity</a></li>
+      <li><a href="../exceptions/exceptions-library.html">exceptions</a></li>
+      <li><a href="../grades/grades-library.html">grades</a></li>
+      <li><a href="../home/home-library.html">home</a></li>
+      <li><a href="../models/models-library.html">models</a></li>
+      <li><a href="../navigation/navigation-library.html">navigation</a></li>
+      <li><a href="../providers/providers-library.html">providers</a></li>
+      <li><a href="../repositories/repositories-library.html">repositories</a></li>
+      <li><a href="../schedule/schedule-library.html">schedule</a></li>
+      <li><a href="../sign_in/sign_in-library.html">sign_in</a></li>
+      <li><a href="../splash/splash-library.html">splash</a></li>
+      <li><a href="../subjects/subjects-library.html">subjects</a></li>
+</ol>
+
+  </div>
+
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+    <h5>grades library</h5>
+    <ol>
+  <li class="section-title"><a href="../grades/grades-library.html#classes">Classes</a></li>
+  <li><a href="../grades/coursegradesitem-class.html">CourseGradesItem</a></li>
+  <li><a href="../grades/dropdowngrades-class.html">DropDownGrades</a></li>
+  <li><a href="../grades/gradelistbloc-class.html">GradeListBloc</a></li>
+  <li><a href="../grades/gradelistevent-class.html">GradeListEvent</a></li>
+  <li><a href="../grades/gradelistrequested-class.html">GradeListRequested</a></li>
+  <li><a href="../grades/gradeliststate-class.html">GradeListState</a></li>
+  <li><a href="../grades/gradesbar-class.html">GradesBar</a></li>
+  <li><a href="../grades/gradespage-class.html">GradesPage</a></li>
+  <li><a href="../grades/gradesview-class.html">GradesView</a></li>
+  <li><a href="../grades/managementchanged-class.html">ManagementChanged</a></li>
+  <li><a href="../grades/semestralgradecard-class.html">SemestralGradeCard</a></li>
+  <li><a href="../grades/singlegradebar-class.html">SingleGradeBar</a></li>
+
+
+
+
+
+
+  <li class="section-title"><a href="../grades/grades-library.html#enums">Enums</a></li>
+  <li><a href="../grades/gradelistrequeststatus.html">GradeListRequestStatus</a></li>
+
+
+</ol>
+
+  </div><!--/sidebar-offcanvas-right-->
+
+</main>
+
+<footer>
+  <span class="no-break">
+    univalle_app
+      1.0.0+1
+  </span>
+
+  
+</footer>
+
+
+
+<script src="../static-assets/highlight.pack.js?v1"></script>
+<script src="../static-assets/docs.dart.js"></script>
+
+
+
+</body>
+
+</html>
+
