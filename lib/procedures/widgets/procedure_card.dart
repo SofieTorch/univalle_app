@@ -64,11 +64,12 @@ class ProcedureCardView extends StatelessWidget {
                     width: 4,
                   ),
                   Chip(
-                      label: Text(
-                        'Costo ${procedure.price} bs.',
-                        style: Theme.of(context).textTheme.overline,
-                      ),
-                      backgroundColor: AppColors.gray.shade200),
+                    label: Text(
+                      'Costo ${procedure.price} bs.',
+                      style: Theme.of(context).textTheme.overline,
+                    ),
+                    backgroundColor: AppColors.gray.shade200,
+                  ),
                 ],
               ),
 

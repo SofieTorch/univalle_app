@@ -38,7 +38,7 @@ class _ProceduresView extends StatelessWidget {
           child: BlocBuilder<ProceduresBloc, ProceduresState>(
             builder: (context, state) {
               if (state.status == ProcedureListRequestStatus.failure) {
-                return Text(state.errorMessage!);
+                return Text(state.errorMessage);
               }
               if (state.status == ProcedureListRequestStatus.success) {
                 return ListView.builder(
