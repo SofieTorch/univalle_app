@@ -1,7 +1,12 @@
 part of 'subject_list_bloc.dart';
 
+/// Http request status when making the subject list request.
 enum SubjectListRequestStatus { initial, loading, success, failure }
 
+/// State emitted by [SubjectListBloc].
+///
+/// Contains the course/subject list and
+/// its request status ([SubjectListRequestStatus]).
 class SubjectListState extends Equatable {
   const SubjectListState({
     this.status = SubjectListRequestStatus.initial,
@@ -9,9 +14,14 @@ class SubjectListState extends Equatable {
     this.errorMessage,
   });
 
+  /// Status of the http request.
   final SubjectListRequestStatus status;
-  final List<Course> courses;
+
+  /// Error message when the http request was unsuccessful
+  /// or something unexpected happend.
   final String? errorMessage;
+
+  final List<Course> courses;
 
   SubjectListState copyWith({
     SubjectListRequestStatus? status,

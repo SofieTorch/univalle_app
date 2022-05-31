@@ -2,6 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:univalle_app/l10n/l10n.dart';
 
+/// Message to inform the user is not currently enrolled
+/// in the university.
+///
+/// Used, for example, when the user is trying to retrieve
+/// its subjects, schedule, etc. but is not enrolled.
 class NoEnrolledMessage extends StatelessWidget {
   const NoEnrolledMessage({Key? key}) : super(key: key);
 

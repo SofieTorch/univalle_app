@@ -18,5 +18,17 @@ void main() {
       expect(response.statusCode, equals(200));
       expect(response.body, equals(jsonEncode('test sucess')));
     });
+
+    test('Get method', () async {
+      final client = MockClient((request) async {
+        return http.Response(jsonEncode('test sucess'), 200);
+      });
+
+      final httpProvider = HttpProvider(client);
+      final response = await httpProvider.get(Uri.http('localhost', '/test'));
+
+      expect(response.statusCode, equals(200));
+      expect(response.body, equals(jsonEncode('test sucess')));
+    });
   });
 }

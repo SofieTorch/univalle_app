@@ -9,6 +9,7 @@ class Course extends Equatable {
     this.management = '',
   });
 
+  /// Creates a Course instance from a json object.
   factory Course.fromJson(dynamic json) {
     final parsedJson = json as Map<String, dynamic>;
     return Course(
@@ -25,22 +26,6 @@ class Course extends Equatable {
   final String group;
   final String teacher;
   final String management;
-
-  Course copyWith({
-    int? id,
-    String? subject,
-    String? group,
-    String? teacher,
-    String? management,
-  }) {
-    return Course(
-      id: id ?? this.id,
-      subject: subject ?? this.subject,
-      group: group ?? this.group,
-      teacher: teacher ?? this.teacher,
-      management: management ?? this.management,
-    );
-  }
 
   @override
   List<Object?> get props => [id, subject, group, teacher, management];

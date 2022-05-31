@@ -16,13 +16,13 @@ class SubjectsPage extends StatelessWidget {
           storageProvider: context.read<StorageProvider>(),
         ),
       )..add(SubjectListRequested()),
-      child: const _SubjectsView(),
+      child: const SubjectsView(),
     );
   }
 }
 
-class _SubjectsView extends StatelessWidget {
-  const _SubjectsView({Key? key}) : super(key: key);
+class SubjectsView extends StatelessWidget {
+  const SubjectsView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

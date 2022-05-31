@@ -6,18 +6,35 @@ import 'package:univalle_app/data/providers/http_provider.dart';
 import 'package:univalle_app/data/providers/storage_provider.dart';
 import 'package:univalle_app/environment.dart';
 
+/// Provides specific access to subjects related
+/// data sending http requests.
 class SubjectsProvider {
   SubjectsProvider({
     required StorageProvider storageProvider,
     HttpProvider? httpProvider,
-  })  : _httpProvider = httpProvider ?? HttpProvider(Client()),
-        _storageProvider = storageProvider;
+  }) : _storageProvider = storageProvider {
+    _httpProvider = httpProvider ?? _httpProvider;
+  }
 
-  final HttpProvider _httpProvider;
   final StorageProvider _storageProvider;
+  HttpProvider _httpProvider = HttpProvider(Client());
 
+  /// Sends the corresponding http request to retrieve
+  /// courses/subjects where the user is currently enrolled in.
   Future<Response> requestCurrentSubjects() async {
     final endpoint = Uri.https(Environment.host, '/subjects');
+    final headers = <String, String>{
+      HttpHeaders.authorizationHeader: 'Basic ${_storageProvider.token}'
+    };
+
+    return _httpProvider.get(endpoint, headers: headers);
+  }
+
+  /// Sends an http request to retrieve a single
+  /// course/subject based on its id.
+  Future<Response> requestSubject(int courseId) async {
+    final params = {'courseId': courseId.toString()};
+    final endpoint = Uri.https(Environment.host, '/subject', params);
     final headers = <String, String>{
       HttpHeaders.authorizationHeader: 'Basic ${_storageProvider.token}'
     };
