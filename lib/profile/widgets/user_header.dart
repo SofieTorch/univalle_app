@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:univalle_app/profile/bloc/students_bloc.dart';
 import 'package:univalle_app/theme/app_colors.dart';
-
-import '../bloc/students_bloc.dart';
 
 class UserHeader extends StatelessWidget {
   const UserHeader({Key? key}) : super(key: key);
@@ -37,7 +36,7 @@ class UserHeader extends StatelessWidget {
           Container(
             padding: const EdgeInsets.symmetric(vertical: 1, horizontal: 8),
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.all(Radius.circular(6)),
+              borderRadius: const BorderRadius.all(Radius.circular(6)),
               color: AppColors.shiraz.shade100,
             ),
             child: Text(student.career),

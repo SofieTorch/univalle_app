@@ -1,5 +1,4 @@
 import 'package:equatable/equatable.dart';
-import 'package:intl/intl.dart';
 
 class Student extends Equatable {
   Student({
@@ -29,7 +28,7 @@ class Student extends Equatable {
 
   static String _getDateFromString(String date) {
     final dateArr = date.split('/').map(int.parse).toList();
-    String format = ('${dateArr[0]}/${dateArr[1]}/${dateArr[2]}').toString();
+    final format = '${dateArr[0]}/${dateArr[1]}/${dateArr[2]}';
     return format;
   }
 

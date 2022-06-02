@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
-import 'package:univalle_app/data/repositories/repositories.dart';
-import 'package:univalle_app/models/models.dart';
+import 'package:univalle_app/authentication/authentication.dart';
 import 'package:univalle_app/profile/bloc/students_bloc.dart';
 import 'package:univalle_app/theme/app_colors.dart';
-
-import '../../data/providers/providers.dart';
 
 class UserListView extends StatelessWidget {
   const UserListView({Key? key}) : super(key: key);
@@ -84,15 +81,21 @@ class UserListView extends StatelessWidget {
           visualDensity: const VisualDensity(vertical: -4),
         ),
         const Divider(height: 10, thickness: 0.7),
-        const ListTile(
-          leading: Icon(MdiIcons.logout, size: 25, color: AppColors.shiraz),
+        ListTile(
+          leading:
+              const Icon(MdiIcons.logout, size: 25, color: AppColors.shiraz),
           minLeadingWidth: 10,
-          title: Text(
+          title: const Text(
             'Cerrar Sesion',
             style: TextStyle(fontSize: 15, color: AppColors.shiraz),
           ),
           dense: true,
-          visualDensity: VisualDensity(vertical: -4),
+          visualDensity: const VisualDensity(vertical: -4),
+          onTap: () {
+            context.read<AuthenticationBloc>().add(
+                  AuthenticationLogoutRequested(),
+                );
+          },
         ),
         const Divider(height: 10, thickness: 0.7),
       ],
