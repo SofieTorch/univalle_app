@@ -3,15 +3,17 @@ part of 'students_bloc.dart';
 enum StudentRequestStatus { initial, loading, success, failure }
 
 class StudentsState extends Equatable {
-  const StudentsState({
+  StudentsState({
     this.status = StudentRequestStatus.initial,
-    this.student = const Student(),
-    this.errorMessage,
-  });
+    Student? student,
+    this.errorMessage = '',
+  }) {
+    this.student = student ?? Student();
+  }
 
   final StudentRequestStatus status;
-  final Student student;
-  final String? errorMessage;
+  late final Student student;
+  final String errorMessage;
 
   StudentsState copyWith({
     StudentRequestStatus? status,
@@ -26,5 +28,5 @@ class StudentsState extends Equatable {
   }
 
   @override
-  List<Object> get props => [status, student];
+  List<Object> get props => [status, student, errorMessage];
 }

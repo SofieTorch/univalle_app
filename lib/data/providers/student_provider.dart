@@ -17,7 +17,7 @@ class StudentProvider {
   final StorageProvider _storageProvider;
 
   Future<Response> requestCurrentStudents() async {
-    final endpoint = Uri.https(Environment.host, '/Users');
+    final endpoint = Uri.https(Environment.host, '/student');
     final headers = <String, String>{
       HttpHeaders.authorizationHeader: 'Basic ${_storageProvider.token}'
     };

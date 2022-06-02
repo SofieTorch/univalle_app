@@ -5,12 +5,10 @@ import 'package:univalle_app/models/models.dart';
 part 'students_event.dart';
 part 'students_state.dart';
 
-
-
 class StudentsBloc extends Bloc<StudentsEvent, StudentsState> {
   StudentsBloc({required StudentRepository studentRepository})
-    : _repository = studentRepository,
-    super(const StudentsState()) {
+      : _repository = studentRepository,
+        super(StudentsState()) {
     on<StudentsRequested>(_onStudentsRequested);
   }
   final StudentRepository _repository;
@@ -19,24 +17,21 @@ class StudentsBloc extends Bloc<StudentsEvent, StudentsState> {
     Emitter<StudentsState> emit,
   ) async {
     emit(state.copyWith(status: StudentRequestStatus.loading));
-    try {
-      final student = await _repository.getStudent();
-      emit(
-          state.copyWith(
-          status: StudentRequestStatus.success,
-          student: student,
-        ),
-      );
-    } catch (e) {
-      emit(
-        state.copyWith(
-          status: StudentRequestStatus.failure,
-          errorMessage: e.toString(),
-        ),
-      );
-    }
+    // try {
+    final student = await _repository.getStudent();
+    emit(
+      state.copyWith(
+        status: StudentRequestStatus.success,
+        student: student,
+      ),
+    );
+    // } catch (e) {
+    //   emit(
+    //     state.copyWith(
+    //       status: StudentRequestStatus.failure,
+    //       errorMessage: e.toString(),
+    //     ),
+    //   );
+    // }
   }
 }
-
-
-

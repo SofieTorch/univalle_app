@@ -1,7 +1,8 @@
 import 'package:equatable/equatable.dart';
+import 'package:intl/intl.dart';
 
 class Student extends Equatable {
-  const Student({
+  Student({
     this.fullName = '',
     this.career = '',
     this.representative = '',
@@ -9,6 +10,7 @@ class Student extends Equatable {
     this.mail = '',
     this.sex = '',
     this.imageUrl = '',
+    this.birthDate = '',
   });
 
   factory Student.fromJson(dynamic json) {
@@ -21,7 +23,14 @@ class Student extends Equatable {
       mail: parsedJson['mail'] as String,
       sex: parsedJson['sex'] as String,
       imageUrl: parsedJson['imageUrl'] as String,
+      birthDate: _getDateFromString(parsedJson['birthDate'] as String),
     );
+  }
+
+  static String _getDateFromString(String date) {
+    final dateArr = date.split('/').map(int.parse).toList();
+    String format = ('${dateArr[0]}/${dateArr[1]}/${dateArr[2]}').toString();
+    return format;
   }
 
   final String fullName;
@@ -31,6 +40,7 @@ class Student extends Equatable {
   final String mail;
   final String sex;
   final String imageUrl;
+  final String birthDate;
 
   Student copyWith({
     String? fullName,
@@ -40,6 +50,7 @@ class Student extends Equatable {
     String? mail,
     String? sex,
     String? imageUrl,
+    String? birthDate,
   }) {
     return Student(
       fullName: fullName ?? this.fullName,
@@ -49,10 +60,19 @@ class Student extends Equatable {
       mail: mail ?? this.mail,
       sex: sex ?? this.sex,
       imageUrl: imageUrl ?? this.imageUrl,
+      birthDate: birthDate ?? this.birthDate,
     );
   }
 
   @override
-  List<Object?> get props =>
-      [fullName, career, representative, country, mail, sex, imageUrl];
+  List<Object?> get props => [
+        fullName,
+        career,
+        birthDate,
+        representative,
+        country,
+        mail,
+        sex,
+        imageUrl
+      ];
 }

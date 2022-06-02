@@ -34,11 +34,23 @@ class _ProfileView extends StatelessWidget {
         padding: const EdgeInsets.all(16),
         child: BlocBuilder<StudentsBloc, StudentsState>(
           builder: (context, state) {
-            return ListView(
-              shrinkWrap: true,
-              primary: true,
-              children: const [UserHeader(), UserListView()],
-            );
+            if (state.status == StudentRequestStatus.failure) {
+              return Center(
+                child: Text(state.errorMessage),
+              );
+            }
+            if (state.status == StudentRequestStatus.success) {
+              return ListView(
+                shrinkWrap: true,
+                primary: true,
+                children: const [
+                  UserHeader(),
+                  UserListView(),
+                ],
+              );
+            }
+
+            return const Center(child: CircularProgressIndicator());
           },
         ),
       ),
