@@ -17,13 +17,13 @@ class ProceduresPage extends StatelessWidget {
           proceduresProvider: ProceduresProvider(),
         ),
       )..add(ProcedureListRequested()),
-      child: const _ProceduresView(),
+      child: const ProceduresView(),
     );
   }
 }
 
-class _ProceduresView extends StatelessWidget {
-  const _ProceduresView({Key? key}) : super(key: key);
+class ProceduresView extends StatelessWidget {
+  const ProceduresView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
