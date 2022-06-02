@@ -27,7 +27,8 @@ class ProcedureCardView extends StatelessWidget {
   Widget build(BuildContext context) {
     final procedure = context.read<ProcedureItemCubit>().state.procedure;
     final showRequirements = context.select<ProcedureItemCubit, bool>(
-        (value) => value.state.showRequirements);
+      (value) => value.state.showRequirements,
+    );
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 16),
       child: Column(
