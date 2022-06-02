@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 
 class Student extends Equatable {
-  Student({
+  const Student({
     this.fullName = '',
     this.career = '',
     this.representative = '',
