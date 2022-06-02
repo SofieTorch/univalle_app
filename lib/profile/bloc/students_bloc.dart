@@ -17,21 +17,21 @@ class StudentsBloc extends Bloc<StudentsEvent, StudentsState> {
     Emitter<StudentsState> emit,
   ) async {
     emit(state.copyWith(status: StudentRequestStatus.loading));
-    // try {
-    final student = await _repository.getStudent();
-    emit(
-      state.copyWith(
-        status: StudentRequestStatus.success,
-        student: student,
-      ),
-    );
-    // } catch (e) {
-    //   emit(
-    //     state.copyWith(
-    //       status: StudentRequestStatus.failure,
-    //       errorMessage: e.toString(),
-    //     ),
-    //   );
-    // }
+    try {
+      final student = await _repository.getStudent();
+      emit(
+        state.copyWith(
+          status: StudentRequestStatus.success,
+          student: student,
+        ),
+      );
+    } catch (e) {
+      emit(
+        state.copyWith(
+          status: StudentRequestStatus.failure,
+          errorMessage: e.toString(),
+        ),
+      );
+    }
   }
 }

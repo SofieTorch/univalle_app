@@ -16,13 +16,13 @@ class ProfilePage extends StatelessWidget {
           storageProvider: context.read<StorageProvider>(),
         ),
       )..add(StudentsRequested()),
-      child: const _ProfileView(),
+      child: const ProfileView(),
     );
   }
 }
 
-class _ProfileView extends StatelessWidget {
-  const _ProfileView({Key? key}) : super(key: key);
+class ProfileView extends StatelessWidget {
+  const ProfileView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
