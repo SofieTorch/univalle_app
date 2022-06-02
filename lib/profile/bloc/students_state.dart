@@ -8,7 +8,7 @@ class StudentsState extends Equatable {
     Student? student,
     this.errorMessage = '',
   }) {
-    this.student = student ?? Student();
+    this.student = student ?? const Student();
   }
 
   final StudentRequestStatus status;
