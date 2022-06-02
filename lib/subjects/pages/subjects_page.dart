@@ -43,7 +43,6 @@ class SubjectsView extends StatelessWidget {
             itemBuilder: (_, index) => SubjectListItem(state.courses[index]),
           );
         }
-
         return const Center(child: CircularProgressIndicator());
       },
     );
