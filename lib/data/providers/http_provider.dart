@@ -43,7 +43,6 @@ class HttpProvider {
     Uri url, {
     Map<String, String>? headers,
   }) async {
-
     return client.get(
       url,
       headers: headers,
