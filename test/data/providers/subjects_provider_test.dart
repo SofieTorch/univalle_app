@@ -32,28 +32,48 @@ void main() {
       );
     });
 
-    test(
-      '''
+    test('''
       requestCurrentSubjects() requests subjects and
       returns Response successfully
-      ''',
-      () {
-        when(() => mockStorageProvider.token).thenReturn('token:test');
-        final endpoint = Uri.https(Environment.host, '/subjects');
-        final headers = <String, String>{
-          HttpHeaders.authorizationHeader: 'Basic ${mockStorageProvider.token}'
-        };
+      ''', () {
+      when(() => mockStorageProvider.token).thenReturn('token:test');
+      final endpoint = Uri.https(Environment.host, '/subjects');
+      final headers = <String, String>{
+        HttpHeaders.authorizationHeader: 'Basic ${mockStorageProvider.token}'
+      };
 
-        when(() => mockHttpProvider.get(endpoint, headers: headers))
-            .thenAnswer((_) => Future<Response>(() => mockResponse));
+      when(() => mockHttpProvider.get(endpoint, headers: headers))
+          .thenAnswer((_) => Future<Response>(() => mockResponse));
 
-        final future = subjectsProvider.requestCurrentSubjects();
+      final future = subjectsProvider.requestCurrentSubjects();
 
-        expect(future, completes);
-        verify(() => mockStorageProvider.token).called(2);
-        verify(() => mockHttpProvider.get(endpoint, headers: headers))
-            .called(1);
-      },
-    );
+      expect(future, completion(mockResponse));
+      verify(() => mockStorageProvider.token).called(2);
+      verify(() => mockHttpProvider.get(endpoint, headers: headers)).called(1);
+    });
+
+    test('''
+      requestSubject() requests subject by id and
+      returns Response successfully.
+      ''', () {
+      when(() => mockStorageProvider.token).thenReturn('token:test');
+      final endpoint = Uri.https(
+        Environment.host,
+        '/subject',
+        <String, String>{'courseId': 1.toString()},
+      );
+      final headers = <String, String>{
+        HttpHeaders.authorizationHeader: 'Basic ${mockStorageProvider.token}'
+      };
+
+      when(() => mockHttpProvider.get(endpoint, headers: headers))
+          .thenAnswer((_) => Future<Response>(() => mockResponse));
+
+      final future = subjectsProvider.requestSubject(1);
+
+      expect(future, completion(mockResponse));
+      verify(() => mockStorageProvider.token).called(2);
+      verify(() => mockHttpProvider.get(endpoint, headers: headers)).called(1);
+    });
   });
 }
