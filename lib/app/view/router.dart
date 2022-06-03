@@ -8,6 +8,8 @@ class AppRouter {
   static const String home = '/';
   static const String signIn = '/signin';
   static const String procedures = '/procedures';
+  static const String library = '/library';
+  static const String libraryLoans = '/library/loans';
   static const String splash = '/splash';
 
   /// Maps a given route to its corresponding page, initializing
@@ -29,6 +31,24 @@ class AppRouter {
             return BlocProvider<ConnectivityBloc>.value(
               value: connectivityBloc..add(const ConnectivityRequested()),
               child: const ConnectivityListener(child: ProceduresPage()),
+            );
+          },
+        );
+      case library:
+        return MaterialPageRoute<Widget>(
+          builder: (_) {
+            return BlocProvider<ConnectivityBloc>.value(
+              value: connectivityBloc..add(const ConnectivityRequested()),
+              child: const ConnectivityListener(child: LibraryPage()),
+            );
+          },
+        );
+      case libraryLoans:
+        return MaterialPageRoute<Widget>(
+          builder: (_) {
+            return BlocProvider<ConnectivityBloc>.value(
+              value: connectivityBloc..add(const ConnectivityRequested()),
+              child: const ConnectivityListener(child: LibraryLoansPage()),
             );
           },
         );
