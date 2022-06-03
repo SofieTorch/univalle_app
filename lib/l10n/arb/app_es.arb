@@ -77,5 +77,11 @@
     "gradesPageSecondMidtermLabel": "Segundo",
     "gradesPageThirdMidtermLabel": "Tercer",
     "gradesPageFourthMidtermLabel": "Cuarto",
-    "gradesPageFinalExamLabel": "Examen final"
+    "gradesPageFinalExamLabel": "Examen final",
+    "libraryPageAppBarTitle": "Biblioteca",
+    "libraryPageLoansButtonText": "PRÉSTAMOS PENDIENTES",
+    "libraryLoansPageAppBarTitle": "Mis préstamos",
+    "libraryLoanToReturnChipLabel": "Por devolver",
+    "libraryLoanReturnedChipLabel": "Devuelto",
+    "libraryLoanCampusLabel": "en"
 }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:univalle_app/data/providers/providers.dart';
 import 'package:univalle_app/data/repositories/library_repository.dart';
+import 'package:univalle_app/l10n/l10n.dart';
 import 'package:univalle_app/library_loans/library_loans.dart';
 
 class LibraryLoansPage extends StatelessWidget {
@@ -27,9 +28,10 @@ class LibraryLoansView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = context.l10n;
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Mis prestamos'),
+        title: Text(l10n.libraryLoansPageAppBarTitle),
       ),
       body: BlocBuilder<LoanListBloc, LoanListState>(
         builder: (context, state) {

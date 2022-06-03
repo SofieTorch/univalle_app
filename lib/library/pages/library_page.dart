@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:univalle_app/app/view/app.dart';
+import 'package:univalle_app/l10n/l10n.dart';
 
 class LibraryPage extends StatelessWidget {
   const LibraryPage({Key? key}) : super(key: key);
@@ -16,9 +17,10 @@ class LibraryView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = context.l10n;
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Biblioteca'),
+        title: Text(l10n.libraryPageAppBarTitle),
       ),
       body: Center(
         child: TextButton(
@@ -27,9 +29,9 @@ class LibraryView extends StatelessWidget {
           },
           child: Row(
             mainAxisSize: MainAxisSize.min,
-            children: const [
-              Text('PRESTAMOS PENDIENTES'),
-              Icon(MdiIcons.arrowRight),
+            children: [
+              Text(l10n.libraryPageLoansButtonText),
+              const Icon(MdiIcons.arrowRight),
             ],
           ),
         ),

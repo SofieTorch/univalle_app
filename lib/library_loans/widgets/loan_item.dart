@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:univalle_app/l10n/l10n.dart';
 import 'package:univalle_app/models/models.dart';
 import 'package:univalle_app/theme/app_colors.dart';
 
@@ -37,7 +38,7 @@ class LoanItem extends StatelessWidget {
               const _LoanToReturnChip(),
             const SizedBox(width: 6),
             Text(
-              'en ${loan.book.campus.name}',
+              '${context.l10n.libraryLoanCampusLabel} ${loan.book.campus.name}',
               style: Theme.of(context)
                   .textTheme
                   .overline!
@@ -58,10 +59,10 @@ class _LoanToReturnChip extends StatelessWidget {
   Widget build(BuildContext context) {
     return Chip(
       label: Row(
-        children: const [
-          Text('Por devolver'),
-          SizedBox(width: 4),
-          Icon(
+        children: [
+          Text(context.l10n.libraryLoanToReturnChipLabel),
+          const SizedBox(width: 4),
+          const Icon(
             MdiIcons.clockEnd,
             color: AppColors.white,
             size: 16,
@@ -84,10 +85,10 @@ class _LoanReturnedChip extends StatelessWidget {
   Widget build(BuildContext context) {
     return Chip(
       label: Row(
-        children: const [
-          Text('Devuelto'),
-          SizedBox(width: 4),
-          Icon(
+        children: [
+          Text(context.l10n.libraryLoanReturnedChipLabel),
+          const SizedBox(width: 4),
+          const Icon(
             MdiIcons.checkCircleOutline,
             color: AppColors.white,
             size: 16,
