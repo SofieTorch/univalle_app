@@ -5,9 +5,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:univalle_app/l10n/l10n.dart';
-import 'package:univalle_app/library_loans/bloc/loan_list_bloc.dart';
 import 'package:univalle_app/library_loans/library_loans.dart';
-import 'package:univalle_app/library_loans/pages/library_loans_page.dart';
 import 'package:univalle_app/models/models.dart';
 
 class MockLoanListBloc extends MockBloc<LoanListEvent, LoanListState>
