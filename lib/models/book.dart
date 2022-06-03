@@ -14,8 +14,32 @@ class Book extends Equatable {
     this.country = '',
     this.language = '',
     this.pages = 1,
+    this.available = true,
     this.campus = Campus.empty,
   });
+
+  factory Book.fromJson(dynamic json, [Campus? campus]) {
+    final parsedJson = json as Map<String, dynamic>;
+    return Book(
+      id: parsedJson['id'] as int,
+      title: parsedJson['title'] as String,
+      authors: (parsedJson['authors'] as List<dynamic>)
+          .map((dynamic e) => e.toString())
+          .toList(),
+      content: (parsedJson['content'] as List<dynamic>)
+          .map((dynamic e) => e.toString())
+          .toList(),
+      editorial: parsedJson['editorial'] as String,
+      edition: parsedJson['edition'] as int,
+      year: parsedJson['publicationYear'] as int,
+      isbn: parsedJson['isbn'] as String,
+      country: parsedJson['publicatonCountry'] as String,
+      language: parsedJson['language'] as String,
+      pages: parsedJson['pages'] as int,
+      available: parsedJson['available'] as bool,
+      campus: campus ?? Campus.empty,
+    );
+  }
 
   final int id;
   final String title;
@@ -28,6 +52,7 @@ class Book extends Equatable {
   final String country;
   final String language;
   final int pages;
+  final bool available;
   final Campus campus;
 
   @override
@@ -43,6 +68,7 @@ class Book extends Equatable {
         country,
         language,
         pages,
+        available,
         campus,
       ];
 }

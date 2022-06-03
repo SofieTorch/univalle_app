@@ -7,6 +7,15 @@ class Campus extends Equatable {
     required this.name,
   });
 
+  factory Campus.fromJson(dynamic json) {
+    final parsedJson = json as Map<String, dynamic>;
+    return Campus(
+      id: parsedJson['id'] as int,
+      address: parsedJson['address'] as String,
+      name: parsedJson['name'] as String,
+    );
+  }
+
   static const empty = Campus(address: '', name: '', id: 0);
 
   final int id;
