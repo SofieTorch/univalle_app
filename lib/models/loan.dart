@@ -19,7 +19,7 @@ class Loan extends Equatable {
 
   static DateTime _dateTimeFromString(String date) {
     final arr = date.split('/');
-    return arr.isEmpty
+    return arr[0].isEmpty
         ? DateTime(0)
         : DateTime(int.parse(arr[2]), int.parse(arr[1]), int.parse(arr[0]));
   }

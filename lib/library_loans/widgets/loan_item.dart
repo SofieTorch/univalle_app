@@ -12,13 +12,15 @@ class LoanItem extends StatelessWidget {
   Widget build(BuildContext context) {
     final loanReturned = loan.returnDate != DateTime(0);
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
           loan.book.title,
           style: Theme.of(context).textTheme.headline3,
         ),
+        const SizedBox(height: 2),
         Text(
-          loan.book.authors.join(','),
+          loan.book.authors.join(', '),
           maxLines: 2,
           overflow: TextOverflow.ellipsis,
           style: Theme.of(context)
@@ -26,6 +28,7 @@ class LoanItem extends StatelessWidget {
               .bodyText1!
               .copyWith(color: AppColors.gray),
         ),
+        const SizedBox(height: 4),
         Row(
           children: [
             if (loanReturned)
@@ -42,6 +45,7 @@ class LoanItem extends StatelessWidget {
             ),
           ],
         ),
+        const SizedBox(height: 14),
       ],
     );
   }
@@ -57,7 +61,11 @@ class _LoanToReturnChip extends StatelessWidget {
         children: const [
           Text('Por devolver'),
           SizedBox(width: 4),
-          Icon(MdiIcons.clockEnd),
+          Icon(
+            MdiIcons.clockEnd,
+            color: AppColors.white,
+            size: 16,
+          ),
         ],
       ),
       backgroundColor: AppColors.shiraz.shade300,
@@ -79,7 +87,11 @@ class _LoanReturnedChip extends StatelessWidget {
         children: const [
           Text('Devuelto'),
           SizedBox(width: 4),
-          Icon(MdiIcons.checkCircleOutline),
+          Icon(
+            MdiIcons.checkCircleOutline,
+            color: AppColors.white,
+            size: 16,
+          ),
         ],
       ),
       backgroundColor: AppColors.green,

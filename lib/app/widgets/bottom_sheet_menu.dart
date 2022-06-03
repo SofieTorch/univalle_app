@@ -30,6 +30,7 @@ class BottomSheetMenu extends StatelessWidget {
         ListTile(
           leading: const Icon(MdiIcons.bookEducationOutline),
           title: Text(l10n.menuItemLibrary),
+          onTap: () => _navigateTo(AppRouter.library, context),
         ),
         ListTile(
           leading: const Icon(MdiIcons.fileDocumentMultipleOutline),

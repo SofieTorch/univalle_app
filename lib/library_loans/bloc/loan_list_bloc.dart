@@ -22,21 +22,21 @@ class LoanListBloc extends Bloc<LoanListEvent, LoanListState> {
   ) async {
     emit(state.copyWith(status: LoanListRequestStatus.loading));
 
-    try {
-      final loans = await _repository.getLoans();
-      emit(
-        state.copyWith(
-          status: LoanListRequestStatus.success,
-          loans: loans,
-        ),
-      );
-    } catch (e) {
-      emit(
-        state.copyWith(
-          status: LoanListRequestStatus.failure,
-          errorMessage: e.toString(),
-        ),
-      );
-    }
+    // try {
+    final loans = await _repository.getLoans();
+    emit(
+      state.copyWith(
+        status: LoanListRequestStatus.success,
+        loans: loans,
+      ),
+    );
+    // } catch (e) {
+    //   emit(
+    //     state.copyWith(
+    //       status: LoanListRequestStatus.failure,
+    //       errorMessage: e.toString(),
+    //     ),
+    //   );
+    // }
   }
 }
