@@ -83,5 +83,6 @@
     "libraryLoansPageAppBarTitle": "Mis préstamos",
     "libraryLoanToReturnChipLabel": "Por devolver",
     "libraryLoanReturnedChipLabel": "Devuelto",
-    "libraryLoanCampusLabel": "en"
+    "libraryLoanCampusLabel": "en",
+    "libraryLoansPageWithoutLoansMessage": "Parece que aún no solicitaste libros de la biblioteca 👀"
 }

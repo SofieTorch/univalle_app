@@ -42,6 +42,10 @@ class LibraryLoansView extends StatelessWidget {
           }
 
           if (state.status == LoanListRequestStatus.success) {
+            if (state.loans.isEmpty) {
+              return const WithoutLoansMessage();
+            }
+
             return ListView.builder(
               padding: const EdgeInsets.symmetric(
                 horizontal: 16,

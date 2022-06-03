@@ -83,5 +83,6 @@
     "libraryLoansPageAppBarTitle": "My loans",
     "libraryLoanToReturnChipLabel": "To return",
     "libraryLoanReturnedChipLabel": "Returned",
-    "libraryLoanCampusLabel": "at"
+    "libraryLoanCampusLabel": "at",
+    "libraryLoansPageWithoutLoansMessage": "It seems that you have not yet requested books from the library 👀"
 }
