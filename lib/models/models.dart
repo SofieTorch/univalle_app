@@ -7,4 +7,5 @@ export 'course.dart';
 export 'course_grade.dart';
 export 'loan.dart';
 export 'schedule.dart';
+export 'student.dart';
 export 'user.dart';
