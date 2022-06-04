@@ -44,6 +44,7 @@ class BottomSheetMenu extends StatelessWidget {
         ListTile(
           leading: const Icon(MdiIcons.ticketPercentOutline),
           title: Text(l10n.menuItemDiscounts),
+          onTap: () => _navigateTo(AppRouter.discounts, context),
         ),
         ListTile(
           leading: const Icon(MdiIcons.map),

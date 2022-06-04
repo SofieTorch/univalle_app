@@ -11,6 +11,7 @@ import 'package:univalle_app/authentication/authentication.dart';
 import 'package:univalle_app/connectivity/connectivity.dart';
 import 'package:univalle_app/data/providers/storage_provider.dart';
 import 'package:univalle_app/data/repositories/repositories.dart';
+import 'package:univalle_app/discounts/discounts.dart';
 import 'package:univalle_app/home/home.dart';
 import 'package:univalle_app/l10n/l10n.dart';
 import 'package:univalle_app/library/library.dart';

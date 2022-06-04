@@ -10,6 +10,7 @@ class AppRouter {
   static const String procedures = '/procedures';
   static const String library = '/library';
   static const String libraryLoans = '/library/loans';
+  static const String discounts = '/discounts';
   static const String splash = '/splash';
 
   /// Maps a given route to its corresponding page, initializing
@@ -49,6 +50,15 @@ class AppRouter {
             return BlocProvider<ConnectivityBloc>.value(
               value: connectivityBloc..add(const ConnectivityRequested()),
               child: const ConnectivityListener(child: LibraryLoansPage()),
+            );
+          },
+        );
+      case discounts:
+        return MaterialPageRoute<Widget>(
+          builder: (_) {
+            return BlocProvider<ConnectivityBloc>.value(
+              value: connectivityBloc..add(const ConnectivityRequested()),
+              child: const ConnectivityListener(child: DiscountsPage()),
             );
           },
         );

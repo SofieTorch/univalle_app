@@ -1,5 +1,6 @@
 library providers;
 
+export './discounts_provider.dart';
 export './grades_provider.dart';
 export './http_provider.dart';
 export './library_provider.dart';
