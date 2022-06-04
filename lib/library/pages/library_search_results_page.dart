@@ -1,0 +1,53 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:formz/formz.dart';
+import 'package:univalle_app/library/library.dart';
+
+class LibrarySearchResultsPage extends StatelessWidget {
+  const LibrarySearchResultsPage({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: const Text('Resultados')),
+      body: Column(
+        children: [
+          const Padding(
+            padding: EdgeInsets.all(16),
+            child: SearchTextField(),
+          ),
+          BlocBuilder<LibrarySearchBloc, LibrarySearchState>(
+            builder: (context, state) {
+              if (state.status == FormzStatus.submissionFailure) {
+                return Center(
+                  child: Text(state.errorMessage),
+                );
+              }
+
+              if (state.status == FormzStatus.submissionInProgress) {
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
+              }
+
+              if (state.searchResults.isEmpty) {
+                return const Expanded(
+                  child: WithoutResultsMessage(),
+                );
+              }
+
+              return Expanded(
+                child: ListView.builder(
+                  padding: const EdgeInsets.all(16),
+                  itemCount: state.searchResults.length,
+                  itemBuilder: (_, index) =>
+                      BookListItem(state.searchResults[index]),
+                ),
+              );
+            },
+          ),
+        ],
+      ),
+    );
+  }
+}

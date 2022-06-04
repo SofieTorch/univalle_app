@@ -9,6 +9,7 @@ class AppRouter {
   static const String signIn = '/signin';
   static const String procedures = '/procedures';
   static const String library = '/library';
+  static const String libraryResults = '/library/results';
   static const String libraryLoans = '/library/loans';
   static const String discounts = '/discounts';
   static const String splash = '/splash';
@@ -37,10 +38,30 @@ class AppRouter {
         );
       case library:
         return MaterialPageRoute<Widget>(
+          settings: routeSettings,
           builder: (_) {
             return BlocProvider<ConnectivityBloc>.value(
               value: connectivityBloc..add(const ConnectivityRequested()),
               child: const ConnectivityListener(child: LibraryPage()),
+            );
+          },
+        );
+      case libraryResults:
+        final bloc = routeSettings.arguments! as LibrarySearchBloc;
+        return MaterialPageRoute<Widget>(
+          builder: (_) {
+            return MultiBlocProvider(
+              providers: [
+                BlocProvider<ConnectivityBloc>.value(
+                  value: connectivityBloc..add(const ConnectivityRequested()),
+                ),
+                BlocProvider<LibrarySearchBloc>.value(
+                  value: bloc,
+                ),
+              ],
+              child: const ConnectivityListener(
+                child: LibrarySearchResultsPage(),
+              ),
             );
           },
         );
