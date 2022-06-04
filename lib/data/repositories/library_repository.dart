@@ -32,4 +32,24 @@ class LibraryRepository {
 
     return loans;
   }
+
+  Future<List<Book>> searchBook(String searchText) async {
+    final response = await _provider.searchBook(searchText);
+    if (response.statusCode != 200) {
+      throw Exception(response.reasonPhrase);
+    }
+
+    final json = jsonDecode(response.body) as Map<String, dynamic>;
+    final booksJson = json['books'] as List<dynamic>;
+
+    final books = <Book>[];
+    for (final item in booksJson) {
+      final itemParsed = item as Map<String, dynamic>;
+      final campus = Campus.fromJson(itemParsed['campus']);
+      final book = Book.fromJson(itemParsed, campus);
+      books.add(book);
+    }
+
+    return books;
+  }
 }
