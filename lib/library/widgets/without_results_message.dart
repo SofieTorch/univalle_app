@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:univalle_app/l10n/l10n.dart';
 
 class WithoutResultsMessage extends StatelessWidget {
   const WithoutResultsMessage({
@@ -28,7 +29,7 @@ class WithoutResultsMessage extends StatelessWidget {
             ),
             const SizedBox(height: 12),
             Text(
-              'Sin resultados',
+              context.l10n.librarySearchWithoutResults,
               textAlign: TextAlign.center,
               style: Theme.of(context).textTheme.subtitle1,
             ),

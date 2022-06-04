@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:univalle_app/l10n/l10n.dart';
 import 'package:univalle_app/library/library.dart';
 
 class SearchTextField extends StatelessWidget {
@@ -9,6 +10,7 @@ class SearchTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = context.l10n;
     return BlocBuilder<LibrarySearchBloc, LibrarySearchState>(
       buildWhen: (prev, curr) => prev.searchText != curr.searchText,
       builder: (context, state) {
@@ -19,10 +21,10 @@ class SearchTextField extends StatelessWidget {
               .add(SearchTextChanged(searchText)),
           decoration: InputDecoration(
             errorText: state.searchText.invalid
-                ? 'La busqueda no puede estar vacia'
+                ? l10n.librarySearchTextFieldError
                 : null,
             suffixIcon: const Icon(MdiIcons.magnify),
-            hintText: 'Titulo, autor, contenido...',
+            hintText: l10n.librarySearchTextFieldHint,
           ),
           onFieldSubmitted: (searchText) {
             context.read<LibrarySearchBloc>().add(const SearchSubmitted());

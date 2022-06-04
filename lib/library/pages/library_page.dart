@@ -57,7 +57,7 @@ class LibraryView extends StatelessWidget {
                 Align(
                   alignment: Alignment.centerLeft,
                   child: Text(
-                    'Busca en biblioteca',
+                    l10n.librarySearchTextFieldLabel,
                     style: Theme.of(context).textTheme.subtitle1,
                   ),
                 ),

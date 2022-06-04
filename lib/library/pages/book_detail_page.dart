@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:univalle_app/l10n/l10n.dart';
 import 'package:univalle_app/library/library.dart';
 import 'package:univalle_app/models/book.dart';
 import 'package:univalle_app/theme/theme.dart';
@@ -11,9 +12,10 @@ class BookDetailPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = context.l10n;
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Detalle de libro'),
+        title: Text(l10n.bookDetailPageAppBar),
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -40,7 +42,7 @@ class BookDetailPage extends StatelessWidget {
                 const BookUnavailableChip(),
               const SizedBox(height: 16),
               Text(
-                'Contenido',
+                l10n.bookDetailPageContentLabel,
                 style: Theme.of(context).textTheme.headline3,
               ),
               ...book.content.map(
@@ -63,7 +65,7 @@ class BookDetailPage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     Text(
-                      'Editorial: ${book.editorial} - ${book.edition}º Edicion',
+                      '${l10n.bookDetailPageEditorialLabel}: ${book.editorial} - ${book.edition}º ${l10n.bookDetailPageEditionLabel}',
                     ),
                     Text(
                       '${book.year} - ${book.country}',
@@ -71,8 +73,11 @@ class BookDetailPage extends StatelessWidget {
                     Text('ISBN ${book.isbn}'),
                     Row(
                       children: [
-                        Text('Idioma: ${_mapLanguage(book.language)} '),
-                        Text('- ${book.pages} Paginas'),
+                        Text(
+                          '${l10n.bookDetailPageLanguageLabel}: ${_mapLanguage(book.language, l10n)} ',
+                        ),
+                        Text(
+                            '- ${book.pages} ${l10n.bookDetailPagePagesLabel}'),
                       ],
                     ),
                   ],
@@ -85,10 +90,10 @@ class BookDetailPage extends StatelessWidget {
     );
   }
 
-  String _mapLanguage(String languageAbrev) {
+  String _mapLanguage(String languageAbrev, AppLocalizations l10n) {
     final languages = {
-      'es': 'Español',
-      'en': 'Ingles',
+      'es': l10n.esLanguageName,
+      'en': l10n.enLanguageName,
     };
 
     return languages[languageAbrev] ?? 'Desconocido';
