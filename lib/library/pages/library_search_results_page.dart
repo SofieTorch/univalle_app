@@ -12,9 +12,13 @@ class LibrarySearchResultsPage extends StatelessWidget {
       appBar: AppBar(title: const Text('Resultados')),
       body: Column(
         children: [
-          const Padding(
-            padding: EdgeInsets.all(16),
-            child: SearchTextField(),
+          Padding(
+            padding: const EdgeInsets.all(16),
+            child: SearchTextField(
+              initialValue: context.select<LibrarySearchBloc, String>(
+                (value) => value.state.searchText.value,
+              ),
+            ),
           ),
           BlocBuilder<LibrarySearchBloc, LibrarySearchState>(
             builder: (context, state) {

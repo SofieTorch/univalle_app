@@ -4,7 +4,8 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 import 'package:univalle_app/library/library.dart';
 
 class SearchTextField extends StatelessWidget {
-  const SearchTextField({Key? key}) : super(key: key);
+  const SearchTextField({this.initialValue, Key? key}) : super(key: key);
+  final String? initialValue;
 
   @override
   Widget build(BuildContext context) {
@@ -12,9 +13,7 @@ class SearchTextField extends StatelessWidget {
       buildWhen: (prev, curr) => prev.searchText != curr.searchText,
       builder: (context, state) {
         return TextFormField(
-          initialValue: context.select<LibrarySearchBloc, String>(
-            (value) => value.state.searchText.value,
-          ),
+          initialValue: initialValue,
           onChanged: (searchText) => context
               .read<LibrarySearchBloc>()
               .add(SearchTextChanged(searchText)),
