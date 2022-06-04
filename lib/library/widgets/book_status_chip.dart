@@ -10,6 +10,7 @@ class BookAvailableChip extends StatelessWidget {
   Widget build(BuildContext context) {
     return Chip(
       label: Row(
+        mainAxisSize: MainAxisSize.min,
         children: [
           Text(context.l10n.libraryLoanToReturnChipLabel),
           const SizedBox(width: 4),
@@ -36,6 +37,7 @@ class BookUnavailableChip extends StatelessWidget {
   Widget build(BuildContext context) {
     return Chip(
       label: Row(
+        mainAxisSize: MainAxisSize.min,
         children: [
           Text(context.l10n.libraryLoanReturnedChipLabel),
           const SizedBox(width: 4),

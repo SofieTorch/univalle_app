@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:univalle_app/app/view/app.dart';
 import 'package:univalle_app/l10n/l10n.dart';
 import 'package:univalle_app/library/library.dart';
 import 'package:univalle_app/models/book.dart';
@@ -11,39 +12,44 @@ class BookListItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          book.title,
-          style: Theme.of(context).textTheme.headline3,
-        ),
-        const SizedBox(height: 4),
-        Text(
-          book.authors.join(', '),
-          style: Theme.of(context)
-              .textTheme
-              .subtitle1!
-              .copyWith(color: AppColors.gray.shade400),
-        ),
-        const SizedBox(height: 2),
-        Row(
-          children: [
-            if (book.available)
-              const BookAvailableChip()
-            else
-              const BookUnavailableChip(),
-            const SizedBox(width: 6),
-            Text(
-              '${context.l10n.libraryLoanCampusLabel} ${book.campus.name}',
-              style: Theme.of(context)
-                  .textTheme
-                  .subtitle2!
-                  .copyWith(color: AppColors.gray),
-            ),
-          ],
-        ),
-      ],
+    return InkWell(
+      onTap: () {
+        Navigator.pushNamed(context, AppRouter.book, arguments: book);
+      },
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            book.title,
+            style: Theme.of(context).textTheme.headline3,
+          ),
+          const SizedBox(height: 4),
+          Text(
+            book.authors.join(', '),
+            style: Theme.of(context)
+                .textTheme
+                .subtitle1!
+                .copyWith(color: AppColors.gray.shade400),
+          ),
+          const SizedBox(height: 2),
+          Row(
+            children: [
+              if (book.available)
+                const BookAvailableChip()
+              else
+                const BookUnavailableChip(),
+              const SizedBox(width: 6),
+              Text(
+                '${context.l10n.libraryLoanCampusLabel} ${book.campus.name}',
+                style: Theme.of(context)
+                    .textTheme
+                    .subtitle2!
+                    .copyWith(color: AppColors.gray),
+              ),
+            ],
+          ),
+        ],
+      ),
     );
   }
 }
