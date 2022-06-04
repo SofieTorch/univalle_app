@@ -37,11 +37,12 @@ class LibrarySearchResultsPage extends StatelessWidget {
               }
 
               return Expanded(
-                child: ListView.builder(
+                child: ListView.separated(
                   padding: const EdgeInsets.all(16),
                   itemCount: state.searchResults.length,
                   itemBuilder: (_, index) =>
                       BookListItem(state.searchResults[index]),
+                  separatorBuilder: (_, index) => const SizedBox(height: 24),
                 ),
               );
             },
