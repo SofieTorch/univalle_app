@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:formz/formz.dart';
+import 'package:univalle_app/l10n/l10n.dart';
 import 'package:univalle_app/library/library.dart';
 
 class LibrarySearchResultsPage extends StatelessWidget {
@@ -9,7 +10,7 @@ class LibrarySearchResultsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Resultados')),
+      appBar: AppBar(title: Text(context.l10n.librarySearchResultsPageAppBar)),
       body: Column(
         children: [
           Padding(

@@ -10,8 +10,9 @@ class BookAvailableChip extends StatelessWidget {
   Widget build(BuildContext context) {
     return Chip(
       label: Row(
+        mainAxisSize: MainAxisSize.min,
         children: [
-          Text(context.l10n.libraryLoanToReturnChipLabel),
+          Text(context.l10n.bookStatusChipAvailableLabel),
           const SizedBox(width: 4),
           const Icon(
             MdiIcons.checkCircleOutline,
@@ -36,8 +37,9 @@ class BookUnavailableChip extends StatelessWidget {
   Widget build(BuildContext context) {
     return Chip(
       label: Row(
+        mainAxisSize: MainAxisSize.min,
         children: [
-          Text(context.l10n.libraryLoanReturnedChipLabel),
+          Text(context.l10n.bookStatusChipUnavailableLabel),
           const SizedBox(width: 4),
           const Icon(
             MdiIcons.bookOff,

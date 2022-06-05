@@ -11,6 +11,7 @@ class AppRouter {
   static const String library = '/library';
   static const String libraryResults = '/library/results';
   static const String libraryLoans = '/library/loans';
+  static const String book = '/book';
   static const String discounts = '/discounts';
   static const String splash = '/splash';
 
@@ -72,6 +73,13 @@ class AppRouter {
               value: connectivityBloc..add(const ConnectivityRequested()),
               child: const ConnectivityListener(child: LibraryLoansPage()),
             );
+          },
+        );
+      case book:
+        final book = routeSettings.arguments! as Book;
+        return MaterialPageRoute<Widget>(
+          builder: (_) {
+            return BookDetailPage(book);
           },
         );
       case discounts:
