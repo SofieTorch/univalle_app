@@ -1,19 +1,18 @@
 import 'package:equatable/equatable.dart';
 import 'package:univalle_app/environment.dart';
 
-// ignore: camel_case_types
-class Payments_Places extends Equatable {
-  const Payments_Places({
+class PaymentsPlaces extends Equatable {
+  const PaymentsPlaces({
     required this.category,
     required this.name,
     required this.type,
     required this.logoImageUrl,
   });
 
-  factory Payments_Places.fromJson(dynamic json) {
+  factory PaymentsPlaces.fromJson(dynamic json) {
     final parsedJson = json as Map<String, dynamic>;
 
-    return Payments_Places(
+    return PaymentsPlaces(
       category: parsedJson['category'] as String,
       name: parsedJson['name'] as String,
       type: (parsedJson['type'] as List<dynamic>)
