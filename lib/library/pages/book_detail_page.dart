@@ -54,38 +54,52 @@ class BookDetailPage extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 24),
-              Container(
-                padding: const EdgeInsets.all(12),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(8),
-                  color: AppColors.gray.shade100,
-                ),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    Text(
-                      '${l10n.bookDetailPageEditorialLabel}: ${book.editorial} - ${book.edition}º ${l10n.bookDetailPageEditionLabel}',
-                    ),
-                    Text(
-                      '${book.year} - ${book.country}',
-                    ),
-                    Text('ISBN ${book.isbn}'),
-                    Row(
-                      children: [
-                        Text(
-                          '${l10n.bookDetailPageLanguageLabel}: ${_mapLanguage(book.language, l10n)} ',
-                        ),
-                        Text(
-                            '- ${book.pages} ${l10n.bookDetailPagePagesLabel}'),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
+              _BookPublicationInfo(book),
             ],
           ),
         ),
+      ),
+    );
+  }
+}
+
+class _BookPublicationInfo extends StatelessWidget {
+  const _BookPublicationInfo(this.book, {Key? key}) : super(key: key);
+  final Book book;
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = context.l10n;
+    return Container(
+      padding: const EdgeInsets.all(12),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(8),
+        color: AppColors.gray.shade100,
+      ),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Row(
+            children: [
+              Text('${l10n.bookDetailPageEditorialLabel}: '),
+              Text(book.editorial),
+              Text(' ${book.edition}º '),
+              Text(l10n.bookDetailPageEditionLabel)
+            ],
+          ),
+          Text(
+            '${book.year} - ${book.country}',
+          ),
+          Text('ISBN ${book.isbn}'),
+          Row(
+            children: [
+              Text('${l10n.bookDetailPageLanguageLabel}: '),
+              Text('${_mapLanguage(book.language, l10n)} - '),
+              Text('${book.pages} ${l10n.bookDetailPagePagesLabel}'),
+            ],
+          ),
+        ],
       ),
     );
   }
