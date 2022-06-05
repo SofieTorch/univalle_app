@@ -48,9 +48,11 @@ class DocumentListItem extends StatelessWidget {
               const _DeliveredDocumentChip(),
             const SizedBox(width: 6),
             Chip(
-              label: Text(document.required
-                  ? l10n.documentItemRequiredLabel
-                  : l10n.documentItemComplementaryLabel),
+              label: Text(
+                document.required
+                    ? l10n.documentItemRequiredLabel
+                    : l10n.documentItemComplementaryLabel,
+              ),
             ),
           ],
         )
