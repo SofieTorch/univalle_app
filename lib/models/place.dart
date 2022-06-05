@@ -1,4 +1,5 @@
 import 'package:equatable/equatable.dart';
+import 'package:univalle_app/environment.dart';
 import 'package:univalle_app/models/campus.dart';
 
 class Place extends Equatable {
@@ -13,7 +14,7 @@ class Place extends Equatable {
     return Place(
       id: json['id'] as int,
       name: json['name'] as String,
-      imageUrl: json['imageUrl'] as String,
+      imageUrl: 'https://${Environment.host}${json['imageUrl'] as String}',
       campus: campus ?? Campus.empty,
     );
   }

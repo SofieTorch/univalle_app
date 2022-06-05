@@ -14,6 +14,8 @@ class Headquarter extends Equatable {
     );
   }
 
+  static const empty = Headquarter(id: 0, department: '');
+
   final int id;
   final String department;
 

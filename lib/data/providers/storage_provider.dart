@@ -15,6 +15,7 @@ class StorageProvider {
 
   final String _codeKey = 'code';
   final String _tokenKey = 'token';
+  final String _headquarterKey = 'headquarterId';
 
   /// Saves a string [value] to persistent storage,
   /// which later can be accessed with its [key].
@@ -43,11 +44,20 @@ class StorageProvider {
     );
   }
 
+  /// Saves the givent headquarter id in storage.
+  Future<void> setHeadquarter(int headquarterId) async {
+    final success = await _prefs.setInt(_headquarterKey, headquarterId);
+    if (!success) throw const StorageSaveFailure();
+  }
+
   /// Removes the student code's value and key from storage.
   Future<void> removeCode() => _removeValue(_codeKey);
 
   /// Removes the token's value and key from storage.
   Future<void> removeToken() => _removeValue(_tokenKey);
+
+  /// Removes the headquarter id's value and key from storage.
+  Future<void> removeHeadquarter() => _removeValue(_headquarterKey);
 
   /// Returns the student code saved in storage if found,
   /// otherwise returns an empty string.
@@ -56,4 +66,8 @@ class StorageProvider {
   /// Returns the token saved in storage if found,
   /// otherwise returns an empty string.
   String get token => _prefs.getString(_tokenKey) ?? '';
+
+  /// Returns the headquearter id of the current signed in
+  /// user, defaults to 90 (Cochabamba).
+  int get headquarter => _prefs.getInt(_headquarterKey) ?? 90;
 }
