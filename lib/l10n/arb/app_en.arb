@@ -99,5 +99,12 @@
     "bookDetailPagePagesLabel": "Pages",
     "bookDetailPageLanguageLabel": "Language",
     "enLanguageName": "English",
-    "esLanguageName": "Spanish"
+    "esLanguageName": "Spanish",
+    "documentsPageAppBar": "Documents",
+    "documentItemDeliverDateLabel": "Received ",
+    "documentItemExpirationDateLabel": "Expires ",
+    "documentItemRequiredLabel": "Required",
+    "documentItemComplementaryLabel": "Complementary",
+    "documentItemDeliveredChipLabel": "Delivered",
+    "documentItemOutstandingChipLabel": "Outstanding"
 }

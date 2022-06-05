@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:univalle_app/data/providers/providers.dart';
 import 'package:univalle_app/data/repositories/documents_repository.dart';
 import 'package:univalle_app/documents/documents.dart';
+import 'package:univalle_app/l10n/l10n.dart';
 
 class DocumentsPage extends StatelessWidget {
   const DocumentsPage({Key? key}) : super(key: key);
@@ -29,7 +30,7 @@ class DocumentsView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Documentos'),
+        title: Text(context.l10n.documentsPageAppBar),
       ),
       body: BlocBuilder<DocumentListBloc, DocumentListState>(
         builder: (context, state) {

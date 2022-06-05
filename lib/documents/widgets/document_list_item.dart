@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:univalle_app/l10n/l10n.dart';
 import 'package:univalle_app/models/models.dart';
 import 'package:univalle_app/theme/theme.dart';
 
@@ -10,6 +11,7 @@ class DocumentListItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = context.l10n;
     return Column(
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -24,7 +26,7 @@ class DocumentListItem extends StatelessWidget {
         ),
         if (document.deliveryDate != DateTime(0))
           Text(
-            'Recibido el ${document.deliveryDate.day}/${document.deliveryDate.month}/${document.deliveryDate.year}',
+            '${l10n.documentItemDeliverDateLabel} ${document.deliveryDate.day}/${document.deliveryDate.month}/${document.deliveryDate.year}',
             style: Theme.of(context)
                 .textTheme
                 .bodyText1!
@@ -32,7 +34,7 @@ class DocumentListItem extends StatelessWidget {
           ),
         if (document.expirationDate != DateTime(0))
           Text(
-            'Vence el ${document.expirationDate.day}/${document.expirationDate.month}/${document.expirationDate.year}',
+            '${l10n.documentItemExpirationDateLabel} ${document.expirationDate.day}/${document.expirationDate.month}/${document.expirationDate.year}',
             style: Theme.of(context)
                 .textTheme
                 .bodyText1!
@@ -46,7 +48,9 @@ class DocumentListItem extends StatelessWidget {
               const _DeliveredDocumentChip(),
             const SizedBox(width: 6),
             Chip(
-              label: Text(document.required ? 'Obligatorio' : 'Complementario'),
+              label: Text(document.required
+                  ? l10n.documentItemRequiredLabel
+                  : l10n.documentItemComplementaryLabel),
             ),
           ],
         )
@@ -64,7 +68,7 @@ class _DeliveredDocumentChip extends StatelessWidget {
       label: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Text('Entregado'),
+          Text(context.l10n.documentItemDeliveredChipLabel),
           const SizedBox(width: 4),
           const Icon(
             MdiIcons.checkCircleOutline,
@@ -91,10 +95,10 @@ class _OutstandingDocumentChip extends StatelessWidget {
       label: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Text('Pendiente'),
+          Text(context.l10n.documentItemOutstandingChipLabel),
           const SizedBox(width: 4),
           const Icon(
-            MdiIcons.checkCircleOutline,
+            MdiIcons.clockFast,
             color: AppColors.white,
             size: 18,
           ),
