@@ -1,17 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:univalle_app/data/providers/providers.dart';
 import 'package:univalle_app/data/repositories/grades_repository.dart';
 import 'package:univalle_app/data/repositories/schedule_repository.dart';
 import 'package:univalle_app/grades/grades.dart';
+import 'package:univalle_app/home/widgets/grades_brief_builder.dart';
+import 'package:univalle_app/home/widgets/next_class_builder.dart';
 import 'package:univalle_app/l10n/l10n.dart';
-import 'package:univalle_app/payment_places/widgets/payment_places.dart';
+import 'package:univalle_app/payment_places/pages/payment_paces_page.dart';
 import 'package:univalle_app/schedule/schedule.dart';
-import 'package:univalle_app/theme/theme.dart';
-
-import '../widgets/grades_brief_builder.dart';
-import '../widgets/next_class_builder.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -63,7 +60,21 @@ class HomeView extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisSize: MainAxisSize.min,
-          children: const [PaymentPlacesView()],
+          children: [
+            Text(
+              l10n.homePageNextClassLabel,
+              style: Theme.of(context).textTheme.headline3,
+            ),
+            const SizedBox(height: 8),
+            const NextClassBuilder(),
+            const SizedBox(height: 16),
+            Text(
+              l10n.homePageGradesLabel,
+              style: Theme.of(context).textTheme.headline3,
+            ),
+            const SizedBox(height: 8),
+            const GradesBriefBuilder(),
+          ],
         ),
       ),
     );

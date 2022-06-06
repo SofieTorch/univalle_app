@@ -12,7 +12,7 @@ class PaymentPlacesProvider {
   HttpProvider _httpProvider = HttpProvider(http.Client());
 
   Future<http.Response> requestPaymentPlaces() async {
-    final endpoint = Uri.https(Environment.host, '/paymentPlaces');
+    final endpoint = Uri.https(Environment.host, '/payment_places');
     return _httpProvider.get(endpoint);
   }
 }

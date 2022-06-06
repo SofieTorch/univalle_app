@@ -11,7 +11,6 @@ class PaymentsPlaces extends Equatable {
 
   factory PaymentsPlaces.fromJson(dynamic json) {
     final parsedJson = json as Map<String, dynamic>;
-
     return PaymentsPlaces(
       category: parsedJson['category'] as String,
       name: parsedJson['name'] as String,

@@ -13,6 +13,7 @@ import 'package:univalle_app/data/providers/storage_provider.dart';
 import 'package:univalle_app/data/repositories/repositories.dart';
 import 'package:univalle_app/home/home.dart';
 import 'package:univalle_app/l10n/l10n.dart';
+import 'package:univalle_app/payments/pages/payments_page.dart';
 import 'package:univalle_app/procedures/procedures.dart';
 import 'package:univalle_app/sign_in/sign_in.dart';
 import 'package:univalle_app/splash/splash.dart';

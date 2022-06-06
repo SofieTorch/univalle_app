@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:univalle_app/models/payment_places.dart';
+import 'package:univalle_app/payment_places/bloc/payment_places_bloc.dart';
+import 'package:univalle_app/payment_places/widgets/cubit/payment_item_cubit.dart';
 import 'package:univalle_app/theme/app_colors.dart';
 
 class PaymentPlaces extends StatelessWidget {
@@ -7,14 +11,9 @@ class PaymentPlaces extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Builder(
-          builder: (context) {
-            return const PaymentPlacesView();
-          },
-        ),
-      ],
+    return BlocProvider(
+      create: (_) => PaymentItemCubit(),
+      child: const PaymentPlacesView(),
     );
   }
 }
@@ -24,9 +23,13 @@ class PaymentPlacesView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final showPayments = context.select<PaymentItemCubit, bool>(
+      (value) => value.state.showPayments,
+    );
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 16),
       child: Column(
+        mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
@@ -37,109 +40,60 @@ class PaymentPlacesView extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Row(
-                children: [
-                  Text(
-                    'Lugares de pago',
-                    style: Theme.of(context)
-                        .textTheme
-                        .bodyText1!
-                        .copyWith(color: AppColors.matterhorn),
-                  ),
-                  //button to display the list payment places
-                  ElevatedButton(
-                    onPressed: () {
-                      //context
-                      //.read<ProcedureItemCubit>()
-                      //.changeRequirementsVisibility();
-                    },
-                    style: ElevatedButton.styleFrom(
-                      primary: AppColors.white,
-                      padding: const EdgeInsets.all(1),
-                      shape: const CircleBorder(),
-                    ),
-                    child: const Icon(
-                      MdiIcons.chevronDown,
-                      size: 20,
-                      color: AppColors.matterhorn,
-                    ),
-                  ),
-                ],
+              Text(
+                'Lugares de pago',
+                style: Theme.of(context)
+                    .textTheme
+                    .bodyText1!
+                    .copyWith(color: AppColors.matterhorn),
+              ),
+              Chip(
+                label: Text(
+                  'Bancos',
+                  style: Theme.of(context).textTheme.overline,
+                ),
+                backgroundColor: AppColors.shiraz.shade100,
+              ),
+              //button to display the list payment places
+              ElevatedButton(
+                onPressed: () {
+                  context
+                      .read<PaymentItemCubit>()
+                      .changeRequirementsVisibility();
+                },
+                style: ElevatedButton.styleFrom(
+                  primary: AppColors.white,
+                  padding: const EdgeInsets.all(1),
+                  shape: const CircleBorder(),
+                ),
+                child: Icon(
+                  showPayments ? MdiIcons.chevronUp : MdiIcons.chevronDown,
+                  size: 30,
+                  color: AppColors.matterhorn,
+                ),
               ),
             ],
           ),
-          const SizedBox(height: 4),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Row(
-                children: [
-                  Text(
-                    'Costo de matrícula',
-                    style: Theme.of(context)
-                        .textTheme
-                        .bodyText1!
-                        .copyWith(color: AppColors.matterhorn),
-                  ),
-                  //button to display the list payment places
-                  ElevatedButton(
-                    onPressed: () {
-                      //context
-                      //.read<ProcedureItemCubit>()
-                      //.changeRequirementsVisibility();
-                    },
-                    style: ElevatedButton.styleFrom(
-                      primary: AppColors.white,
-                      padding: const EdgeInsets.all(1),
-                      shape: const CircleBorder(),
-                    ),
-                    child: const Icon(
-                      MdiIcons.chevronDown,
-                      size: 20,
-                      color: AppColors.matterhorn,
-                    ),
-                  ),
-                ],
-              ),
-            ],
-          ),
-          const SizedBox(height: 4),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Row(
-                children: [
-                  Text(
-                    'Costo por crédito',
-                    style: Theme.of(context)
-                        .textTheme
-                        .bodyText1!
-                        .copyWith(color: AppColors.matterhorn),
-                  ),
-                  //button to display the list payment places
-                  ElevatedButton(
-                    onPressed: () {
-                      //context
-                      //.read<ProcedureItemCubit>()
-                      //.changeRequirementsVisibility();
-                    },
-                    style: ElevatedButton.styleFrom(
-                      primary: AppColors.white,
-                      padding: const EdgeInsets.all(1),
-                      shape: const CircleBorder(),
-                    ),
-                    child: const Icon(
-                      MdiIcons.chevronDown,
-                      size: 20,
-                      color: AppColors.matterhorn,
-                    ),
-                  ),
-                ],
-              ),
-            ],
-          ),
+          if (showPayments) const BancosList(),
         ],
       ),
+    );
+  }
+}
+
+class BancosList extends StatelessWidget {
+  const BancosList({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final payments = context.read<PaymentPlacesBloc>().state.paymentplaces;
+    return ListView.builder(
+      padding: const EdgeInsets.symmetric(
+        horizontal: 18,
+      ),
+      itemCount: payments.length,
+      shrinkWrap: true,
+      itemBuilder: (_, index) => Text(payments[index].name),
     );
   }
 }
