@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:univalle_app/campus_places/campus_places.dart';
 import 'package:univalle_app/data/providers/providers.dart';
 import 'package:univalle_app/data/repositories/repositories.dart';
+import 'package:univalle_app/l10n/l10n.dart';
 import 'package:univalle_app/theme/theme.dart';
 
 class CampusPlacesPage extends StatelessWidget {
@@ -27,8 +28,9 @@ class CampusPlacesView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = context.l10n;
     return Scaffold(
-      appBar: AppBar(title: const Text('Conoce el campus')),
+      appBar: AppBar(title: Text(l10n.campusPlacesPageAppBar)),
       body: BlocBuilder<PlaceListBloc, PlaceListState>(
         buildWhen: (previous, current) => previous.status != current.status,
         builder: (context, state) {
@@ -44,11 +46,11 @@ class CampusPlacesView extends StatelessWidget {
               primary: true,
               children: [
                 Text(
-                  'Explora tu sede',
-                  style: Theme.of(context).textTheme.headline1,
+                  l10n.campusPlacesOwnHeadquarterLabel,
+                  style: Theme.of(context).textTheme.headline2,
                 ),
                 Text(
-                  'Sede ${state.otherPlaces.keys.first.department}',
+                  '${l10n.headquarterLabel} ${state.ownHeadquarter.department}',
                   style: Theme.of(context)
                       .textTheme
                       .subtitle1!
@@ -69,7 +71,7 @@ class CampusPlacesView extends StatelessWidget {
                 ),
                 const SizedBox(height: 24),
                 Text(
-                  'Otras sedes',
+                  l10n.campusPlacesOthersHeadquartersLabel,
                   style: Theme.of(context).textTheme.headline2,
                 ),
                 const SizedBox(height: 8),

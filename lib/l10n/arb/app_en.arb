@@ -106,5 +106,9 @@
     "documentItemRequiredLabel": "Required",
     "documentItemComplementaryLabel": "Complementary",
     "documentItemDeliveredChipLabel": "Delivered",
-    "documentItemOutstandingChipLabel": "Outstanding"
+    "documentItemOutstandingChipLabel": "Outstanding",
+    "campusPlacesPageAppBar": "Meet the campus",
+    "campusPlacesOwnHeadquarterLabel": "Explore your headquarter",
+    "headquarterLabel": "Headquarter",
+    "campusPlacesOthersHeadquartersLabel": "Other headquarters"
 }
