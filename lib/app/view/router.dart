@@ -14,6 +14,7 @@ class AppRouter {
   static const String book = '/book';
   static const String discounts = '/discounts';
   static const String documents = '/documents';
+  static const String places = '/places';
   static const String splash = '/splash';
 
   /// Maps a given route to its corresponding page, initializing
@@ -98,6 +99,15 @@ class AppRouter {
             return BlocProvider<ConnectivityBloc>.value(
               value: connectivityBloc..add(const ConnectivityRequested()),
               child: const ConnectivityListener(child: DocumentsPage()),
+            );
+          },
+        );
+      case places:
+        return MaterialPageRoute<Widget>(
+          builder: (_) {
+            return BlocProvider<ConnectivityBloc>.value(
+              value: connectivityBloc..add(const ConnectivityRequested()),
+              child: const ConnectivityListener(child: CampusPlacesPage()),
             );
           },
         );

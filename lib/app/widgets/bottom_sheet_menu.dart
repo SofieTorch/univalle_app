@@ -50,6 +50,7 @@ class BottomSheetMenu extends StatelessWidget {
         ListTile(
           leading: const Icon(MdiIcons.map),
           title: Text(l10n.menuItemCampus),
+          onTap: () => _navigateTo(AppRouter.places, context),
         ),
       ],
     );

@@ -8,6 +8,7 @@ import 'package:univalle_app/academic/academic.dart';
 import 'package:univalle_app/app/navigation/navigation.dart';
 import 'package:univalle_app/app/widgets/widgets.dart';
 import 'package:univalle_app/authentication/authentication.dart';
+import 'package:univalle_app/campus_places/campus_places.dart';
 import 'package:univalle_app/connectivity/connectivity.dart';
 import 'package:univalle_app/data/providers/storage_provider.dart';
 import 'package:univalle_app/data/repositories/repositories.dart';
