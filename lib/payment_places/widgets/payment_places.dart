@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
-import 'package:univalle_app/environment.dart';
-import 'package:univalle_app/models/payment_places.dart';
 import 'package:univalle_app/payment_places/bloc/payment_places_bloc.dart';
 import 'package:univalle_app/payment_places/widgets/cubit/payment_item_cubit.dart';
 import 'package:univalle_app/theme/app_colors.dart';
