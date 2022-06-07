@@ -5,8 +5,12 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:univalle_app/academic/academic.dart';
 import 'package:univalle_app/app/app.dart';
 import 'package:univalle_app/app/widgets/widgets.dart';
+import 'package:univalle_app/discounts/discounts.dart';
 import 'package:univalle_app/home/home.dart';
+import 'package:univalle_app/library/library.dart';
+import 'package:univalle_app/library_loans/library_loans.dart';
 import 'package:univalle_app/procedures/procedures.dart';
+import 'package:univalle_app/profile/pages/profile_page.dart';
 import 'package:univalle_app/sign_in/sign_in.dart';
 import 'package:univalle_app/splash/splash.dart';
 
@@ -121,9 +125,7 @@ void main() {
           as BottomNavigationBar;
 
       expect(bottomNavbar.currentIndex, 3);
-      // to do: when academic page exists, replace the HomePage
-      // in the line above with ProfilePage
-      expect(find.byType(HomePage), findsOneWidget);
+      expect(find.byType(ProfilePage), findsOneWidget);
     });
   });
 
@@ -164,6 +166,75 @@ void main() {
 
         expect(find.byType(ProceduresPage), findsOneWidget);
         expect(find.byType(BottomSheetMenu), findsNothing);
+      },
+    );
+
+    testWidgets(
+      'launch Discounts page when clicking on its element inside menu',
+      (WidgetTester tester) async {
+        final app = App();
+        SharedPreferences.setMockInitialValues({
+          'code': 'TCS0028814',
+          'token': 'TCS0028814:144963',
+        });
+        await tester.pumpWidget(app);
+        await tester.pumpAndSettle();
+        await tester.tap(find.byIcon(MdiIcons.menu));
+        await tester.pumpAndSettle();
+        await tester.tap(find.byIcon(MdiIcons.ticketPercentOutline));
+        await tester.pumpAndSettle();
+
+        expect(find.byType(DiscountsPage), findsOneWidget);
+        expect(find.byType(BottomSheetMenu), findsNothing);
+      },
+    );
+
+    testWidgets(
+      'launch Library page when clicking on its element inside menu',
+      (WidgetTester tester) async {
+        final app = App();
+        SharedPreferences.setMockInitialValues({
+          'code': 'TCS0028814',
+          'token': 'TCS0028814:144963',
+        });
+        await tester.pumpWidget(app);
+        await tester.pumpAndSettle();
+        await tester.tap(find.byIcon(MdiIcons.menu));
+        await tester.pumpAndSettle();
+        await tester.tap(find.byIcon(MdiIcons.bookEducationOutline));
+        await tester.pumpAndSettle();
+
+        expect(find.byType(LibraryPage), findsOneWidget);
+        expect(find.byType(BottomSheetMenu), findsNothing);
+      },
+    );
+
+    testWidgets(
+      '''
+      launches LibraryLoans page when clicking "Outstanding loans" button
+      after navigating to Library page
+      ''',
+      (WidgetTester tester) async {
+        final app = App();
+        SharedPreferences.setMockInitialValues({
+          'code': 'TCS0028814',
+          'token': 'TCS0028814:144963',
+        });
+        await tester.pumpWidget(app);
+        await tester.pumpAndSettle();
+        await tester.tap(find.byIcon(MdiIcons.menu));
+        await tester.pumpAndSettle();
+        await tester.tap(find.byIcon(MdiIcons.bookEducationOutline));
+        await tester.pumpAndSettle();
+        await tester.tap(
+          find.descendant(
+            of: find.byType(TextButton),
+            matching: find.text('OUTSTANDING LOANS'),
+          ),
+        );
+        await tester.pumpAndSettle();
+
+        expect(find.byType(LibraryLoansPage), findsOneWidget);
       },
     );
   });
