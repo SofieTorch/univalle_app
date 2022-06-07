@@ -4,7 +4,8 @@ import 'package:univalle_app/data/providers/providers.dart';
 import 'package:univalle_app/data/repositories/grades_repository.dart';
 import 'package:univalle_app/data/repositories/schedule_repository.dart';
 import 'package:univalle_app/grades/grades.dart';
-import 'package:univalle_app/home/home.dart';
+import 'package:univalle_app/home/widgets/grades_brief_builder.dart';
+import 'package:univalle_app/home/widgets/next_class_builder.dart';
 import 'package:univalle_app/l10n/l10n.dart';
 import 'package:univalle_app/schedule/schedule.dart';
 

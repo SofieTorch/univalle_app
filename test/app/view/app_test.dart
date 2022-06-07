@@ -9,6 +9,7 @@ import 'package:univalle_app/discounts/discounts.dart';
 import 'package:univalle_app/home/home.dart';
 import 'package:univalle_app/library/library.dart';
 import 'package:univalle_app/library_loans/library_loans.dart';
+import 'package:univalle_app/payments/pages/payments_page.dart';
 import 'package:univalle_app/procedures/procedures.dart';
 import 'package:univalle_app/profile/pages/profile_page.dart';
 import 'package:univalle_app/sign_in/sign_in.dart';
@@ -101,7 +102,7 @@ void main() {
       expect(bottomNavbar.currentIndex, 2);
       // to do: when academic page exists, replace the HomePage
       // in the line above with PaymentsPage
-      expect(find.byType(HomePage), findsOneWidget);
+      expect(find.byType(PaymentsPage), findsOneWidget);
     });
 
     testWidgets('renders and navigates to Profile page', (tester) async {
