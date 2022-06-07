@@ -6,7 +6,6 @@ class CreditPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    //return const EnrollmentView();
     return const CreditView();
   }
 }
