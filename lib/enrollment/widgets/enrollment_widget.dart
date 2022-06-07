@@ -65,7 +65,6 @@ class EnrollmentWidgetView extends StatelessWidget {
                   ),
                 ],
               ),
-              if (showEnrollment) const EnrollmentList(),
             ],
           ),
           const SizedBox(height: 4),

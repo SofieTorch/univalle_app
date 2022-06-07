@@ -96,19 +96,15 @@ class BancosList extends StatelessWidget {
               ),
               backgroundColor: AppColors.shiraz.shade100,
             ),
-            Chip(
-              label: Text(
-                'Cajas',
-                style: Theme.of(context).textTheme.overline,
-              ),
-              backgroundColor: AppColors.gray.shade200,
-            ),
           ],
         ),
         const SizedBox(height: 4),
-        ListView.builder(
+        ListView.separated(
           padding: const EdgeInsets.symmetric(
             horizontal: 18,
+          ),
+          separatorBuilder: (_, index) => const SizedBox(
+            height: 6,
           ),
           itemCount: payments.length,
           shrinkWrap: true,

@@ -10,15 +10,7 @@ class EnrollmentPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    //return const EnrollmentView();
-    return BlocProvider<PaymentPlacesBloc>(
-      create: (context) => PaymentPlacesBloc(
-        paymentRepository: PaymentPlacesRepository(
-          paymentPlacesProvider: PaymentPlacesProvider(),
-        ),
-      )..add(const PaymentListRequested()),
-      child: const EnrollmentView(),
-    );
+    return const EnrollmentView();
   }
 }
 
@@ -27,21 +19,6 @@ class EnrollmentView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<PaymentPlacesBloc, PaymentPlacesState>(
-      builder: (context, state) {
-        if (state.status == PaymentListRequestStatus.failure) {
-          return Center(
-            child: Text(state.errorMessage),
-          );
-        }
-
-        if (state.status == PaymentListRequestStatus.success) {
-          return const Enrollment();
-        }
-        return const Center(
-          child: CircularProgressIndicator(),
-        );
-      },
-    );
+    return const Enrollment();
   }
 }

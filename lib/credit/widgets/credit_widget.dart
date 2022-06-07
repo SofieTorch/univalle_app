@@ -36,7 +36,7 @@ class EnrollmentWidgetView extends StatelessWidget {
               Row(
                 children: [
                   Text(
-                    'Costo de matrícula',
+                    'Costo por credito',
                     style: Theme.of(context)
                         .textTheme
                         .bodyText1!
@@ -62,7 +62,6 @@ class EnrollmentWidgetView extends StatelessWidget {
                   ),
                 ],
               ),
-              if (showCredit) const EnrollmentList(),
             ],
           ),
           const SizedBox(height: 4),
