@@ -7,7 +7,6 @@ import 'package:univalle_app/grades/grades.dart';
 import 'package:univalle_app/home/widgets/grades_brief_builder.dart';
 import 'package:univalle_app/home/widgets/next_class_builder.dart';
 import 'package:univalle_app/l10n/l10n.dart';
-import 'package:univalle_app/payment_places/pages/payment_paces_page.dart';
 import 'package:univalle_app/schedule/schedule.dart';
 
 class HomePage extends StatelessWidget {

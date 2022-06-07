@@ -2,7 +2,7 @@ part of 'payment_item_cubit.dart';
 
 class PaymentItemState extends Equatable {
   const PaymentItemState({
-    this.showPayments = true,
+    this.showPayments = false,
   });
 
   final bool showPayments;

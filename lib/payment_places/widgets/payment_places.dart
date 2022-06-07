@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
-import 'package:univalle_app/models/payment_places.dart';
 import 'package:univalle_app/payment_places/bloc/payment_places_bloc.dart';
 import 'package:univalle_app/payment_places/widgets/cubit/payment_item_cubit.dart';
 import 'package:univalle_app/theme/app_colors.dart';
@@ -26,6 +25,7 @@ class PaymentPlacesView extends StatelessWidget {
     final showPayments = context.select<PaymentItemCubit, bool>(
       (value) => value.state.showPayments,
     );
+
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 16),
       child: Column(
@@ -34,11 +34,9 @@ class PaymentPlacesView extends StatelessWidget {
         children: [
           Text(
             'Datos de Interés',
-            style: Theme.of(context).textTheme.headline2,
+            style: Theme.of(context).textTheme.headline3,
           ),
-          const SizedBox(height: 4),
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
                 'Lugares de pago',
@@ -46,13 +44,6 @@ class PaymentPlacesView extends StatelessWidget {
                     .textTheme
                     .bodyText1!
                     .copyWith(color: AppColors.matterhorn),
-              ),
-              Chip(
-                label: Text(
-                  'Bancos',
-                  style: Theme.of(context).textTheme.overline,
-                ),
-                backgroundColor: AppColors.shiraz.shade100,
               ),
               //button to display the list payment places
               ElevatedButton(
@@ -68,12 +59,13 @@ class PaymentPlacesView extends StatelessWidget {
                 ),
                 child: Icon(
                   showPayments ? MdiIcons.chevronUp : MdiIcons.chevronDown,
-                  size: 30,
+                  size: 20,
                   color: AppColors.matterhorn,
                 ),
               ),
             ],
           ),
+          const SizedBox(height: 4),
           if (showPayments) const BancosList(),
         ],
       ),
