@@ -1,46 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:univalle_app/data/providers/providers.dart';
-import 'package:univalle_app/data/repositories/grades_repository.dart';
 import 'package:univalle_app/data/repositories/repositories.dart';
-import 'package:univalle_app/data/repositories/schedule_repository.dart';
-import 'package:univalle_app/grades/grades.dart';
 import 'package:univalle_app/home/home.dart';
-import 'package:univalle_app/l10n/l10n.dart';
 import 'package:univalle_app/payments/payments_fees_bloc/payments_fees_bloc.dart';
-import 'package:univalle_app/payments/widgets/monthly_fees.dart';
-import 'package:univalle_app/schedule/schedule.dart';
+import 'package:univalle_app/payments/payments_places_bloc/payment_places_bloc.dart';
+import 'package:univalle_app/payments/widgets/widgets.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
+class PaymentPage extends StatelessWidget {
+  const PaymentPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider<ScheduleBloc>(
-          create: (context) => ScheduleBloc(
-            scheduleRepository: ScheduleRepository(
-              scheduleProvider: ScheduleProvider(
-                storageProvider: context.read<StorageProvider>(),
-              ),
-              subjectsProvider: SubjectsProvider(
-                storageProvider: context.read<StorageProvider>(),
-              ),
+        BlocProvider<PaymentPlacesBloc>(
+          create: (context) => PaymentPlacesBloc(
+            paymentRepository: PaymentPlacesRepository(
+              paymentPlacesProvider: PaymentPlacesProvider(),
             ),
-          )..add(const ScheduleRequested()),
-        ),
-        BlocProvider(
-          create: (context) => GradeListBloc(
-            gradesRepository: GradesRepository(
-              gradesProvider: GradesProvider(
-                storageProvider: context.read<StorageProvider>(),
-              ),
-              subjectsProvider: SubjectsProvider(
-                storageProvider: context.read<StorageProvider>(),
-              ),
-            ),
-          )..add(const GradeListRequested()),
+          )..add(const PaymentListRequested()),
         ),
         BlocProvider<PaymentsFeesBloc>(
           create: (context) => PaymentsFeesBloc(
@@ -52,41 +31,22 @@ class HomePage extends StatelessWidget {
           )..add(PaymentsFeesRequested()),
         ),
       ],
-      child: const HomeView(),
+      child: const PaymentView(),
     );
   }
 }
 
-class HomeView extends StatelessWidget {
-  const HomeView({Key? key}) : super(key: key);
+class PaymentView extends StatelessWidget {
+  const PaymentView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final l10n = context.l10n;
-
-    return SingleChildScrollView(
-      child: Padding(
+    return Scaffold(
+      body: Padding(
         padding: const EdgeInsets.all(16),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisSize: MainAxisSize.min,
           children: [
-            Text(
-              l10n.homePageNextClassLabel,
-              style: Theme.of(context).textTheme.headline3,
-            ),
-            const SizedBox(height: 8),
-            const NextClassBuilder(),
-            const SizedBox(height: 16),
-            Text(
-              l10n.homePageGradesLabel,
-              style: Theme.of(context).textTheme.headline3,
-            ),
-            const SizedBox(height: 8),
-            const GradesBriefBuilder(),
-            const SizedBox(
-              height: 8,
-            ),
             BlocBuilder<PaymentsFeesBloc, PaymentsFeesState>(
               builder: (context, state) {
                 if (state.status == PaymentsRequestStatus.failure) {
@@ -121,6 +81,22 @@ class HomeView extends StatelessWidget {
                   );
                 }
 
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
+              },
+            ),
+            BlocBuilder<PaymentPlacesBloc, PaymentPlacesState>(
+              builder: (context, state) {
+                if (state.status == PaymentListRequestStatus.failure) {
+                  return Center(
+                    child: Text(state.errorMessage),
+                  );
+                }
+
+                if (state.status == PaymentListRequestStatus.success) {
+                  return const PaymentPlaces();
+                }
                 return const Center(
                   child: CircularProgressIndicator(),
                 );

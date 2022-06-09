@@ -15,6 +15,7 @@ import 'package:univalle_app/home/home.dart';
 import 'package:univalle_app/l10n/l10n.dart';
 import 'package:univalle_app/library/library.dart';
 import 'package:univalle_app/library_loans/library_loans.dart';
+import 'package:univalle_app/payments/payments.dart';
 import 'package:univalle_app/procedures/procedures.dart';
 import 'package:univalle_app/profile/profile.dart';
 import 'package:univalle_app/sign_in/sign_in.dart';
