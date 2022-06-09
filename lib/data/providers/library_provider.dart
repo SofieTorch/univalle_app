@@ -24,4 +24,14 @@ class LibraryProvider {
 
     return _httpProvider.get(endpoint, headers: headers);
   }
+
+  Future<Response> searchBook(String searchText) async {
+    final params = {'content': searchText};
+    final endpoint = Uri.https(Environment.host, '/library/search', params);
+    final headers = <String, String>{
+      HttpHeaders.authorizationHeader: 'Basic ${_storageProvider.token}'
+    };
+
+    return _httpProvider.get(endpoint, headers: headers);
+  }
 }

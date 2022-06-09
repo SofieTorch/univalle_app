@@ -1,5 +1,8 @@
 library providers;
 
+export './campus_provider.dart';
+export './discounts_provider.dart';
+export './documents_provider.dart';
 export './grades_provider.dart';
 export './http_provider.dart';
 export './library_provider.dart';

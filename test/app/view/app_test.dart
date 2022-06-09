@@ -5,9 +5,11 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:univalle_app/academic/academic.dart';
 import 'package:univalle_app/app/app.dart';
 import 'package:univalle_app/app/widgets/widgets.dart';
+import 'package:univalle_app/discounts/discounts.dart';
 import 'package:univalle_app/home/home.dart';
 import 'package:univalle_app/library/library.dart';
 import 'package:univalle_app/library_loans/library_loans.dart';
+import 'package:univalle_app/payments/pages/paymentspage.dart';
 import 'package:univalle_app/procedures/procedures.dart';
 import 'package:univalle_app/profile/pages/profile_page.dart';
 import 'package:univalle_app/sign_in/sign_in.dart';
@@ -100,7 +102,7 @@ void main() {
       expect(bottomNavbar.currentIndex, 2);
       // to do: when academic page exists, replace the HomePage
       // in the line above with PaymentsPage
-      expect(find.byType(HomePage), findsOneWidget);
+      expect(find.byType(PaymentsPage), findsOneWidget);
     });
 
     testWidgets('renders and navigates to Profile page', (tester) async {
@@ -164,6 +166,26 @@ void main() {
         await tester.pumpAndSettle();
 
         expect(find.byType(ProceduresPage), findsOneWidget);
+        expect(find.byType(BottomSheetMenu), findsNothing);
+      },
+    );
+
+    testWidgets(
+      'launch Discounts page when clicking on its element inside menu',
+      (WidgetTester tester) async {
+        final app = App();
+        SharedPreferences.setMockInitialValues({
+          'code': 'TCS0028814',
+          'token': 'TCS0028814:144963',
+        });
+        await tester.pumpWidget(app);
+        await tester.pumpAndSettle();
+        await tester.tap(find.byIcon(MdiIcons.menu));
+        await tester.pumpAndSettle();
+        await tester.tap(find.byIcon(MdiIcons.ticketPercentOutline));
+        await tester.pumpAndSettle();
+
+        expect(find.byType(DiscountsPage), findsOneWidget);
         expect(find.byType(BottomSheetMenu), findsNothing);
       },
     );

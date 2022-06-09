@@ -31,7 +31,7 @@ class _RootView extends StatelessWidget {
       body: BlocBuilder<NavigationCubit, NavigationState>(
         builder: (_, state) {
           if (state is NavigationAcademic) return const AcademicPage();
-          if (state is NavigationPayments) return const PaymentPage();
+          if (state is NavigationPayments) return const PaymentsPage();
           if (state is NavigationProfile) return const ProfilePage();
           if (state is NavigationHome) return const HomePage();
           return const HomePage();
