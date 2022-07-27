@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.verygoodcore.univalle_app">
    <application
-        android:label="${appName}"
+        android:label="$Univalle Móvil"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
