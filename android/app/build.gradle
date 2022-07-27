@@ -85,7 +85,7 @@ android {
         production {
             dimension "default"
             applicationIdSuffix ""
-            manifestPlaceholders = [appName: "Univalle App"]
+            manifestPlaceholders = [appName: "Univalle Móvil"]
         }
         staging {
             dimension "default"
