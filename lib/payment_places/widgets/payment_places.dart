@@ -99,7 +99,7 @@ class BancosList extends StatelessWidget {
         const SizedBox(height: 4),
         ListView.separated(
           padding: const EdgeInsets.symmetric(
-            horizontal: 18,
+            horizontal: 8,
           ),
           separatorBuilder: (_, index) => const SizedBox(
             height: 6,
@@ -115,15 +115,31 @@ class BancosList extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    SizedBox(
-                      width: 30,
-                      child: Image.network(payments[index].logoImageUrl),
+                    Container(
+                      height: 36,
+                      width: 36,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(6),
+                        image: DecorationImage(
+                          image: NetworkImage(payments[index].logoImageUrl),
+                          fit: BoxFit.cover,
+                        ),
+                      ),
                     ),
                     const SizedBox(width: 5),
                     Text(payments[index].name),
                   ],
                 ),
-                Text(paymentPlace.type.join(', ')),
+                const SizedBox(
+                  width: 8,
+                ),
+                Expanded(
+                  child: Text(
+                    paymentPlace.type.join(', '),
+                    textAlign: TextAlign.end,
+                    style: Theme.of(context).textTheme.subtitle2,
+                  ),
+                ),
               ],
             );
           },

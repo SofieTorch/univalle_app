@@ -33,6 +33,7 @@ class _RootView extends StatelessWidget {
           if (state is NavigationAcademic) return const AcademicPage();
           if (state is NavigationPayments) return const PaymentsPage();
           if (state is NavigationProfile) return const ProfilePage();
+          if (state is NavigationHome) return const HomePage();
           return const HomePage();
         },
       ),

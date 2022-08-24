@@ -9,7 +9,7 @@ import 'package:univalle_app/discounts/discounts.dart';
 import 'package:univalle_app/home/home.dart';
 import 'package:univalle_app/library/library.dart';
 import 'package:univalle_app/library_loans/library_loans.dart';
-import 'package:univalle_app/payments/pages/payments_page.dart';
+import 'package:univalle_app/payments/pages/paymentspage.dart';
 import 'package:univalle_app/procedures/procedures.dart';
 import 'package:univalle_app/profile/pages/profile_page.dart';
 import 'package:univalle_app/sign_in/sign_in.dart';
