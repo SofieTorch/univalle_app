@@ -20,8 +20,9 @@ class Schedule extends Equatable {
 
     final classSession = todayClasses.firstWhere(
       (element) =>
-          element.startTime.hour > today.hour &&
-          element.startTime.minute > today.minute,
+          element.startTime.hour > today.hour ||
+          (element.startTime.hour == today.hour &&
+              element.startTime.minute > today.minute),
       orElse: ClassSession.empty,
     );
 
