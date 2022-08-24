@@ -90,6 +90,16 @@ class PaymentView extends StatelessWidget {
                   );
                 },
               ),
+              const SizedBox(
+                height: 16,
+              ),
+              Align(
+                alignment: Alignment.topLeft,
+                child: Text(
+                  'Datos de Interés',
+                  style: Theme.of(context).textTheme.headline3,
+                ),
+              ),
               const PaymentPage(),
               const EnrollmentPage(),
               const CreditPage(),

@@ -87,7 +87,11 @@ class HomeView extends StatelessWidget {
             const SizedBox(height: 8),
             const GradesBriefBuilder(),
             const SizedBox(
-              height: 8,
+              height: 16,
+            ),
+            Text(
+              'Pagos pendientes',
+              style: Theme.of(context).textTheme.headline3,
             ),
             BlocBuilder<PaymentsFeesBloc, PaymentsFeesState>(
               builder: (context, state) {
@@ -102,10 +106,6 @@ class HomeView extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      Text(
-                        'Pagos pendientes',
-                        style: Theme.of(context).textTheme.headline3,
-                      ),
                       const SizedBox(
                         height: 8,
                       ),

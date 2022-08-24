@@ -27,15 +27,11 @@ class PaymentPlacesView extends StatelessWidget {
     );
 
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 16),
+      padding: const EdgeInsets.symmetric(vertical: 4),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            'Datos de Interés',
-            style: Theme.of(context).textTheme.headline3,
-          ),
           Row(
             children: [
               Text(

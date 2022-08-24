@@ -5,7 +5,7 @@ enum PaymentsRequestStatus { initial, loading, success, failure }
 class PaymentsFeesState extends Equatable {
   const PaymentsFeesState({
     this.status = PaymentsRequestStatus.initial,
-    this.fees = const [],
+    this.fees = const <Fees>[],
     this.errorMessage = '',
   });
 
