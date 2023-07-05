@@ -9,3 +9,21 @@ jobs:
       min_coverage: 75
       flutter_channel: stable
       flutter_version: 2.10.0
+  coverage_report:
+    name: Generate coverage report
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+    # ... Generate LCOV files or download it from a different job
+    - name: Setup LCOV
+      uses: hrishikesh-kadam/setup-lcov@v1
+    - name: Report code coverage
+      uses: zgosalvez/github-actions-report-lcov@v3
+      with:
+        coverage-files: coverage/lcov.info
+        minimum-coverage: 75
+        artifact-name: code-coverage-report
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        update-comment: true
